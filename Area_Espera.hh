@@ -37,20 +37,19 @@ class Area_Espera {
     Area_Espera();
 
     void alta_prioridad(string id_prioridad);
-    /** @brief Creadora de un segmento de prioridad
+    /** @brief Creadora de un segmento nuevo de prioridad
      * \pre Requiere un id de prioridad válido
-     * \post Crea o 
+     * \post Añade el segmento nuevo de la prioridad en el prioridad_data
     */
 
     // Modificadoras
-
 
 
     // Consultores
 
     bool exist_prioridad(string id_prioridad) const;
      /** @brief Consultora que indica si una prioridad tiene procesos en espera.
-     * \pre Requiere un id de prioridad válido.
+     * \pre Requiere un id valido de una prioridad .
      * \post El resultado indica si la prioridad <em>id_prioridad</em> existe o no
     */
 

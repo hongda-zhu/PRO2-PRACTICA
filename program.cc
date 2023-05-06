@@ -40,20 +40,19 @@ int main () {
     string command;
     cin >> command;
     while (command != "fin") {
-
         if (command == "cc" or command == "configurar_cluster") {
             cout << endl;
             c.configurar_cluster();
             cout << endl;
         }
-        // else if (command == "ap" or command == "alta_prioridad"){
-        //     string id_prioridad;
-        //     cin >> id_prioridad;
+        else if (command == "ap" or command == "alta_prioridad"){
+            string id_prioridad;
+            cin >> id_prioridad;
 
-        //     cout << " " << id_prioridad << endl;
-        //     if (not a.exist_prioridad(id_prioridad)) cout << "error";
-        //     else a.alta_prioridad(id_prioridad);
-        // }
+            cout << " " << id_prioridad << endl;
+            if (not a.exist_prioridad(id_prioridad)) cout << "error: ya existe prioridad";
+            else a.alta_prioridad(id_prioridad);
+        }
     //     else if (command == "bp" or command == "baja_prioridad"){
     //         string id_prioridad;
     //         cin >> id_prioridad;
@@ -109,11 +108,10 @@ int main () {
 
     //         a.imprimir_prioridad(id_prioridad);
     //     }
-    //     else if (command == "ia" or command == "imprimir_area_espera"){
-    //         cout << endl;
-
-    //         a.imprimir_area_espera();
-    //     }
+        else if (command == "ia" or command == "imprimir_area_espera"){
+            cout << endl;
+            a.imprimir_area_espera();
+        }
     //     else if (command == "ipro" or command == "imprimir_procesador"){
     //         string id_procesador;
     //         cin >> id_procesador;
@@ -129,6 +127,6 @@ int main () {
             c.imprimir_estructura_cluster();
             cout << endl;
         }
-        // cin >> command;
+        cin >> command;
     }
 }

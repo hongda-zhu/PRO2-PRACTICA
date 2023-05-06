@@ -11,10 +11,14 @@ bool Area_Espera:: exist_prioridad (string id_prioridad) const {
 }
 
 void Area_Espera:: alta_prioridad(string id_prioridad) {
-    Prioridad temp;
-    prioridades_data.insert(make_pair(id_prioridad, temp));
+    prioridades_data.insert(make_pair(id_prioridad, Prioridad()));
 }
 
 void Area_Espera:: imprimir_area_espera() const {
-    
+    map<string, Prioridad>::const_iterator it = prioridades_data.begin();
+    while(it != prioridades_data.end()) {
+        cout << it->first << endl;
+        it->second.print_procesos();
+        ++it;
+    }
 }
