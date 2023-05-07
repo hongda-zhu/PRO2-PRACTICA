@@ -22,18 +22,15 @@ class Proceso {
 
     private:
     int left_time;
-    int memory_position;
+    int id;
+    /** @brief Tamano que ocupa el proceso*/
+    int size;
 
     public:
 
-
     //Constructoras
 
-    int id;
-    /** @brief Tiempo de ejecución del proceso*/
-    int time;
-    /** @brief Tamano que ocupa el proceso*/
-    int size;
+
 
     Proceso();
     /** @brief Creadora de Proceso.
@@ -41,17 +38,29 @@ class Proceso {
     * \post Devuelve un instante de proceso vacio.
     */
 
-    Proceso(int id, int size, int time);
-    /** @brief Creadora de Proceso.
-    * \pre requiere un id, tamaño y tiempo valido para la creación de proceso.
-    * \post Devuelve un instante de proceso con valor de id, tamaño y tiempo.
-    */
-
     //Modificadora
 
+    // Consultora
+    int retrieve_id();
+    /** @brief Consultora de Proceso.
+    * \pre <em>cierto</em>
+    * \post devuleve el id de proceso.
+    */
 
-    //Lectura y escriptura
-    
+    int retrieve_size();
+    /** @brief Consultora de Proceso.
+    * \pre <em>cierto</em>
+    * \post devuleve el tamano que ocupa la memoria de proceso.
+    */
+
+
+    //Lectura y escriptura´
+    void read ();
+    /** @brief Lectura de Proceso.
+    * \pre <em>cierto</em>
+    * \post lee el id, tiempo y tamano para formular el proceso.
+    */
+
 
 };
 

@@ -4,9 +4,7 @@ Area_Espera:: Area_Espera() {
 }
 
 bool Area_Espera:: exist_prioridad (string id_prioridad) const {
-    while(prioridades_data.find(id_prioridad) != prioridades_data.end()) {
-        return true;
-    }
+    while(prioridades_data.find(id_prioridad) != prioridades_data.end()) return true;
     return false;
 }
 

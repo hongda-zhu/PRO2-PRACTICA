@@ -9,7 +9,7 @@ void Cluster::set_cluster(BinTree<string>& prcd) {
         int prc_memory;
         cin >> prc_memory;
         Procesador elem(prc_id, prc_memory);
-        prc_data.insert(make_pair(prc_id, elem));
+        prcd_data.insert(make_pair(prc_id, elem));
         BinTree<string>left, right;
         set_cluster(left);
         set_cluster(right);
@@ -18,7 +18,7 @@ void Cluster::set_cluster(BinTree<string>& prcd) {
 }
 
 void Cluster::configurar_cluster() {
-    prc_data = map<string, Procesador> ();
+    prcd_data = map<string, Procesador> ();
     set_cluster(prcd);
 }
 
@@ -41,10 +41,21 @@ void Cluster::imprimir_estructura_cluster(){
     cout << endl;
 };
 
-void Cluster::imprimir_procesadores_cluster()const{
-    map<string, Procesador>:: const_iterator it = prc_data.begin();
-    while(it != prc_data.end()) {
+void Cluster::imprimir_procesadores_cluster() const {
+    map<string, Procesador>:: const_iterator it = prcd_data.begin();
+    while(it != prcd_data.end()) {
         cout << it->first << endl;
         ++it;
+    }
+}
+
+void Cluster::alta_proceso_procesador(const string id_prcd, Proceso Job) {
+    map<string, Procesador>::iterator it = prcd_data.find(id_prcd);
+    if (it != prcd_data.end()) {
+        // Encuentra el procesador con el id indicado
+        it->second.alta_proceso_procesador(Job);
+    } else {
+        // No encuentra el procesador con el id indicado
+        cout <<  "error: no existe procesador" << endl;
     }
 }

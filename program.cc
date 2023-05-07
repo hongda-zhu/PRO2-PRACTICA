@@ -61,38 +61,37 @@ int main () {
     //         cout << " " << id_prioridad << endl;
     //         a.baja_prioridad(id_prioridad);
     //     }
-        else if (command == "ape" or command == "alta_proceso_espera"){
-            string id_prioridad;
-            cin >> id_prioridad;
+        // else if (command == "ape" or command == "alta_proceso_espera"){
+        //     string id_prioridad;
+        //     cin >> id_prioridad;
 
-            Proceso job;
-            // job.leer();
+        //     Proceso Job;
+        //     Job.read();
 
-            cout << " " << id_prioridad << " " << job.id << endl;
+        //     cout << " " << id_prioridad << " " << Job.id << endl;
 
-            // a.alta_proceso_espera(id_prioridad, job);
+        //     a.alta_proceso_espera(Job, id_prioridad);
+        // }
+        else if (command == "app" or command == "alta_proceso_procesador"){
+            string id_prcd;
+            cin >> id_prcd;
+
+            Proceso Job;
+            Job.read();
+            int id_job = Job.retrieve_id();
+            cout << " " << id_prcd << " " << id_job << endl;
+            c.alta_proceso_procesador(id_prcd, Job);
         }
-    //     else if (command == "app" or command == "alta_proceso_procesador"){
-    //         string id_procesador;
-    //         cin >> id_procesador;
-
-    //         Proceso job;
-    //         job.leer();
-
-    //         cout << " " << id_procesador << " " << job.id << endl;
-
-    //         c.alta_proceso_procesador(id_procesador, job);
-    //     }
     //     else if (command == "bpp" or command == "baja_proceso_procesador"){
 
-    //         string id_procesador;
-    //         cin >> id_procesador;
+    //         string id_prcd;
+    //         cin >> id_prcd;
 
     //         int id_job;
     //         cin >> id_job;
 
-    //         cout << " " << id_procesador << " " << id_job << endl;
-    //         c.baja_proceso_procesador(id_procesador, id_job);
+    //         cout << " " << id_prcd << " " << id_job << endl;
+    //         c.baja_proceso_procesador(id_prcd, id_job);
     //     }
     //     else if (command == "at" or command == "avanzar_tiempo"){
     //         int t;
@@ -114,10 +113,10 @@ int main () {
             a.imprimir_area_espera();
         }
     //     else if (command == "ipro" or command == "imprimir_procesador"){
-    //         string id_procesador;
-    //         cin >> id_procesador;
-    //         cout << " " << id_procesador << endl;
-    //         c.imprimir_procesador(id_procesador);
+    //         string id_prcd;
+    //         cin >> id_prcd;
+    //         cout << " " << id_prcd << endl;
+    //         c.imprimir_procesador(id_prcd);
     //     }
         else if (command == "ipc" or command == "imprimir_procesadores_cluster"){
             cout << endl;

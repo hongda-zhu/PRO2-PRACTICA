@@ -5,8 +5,14 @@
 #include "Proceso.hh"
 
 Proceso::Proceso() {}
-Proceso::Proceso(int id, int size, int time) {
-    this->id = id;
-    this->size = size;
-    this->time = time;
+
+void Proceso:: read () {
+    cin >> id >> size >> left_time;
+}
+
+int Proceso:: retrieve_id () {
+    return id;
+}
+int Proceso:: retrieve_size () {
+    return size;
 }

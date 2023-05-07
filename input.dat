@@ -25,9 +25,6 @@ proc122
 11
 11111
 111
-imprimir_estructura_cluster
-imprimir_area_espera
-imprimir_procesadores_cluster
-alta_proceso_procesador
-pr 99 15 15
+app proc12 99 10 15
+app proc12 101 20 15
 fin

@@ -25,21 +25,21 @@ class Procesador {
 
     private:
     
-    void update_max_espacio_actual();
-    int espacio_maximo;
-    int memoria;
-    int espacio_restante;
-    /*Aquest primer map serveix guardar els blocs de memoria lliure, on la clau es el tamany del bloc de
-    memoria lliure i el set es per guardar la posició de memoria per on comença el bloc*/
-    map <int, set<int>> blc_memoria_direccion;
-    /*Aquest map serveix guardar les posicions de memoria i els procesos en sí.*/
-    map<int,Proceso> direccion_tareas_datos;
-    /*Aquest ultim serveix per guardar els id dels procesos i la posició de memoria per on comencen*/
-    map<int,int> tareas_direccion;
+    int max_space;
+    int memory;
+    int free_space;
+    /*Este map nos guarda los bloques de la memoria libre, el primer int indica el tamano del bloque y el segundo set nos indica por donde guarda la posicion de memoria por donde se empieza el bloque*/
+    map <int, set<int>> memory_data;
+
+    /* Este map nos guarda el id de proceso en el primer int y la posición de memoria por donde empieza en el segundo int */
+    map<int, int> prcd_job_data;
+
+    /* Este map nos guarda la posición de memoria en el primer int y el proceso correspondiente en el segundo parametro.*/
+    map<int,Proceso> prcd_memory_data;
 
     public:
 
-    string id_procesador;
+    string id_prcd;
 
     //Constructoras
 
@@ -47,13 +47,23 @@ class Procesador {
      * \pre Requiere el id de procesador y su tamano de la memoria
      * \post Devuelve un instante de procesador con su id y su tamano de memoria
     */
-    Procesador(const string &id_procesador, int memoria);
+    Procesador(const string &id_prcd, int memory);
+
+    /** @brief Creadora de Procesador
+     * \pre <em>cierto<em>
+     * \post Devuelve un instante de procesador vacio
+    */
+    Procesador();
 
     //Modificadoras
+    void alta_proceso_procesador (Proceso& Job);
+    /** @brief Escriptura del Procesador.
+     * \pre <em>cierto</em>
+     * \post Se añade un proceso en el procesado del id indicado o imprime un error porque ya existe un proceso con el mismo id en el procesador.
+    */ 
 
 
     //Consultora
-
 
     //Lectura y escriptura
 

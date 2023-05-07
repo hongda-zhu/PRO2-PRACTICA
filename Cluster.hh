@@ -27,7 +27,7 @@ class Cluster {
 
     private:
     BinTree<string>prcd;
-    map<string, Procesador>prc_data; 
+    map<string, Procesador>prcd_data; 
     void set_cluster (BinTree<string>& prcd);
     /**
      * @brief: Setter de configurar_cluster
@@ -55,25 +55,32 @@ class Cluster {
     //Modificadoras
 
     void configurar_cluster (); 
-
     /** @brief Modificadora del Cluster.
      * \pre <em>cierto</em>
      * \post Devuleve el arbol de procesadores del cluster por el orden creciente de los identificadores correspondientes
-    */  
+    */
 
+   // Consultora
+   
    // Lectura y escriptura
+
+    void alta_proceso_procesador (string id_prcd, Proceso Job);
+    /** @brief Escriptura del Cluster.
+     * \pre <em>cierto</em>
+     * \post Se añade un proceso en el procesado del id indicado o imprime un error porque no existe el procesador con el id indicado
+    */    
 
     void imprimir_procesadores_cluster() const;
 
     /** @brief Escriptura del Cluster.
      * \pre <em>Cierto></em>
-     * \post Se devuelve el listado de procesadores del cluster por el orden creciente de identificador
+     * \post Se imprime el listado de procesadores del cluster por el orden creciente de identificador
     */    
 
     void imprimir_estructura_cluster();
     /** @brief Escriptura del procesador.
      * \pre <em>cierto</em>
-     * \post escribe la estructura de procesadores en forma creciente de primera posición de prc_data
+     * \post escribe la estructura de procesadores en forma creciente de primera posición de prcd_data
     */
     
 
