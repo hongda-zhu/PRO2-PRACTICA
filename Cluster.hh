@@ -26,18 +26,18 @@
 class Cluster {
 
     private:
-    BinTree<string>prc;
+    BinTree<string>prcd;
     map<string, Procesador>prc_data; 
-    void set_cluster (BinTree<string>& prc);
+    void set_cluster (BinTree<string>& prcd);
     /**
      * @brief: Setter de configurar_cluster
      * \pre Recibe la referencia del árbol cluster construido por procesadores, el árbol tiene que ser vacío<
      * \post El resultado sería el cluster configurado, en otras palabras, el árbol de cluster con los nodos correspondientes seteados de orden correcto
     */
 
-    void get_cluster_structure (BinTree<string>& prc) const;
+    void get_cluster_structure (BinTree<string>& prcd) const;
     /**
-    * @brief: Getter de imprimir_estructura_cluster
+    * @brief: Getter recursiva de imprimir_estructura_cluster
     * \pre Recibe la referencia de arbol
     * \post Imprime el resultado de forma ordenado creciente del árbol binario
    */
@@ -56,23 +56,22 @@ class Cluster {
 
     void configurar_cluster (); 
 
-    /** @brief Operacion de escriptura del Cluster.
+    /** @brief Modificadora del Cluster.
      * \pre <em>cierto</em>
      * \post Devuleve el arbol de procesadores del cluster por el orden creciente de los identificadores correspondientes
     */  
 
    // Lectura y escriptura
 
-    void imprimir_procesador_cluster() const;
+    void imprimir_procesadores_cluster() const;
 
-    /** @brief Operacion de escriptura del Cluster.
+    /** @brief Escriptura del Cluster.
      * \pre <em>Cierto></em>
-     * \post Se ha escrito la estructura los procesadores del Cluster del parametro implicito
-     *  por el canal de salida.
+     * \post Se devuelve el listado de procesadores del cluster por el orden creciente de identificador
     */    
 
     void imprimir_estructura_cluster();
-    /** @brief Operacion de escriptura del procesador.
+    /** @brief Escriptura del procesador.
      * \pre <em>cierto</em>
      * \post escribe la estructura de procesadores en forma creciente de primera posición de prc_data
     */

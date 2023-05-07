@@ -18,7 +18,7 @@ void Area_Espera:: imprimir_area_espera() const {
     map<string, Prioridad>::const_iterator it = prioridades_data.begin();
     while(it != prioridades_data.end()) {
         cout << it->first << endl;
-        it->second.print_procesos();
+        it->second.retrieve_procesos();
         ++it;
     }
 }

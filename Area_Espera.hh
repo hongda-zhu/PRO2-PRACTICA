@@ -36,12 +36,6 @@ class Area_Espera {
     */
     Area_Espera();
 
-    void alta_prioridad(string id_prioridad);
-    /** @brief Creadora de un segmento nuevo de prioridad
-     * \pre Requiere un id de prioridad válido
-     * \post Añade el segmento nuevo de la prioridad en el prioridad_data
-    */
-
     // Modificadoras
 
 
@@ -54,6 +48,13 @@ class Area_Espera {
     */
 
    // Lectura y escriptura
+
+    void alta_prioridad(string id_prioridad);
+    /** @brief Lectura para un segmento nuevo de prioridad
+     * \pre Requiere un id de prioridad válido
+     * \post Se añade el segmento nuevo de la prioridad en el prioridad_data
+    */
+
    void imprimir_area_espera() const;
     /** @brief Escriptura de la area de espera.
      * \pre <em>cierto<em

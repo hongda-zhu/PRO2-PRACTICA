@@ -51,6 +51,7 @@ class Proceso {
 
 
     //Lectura y escriptura
+    
 
 };
 

@@ -40,6 +40,7 @@ int main () {
     string command;
     cin >> command;
     while (command != "fin") {
+        cout << '#' << command;
         if (command == "cc" or command == "configurar_cluster") {
             cout << endl;
             c.configurar_cluster();
@@ -60,17 +61,17 @@ int main () {
     //         cout << " " << id_prioridad << endl;
     //         a.baja_prioridad(id_prioridad);
     //     }
-    //     else if (command == "ape" or command == "alta_proceso_espera"){
-    //         string id_prioridad;
-    //         cin >> id_prioridad;
+        else if (command == "ape" or command == "alta_proceso_espera"){
+            string id_prioridad;
+            cin >> id_prioridad;
 
-    //         Proceso job;
-    //         job.leer();
+            Proceso job;
+            // job.leer();
 
-    //         cout << " " << id_prioridad << " " << job.id << endl;
+            cout << " " << id_prioridad << " " << job.id << endl;
 
-    //         a.alta_proceso_espera(id_prioridad, job);
-    //     }
+            // a.alta_proceso_espera(id_prioridad, job);
+        }
     //     else if (command == "app" or command == "alta_proceso_procesador"){
     //         string id_procesador;
     //         cin >> id_procesador;
@@ -118,14 +119,13 @@ int main () {
     //         cout << " " << id_procesador << endl;
     //         c.imprimir_procesador(id_procesador);
     //     }
-    //     else if (command == "ipc" or command == "imprimir_procesadores_cluster"){
-    //         cout << endl;
-    //         c.imprimir_procesador_cluster();
-    //     }
+        else if (command == "ipc" or command == "imprimir_procesadores_cluster"){
+            cout << endl;
+            c.imprimir_procesadores_cluster();
+        }
         else if (command == "iec" or command == "imprimir_estructura_cluster"){
             cout << endl;
             c.imprimir_estructura_cluster();
-            cout << endl;
         }
         cin >> command;
     }

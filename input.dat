@@ -27,4 +27,7 @@ proc122
 111
 imprimir_estructura_cluster
 imprimir_area_espera
+imprimir_procesadores_cluster
+alta_proceso_procesador
+pr 99 15 15
 fin

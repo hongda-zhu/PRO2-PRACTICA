@@ -52,7 +52,7 @@ class Prioridad {
     * \pre <em>cierto</em>
     * \post Se escribe los procesos correspondientes de los procesos aceptados y rechazados de la prioridad selecionada.
     */
-    void print_procesos () const;
+    void retrieve_procesos () const;
 
 };
 
