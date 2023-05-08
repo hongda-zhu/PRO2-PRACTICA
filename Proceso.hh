@@ -40,6 +40,12 @@ class Proceso {
 
     //Modificadora
 
+    void actualizar_proceso (int t);
+    /** @brief Modificadora de Proceso.
+        * \pre <em>cierto</em>
+        * \post reduce el tiempo de proceso respecto el valor t.
+    */
+
     // Consultora
     int retrieve_id();
     /** @brief Consultora de Proceso.

@@ -20,3 +20,8 @@ int Proceso:: retrieve_size () {
 int Proceso:: retrieve_time () {
     return left_time;
 }
+
+void Proceso::actualizar_proceso (int t) {
+    left_time -= t;
+}
+    

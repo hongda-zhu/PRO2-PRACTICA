@@ -73,7 +73,6 @@ class Procesador {
      * \post Se accelera todos el tiempo de todo los procesadores pendientes, si el tiempo restante 't' es mayor que el tiempo que queda un procesador, este procesador se queda eliminado y liberamos su espacio
     */ 
 
-
     //Consultora
     void imprimir_procesos();
 

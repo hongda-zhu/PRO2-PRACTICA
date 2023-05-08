@@ -68,7 +68,9 @@ int main () {
         //     Proceso Job;
         //     Job.read();
 
-        //     cout << " " << id_prioridad << " " << Job.id << endl;
+        //     int id_job = Job.retrieve_id();
+
+        //     cout << " " << id_prioridad << " " << id_job << endl;
 
         //     a.alta_proceso_espera(Job, id_prioridad);
         // }

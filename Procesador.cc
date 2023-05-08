@@ -137,7 +137,10 @@ void Procesador:: baja_proceso_procesador(int id_job) {
 }
 
 void Procesador:: avanzar_tiempo (int t) {
-
+    map<int, Proceso>::iterator it;
+    for (it = prcd_memory_job.begin(); it != prcd_memory_job.end(); ++it) {
+        it -> second.actualizar_proceso(t);
+    }
 }
 
 void Procesador:: imprimir_procesos() {

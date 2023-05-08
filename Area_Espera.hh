@@ -48,7 +48,7 @@ class Area_Espera {
      * \post El resultado indica si la prioridad <em>id_prioridad</em> existe (true) o no (false)
     */
 
-   bool exist_process_prioridad(Proceso Job, string id_prioridad) const;
+   bool exist_process_prioridad(Proceso job, string id_prioridad) const;
     /** @brief Consultora que indica que si existe un proceso en una prioridad del id indicado.
      * \pre Requiere un id valido de una prioridad y un proceso determinado.
      * \post El resultado indica si el proceso existe en la prioridad <em>id_prioridad</em> existe(true) o no(false).
