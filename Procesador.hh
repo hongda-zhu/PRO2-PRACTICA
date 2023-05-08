@@ -58,13 +58,19 @@ class Procesador {
     //Modificadoras
     void alta_proceso_procesador (Proceso& Job);
     /** @brief Escriptura del Procesador.
-     * \pre <em>cierto</em>
+     * \pre instante de proceso válido
      * \post Se añade un proceso en el procesado del id indicado o imprime un error porque ya existe un proceso con el mismo id en el procesador.
     */ 
     void baja_proceso_procesador (int id_job);
     /** @brief Escriptura del Procesador.
-     * \pre <em>cierto</em>
+     * \pre <em>cierto<em>
      * \post Se elimina un proceso en el procesado del id indicado o imprime un error porque ya existe un proceso con el mismo id en el procesador.
+    */ 
+
+    void avanzar_tiempo(int t);
+    /** @brief Modificadora del Procesador.
+     * \pre <t >= 0
+     * \post Se accelera todos el tiempo de todo los procesadores pendientes, si el tiempo restante 't' es mayor que el tiempo que queda un procesador, este procesador se queda eliminado y liberamos su espacio
     */ 
 
 

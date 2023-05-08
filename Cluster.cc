@@ -64,6 +64,14 @@ void Cluster::baja_proceso_procesador(const string id_prcd, int id_job) {
     } else cout <<  "error: no existe procesador" << endl;
 }
 
+void Cluster:: avanzar_tiempo (int t) {
+    map<string, Procesador>:: iterator it = prcd_data.begin();
+    while(it != prcd_data.end()) {
+        it->second.avanzar_tiempo(t);
+        ++it;
+    }
+}
+
 void Cluster::imprimir_procesador(string id_procesador) {
     map<string, Procesador>:: iterator it = prcd_data.find(id_procesador);
     if(it != prcd_data.end()) {    

@@ -37,7 +37,8 @@ void Procesador::alta_proceso_procesador(Proceso& Job) {
         prcd_memory_job.insert(make_pair(start_pos, Job));
 
         // case 1: erase the entire remain_memory_space
-        if(remain_memory_space*2 > free_space) seg_data.erase(it);
+        int it_size = it->second.size();
+        if(remain_memory_space*2 > free_space or it_size == 1) seg_data.erase(it);
         else it -> second.erase(it -> second.begin());
         free_space -= remain_memory_space;
 
@@ -80,7 +81,7 @@ void Procesador:: baja_proceso_procesador(int id_job) {
         map<int, set<int>> :: iterator it_seg;
         
         // checking if the right size has segmentation or not 
-        int r_seg;
+        int r_seg = 0;
         if (it_memory_job == prcd_memory_job.end()) {
             // case 1: while deleted job is situate in the last pos of memory, then we have all the rest of space of the right size as our new segmentation
             r_seg = memory - job_seg_pos - size_job;
@@ -98,7 +99,7 @@ void Procesador:: baja_proceso_procesador(int id_job) {
             size_job += r_seg;
         }
 
-        int l_seg;
+        int l_seg = 0;
         if (job_seg_pos == 0){
             // case 1: while delete job is situate in the first pos of memory
             // then no segmentation is in the left side
@@ -135,8 +136,8 @@ void Procesador:: baja_proceso_procesador(int id_job) {
     }
 }
 
-void Procesador:: avanzar_tiempo () {
-    
+void Procesador:: avanzar_tiempo (int t) {
+
 }
 
 void Procesador:: imprimir_procesos() {

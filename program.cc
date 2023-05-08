@@ -93,13 +93,13 @@ int main () {
             cout << " " << id_prcd << " " << id_job << endl;
             c.baja_proceso_procesador(id_prcd, id_job);
         }
-    //     else if (command == "at" or command == "avanzar_tiempo"){
-    //         int t;
-    //         cin >> t;
+        else if (command == "at" or command == "avanzar_tiempo"){
+            int t;
+            cin >> t;
 
-    //         cout << " " << t << endl;
-    //         c.avanzar_tiempo(t);
-    //     }
+            cout << " " << t << endl;
+            c.avanzar_tiempo(t);
+        }
     //     else if (command == "ipri" or command == "imprimir_prioridad"){
     //         string id_prioridad;
     //         cin >> id_prioridad;
