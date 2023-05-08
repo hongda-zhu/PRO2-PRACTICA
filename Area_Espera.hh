@@ -39,6 +39,18 @@ class Area_Espera {
 
     // Modificadoras
 
+    void alta_proceso_espera(const string &id_prioridad, Proceso &job);
+    /** @brief Modificadora para un nuevo instante de proceso en la lista de espera en la area de espera
+     * \pre Requiere un id valido de la prioridad y un instante de proceso.
+     * \post Se añade este instante de proceso a la prioridad indicada por el id de la prioridad
+    */
+
+    void alta_prioridad(string id_prioridad);
+    /** @brief Modificadora para un segmento nuevo de prioridad
+     * \pre Requiere un id de prioridad válido
+     * \post Se añade el segmento nuevo de la prioridad en el prioridad_data
+    */
+
 
     // Consultores
 
@@ -56,23 +68,17 @@ class Area_Espera {
 
    // Lectura y escriptura
 
-    void alta_prioridad(string id_prioridad);
-    /** @brief Lectura para un segmento nuevo de prioridad
-     * \pre Requiere un id de prioridad válido
-     * \post Se añade el segmento nuevo de la prioridad en el prioridad_data
-    */
-
-   void alta_proceso_espera(Proceso Job, string id_prioridad);
-    /** @brief Lectura para un nuevo instante de proceso en la lista de espera en la area de espera
-     * \pre Requiere un id valido de la prioridad y un instante de proceso.
-     * \post Se añade este instante de proceso a la prioridad indicada por el id de la prioridad
-    */
-
    void imprimir_area_espera() const;
     /** @brief Escriptura de la area de espera.
-     * \pre <em>cierto<em
+     * \pre <em>cierto<em>
      * \post Se devuelve en el orden decreciente todos los instantes de priorideades existentes junto con sus nums de rechazos y aceptados
     */
+
+   void imprimir_prioridad(string id_prioridad) const; 
+   /** @brief Escriptura de la area de espera
+    * \pre <em>cierto<em>
+    * \post Se devuelve un error en el caso cuando no existe el <em>id_prioridad<em>. Pero si existe esta prioridad, se imprime los proceso pendientes con sus informaciones detalladas por orden decreciente de antiguedad; Además debe imprimir los datos de procesos aceptados/rechazados de esta prioridad
+   */
 
 };
 

@@ -48,6 +48,18 @@ ipro proc12
 avanzar_tiempo 7
 imprimir_procesador proc12
 at 2
-#ipro proc1
-
+ipro proc1
+alta_proceso_espera 222 99 10 10
+ape 111 99 10 10
+ape 111 99 20 15
+ape 111 98 1000 20
+ape 111 100 10 1
+imprimir_prioridad 222
+ipri 111
+alta_prioridad 1111
+ap 2
+baja_prioridad 333
+bp 111
+bp 11
+iae
 fin

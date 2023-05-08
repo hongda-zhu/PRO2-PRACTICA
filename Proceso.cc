@@ -24,4 +24,8 @@ int Proceso:: retrieve_time () {
 void Proceso::actualizar_proceso (int t) {
     left_time -= t;
 }
+
+void Proceso:: print() const {
+    cout << id << ' ' << size << ' ' << left_time << endl; 
+}
     

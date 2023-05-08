@@ -72,6 +72,14 @@ class Proceso {
     * \post lee el id, tiempo y tamano para formular el proceso.
     */
 
+       //Lectura y escriptura
+    void print() const;
+    /** @brief Escriptura del Procesador.
+     * \pre <em>cierto<em>
+     * \post imprime el id, tamano y el tiempo restante del proceso indicado
+    */ 
+
+
 
 };
 

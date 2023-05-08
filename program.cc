@@ -61,19 +61,19 @@ int main () {
     //         cout << " " << id_prioridad << endl;
     //         a.baja_prioridad(id_prioridad);
     //     }
-        // else if (command == "ape" or command == "alta_proceso_espera"){
-        //     string id_prioridad;
-        //     cin >> id_prioridad;
+        else if (command == "ape" or command == "alta_proceso_espera"){
+            string id_prioridad;
+            cin >> id_prioridad;
 
-        //     Proceso Job;
-        //     Job.read();
+            Proceso Job;
+            Job.read();
 
-        //     int id_job = Job.retrieve_id();
+            int id_job = Job.retrieve_id();
 
-        //     cout << " " << id_prioridad << " " << id_job << endl;
+            cout << " " << id_prioridad << " " << id_job << endl;
 
-        //     a.alta_proceso_espera(Job, id_prioridad);
-        // }
+            a.alta_proceso_espera(id_prioridad, Job);
+        }
         else if (command == "app" or command == "alta_proceso_procesador"){
             string id_prcd;
             cin >> id_prcd;
@@ -102,14 +102,14 @@ int main () {
             cout << " " << t << endl;
             c.avanzar_tiempo(t);
         }
-    //     else if (command == "ipri" or command == "imprimir_prioridad"){
-    //         string id_prioridad;
-    //         cin >> id_prioridad;
+        else if (command == "ipri" or command == "imprimir_prioridad"){
+            string id_prioridad;
+            cin >> id_prioridad;
 
-    //         cout << " " << id_prioridad << endl;
+            cout << " " << id_prioridad << endl;
 
-    //         a.imprimir_prioridad(id_prioridad);
-    //     }
+            a.imprimir_prioridad(id_prioridad);
+        }
         else if (command == "ia" or command == "imprimir_area_espera"){
             cout << endl;
             a.imprimir_area_espera();

@@ -20,3 +20,17 @@ void Area_Espera:: imprimir_area_espera () const {
         ++it;
     }
 }
+
+void Area_Espera:: alta_proceso_espera (const string &id_prioridad, Proceso &Job) {
+    map<string, Prioridad>:: iterator it = prioridades_data.find(id_prioridad);
+    if(it != prioridades_data.end()) {;
+        it->second.alta_proceso_espera(Job);
+    } else cout << "error: no existe prioridad" << endl;
+}
+
+void Area_Espera:: imprimir_prioridad(string id_prioridad) const {
+    map<string, Prioridad>:: const_iterator it = prioridades_data.find(id_prioridad);
+    if(it != prioridades_data.end()) {
+        it->second.retrieve_procesos();
+    } else cout << "error: no existe prioridad" << endl;
+}

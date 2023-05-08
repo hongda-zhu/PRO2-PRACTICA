@@ -74,10 +74,13 @@ class Procesador {
     */ 
 
     //Consultora
-    void imprimir_procesos();
 
     //Lectura y escriptura
-
+    void imprimir_procesos();
+    /** @brief Escriptura del Procesador.
+     * \pre <em>cierto<em>
+     * \post imprime el id, tamano y el tiempo restante de los procesos del procesador indicado
+    */ 
 
 
 };

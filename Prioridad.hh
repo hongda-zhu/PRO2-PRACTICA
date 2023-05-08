@@ -27,8 +27,8 @@ class Prioridad {
     int n_procesos;
     int n_accepted;
     int n_rejected;
-    list <Proceso> prcs;
-    set<int> id_procesos;
+    list <Proceso> jobs;
+    set<int> id_jobs;
 
     public:
 
@@ -43,16 +43,21 @@ class Prioridad {
     Prioridad ();
 
     // Modificadora
+    void alta_proceso_espera(Proceso &Job);
+    /** @brief Modificadora para un nuevo instante de proceso en la lista de espera en la area de espera
+     * \pre Requiere un id valido de la prioridad y un instante de proceso.
+     * \post Se añade este instante de proceso a la prioridad indicada por el id de la prioridad
+    */ 
 
     // Consultoras
-
-    //Escriptura
-
-    /** @brief Escriptura de de los procesos existentes de la prioridad selecionada.
-    * \pre <em>cierto</em>
-    * \post Se escribe los procesos correspondientes de los procesos aceptados y rechazados de la prioridad selecionada.
-    */
     void retrieve_procesos () const;
+   /** @brief Lectura de la area de espera
+    * \pre 
+    * \post Se imprime los proceso pendientes con sus informaciones detalladas por orden decreciente de antiguedad; Además debe imprimir los datos de procesos aceptados/rechazados de esta prioridad
+   */
+
+    // Escriptura
+
 
 };
 

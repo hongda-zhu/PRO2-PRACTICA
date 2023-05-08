@@ -80,26 +80,26 @@ class Cluster {
 
    // Consultora
 
-    void imprimir_procesadores_cluster();
-    /** @brief Consultora del Cluster.
+
+   // Lectura y escriptura
+
+       void imprimir_procesadores_cluster();
+    /** @brief Escriptura del Cluster.
      * \pre <em>Cierto></em>
      * \post Se imprime el listado de procesadores del cluster por el orden creciente de identificador
     */    
 
     void imprimir_estructura_cluster();
-    /** @brief Consultora del Cluster.
+    /** @brief Escriptura del Cluster.
      * \pre <em>cierto</em>
      * \post se imprime la estructura de procesadores en forma creciente de primera posición de prcd_data
     */
 
    void imprimir_procesador(string id_procesador);
-    /** @brief Consultora del Cluster.
+    /** @brief Escriptura del Cluster.
      * \pre Requiere el id valido de un procesador
      * \post se imprime los procesos de dicho profcesador por orden creciente de primera posición de memoria, incluyendo dicha posición y sus datos detallados 
     */
-   
-   // Lectura y escriptura
-
    
 
 
