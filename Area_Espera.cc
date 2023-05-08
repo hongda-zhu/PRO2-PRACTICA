@@ -12,7 +12,7 @@ void Area_Espera:: alta_prioridad(string id_prioridad) {
     prioridades_data.insert(make_pair(id_prioridad, Prioridad()));
 }
 
-void Area_Espera:: imprimir_area_espera() const {
+void Area_Espera:: imprimir_area_espera () const {
     map<string, Prioridad>::const_iterator it = prioridades_data.begin();
     while(it != prioridades_data.end()) {
         cout << it->first << endl;

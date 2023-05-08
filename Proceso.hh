@@ -53,6 +53,11 @@ class Proceso {
     * \post devuleve el tamano que ocupa la memoria de proceso.
     */
 
+    int retrieve_time();
+    /** @brief Consultora de Proceso.
+    * \pre <em>cierto</em>
+    * \post devuleve el tamano que ocupa el tiempo restante de proceso.
+    */
 
     //Lectura y escriptura´
     void read ();

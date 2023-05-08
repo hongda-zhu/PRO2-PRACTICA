@@ -29,13 +29,13 @@ class Procesador {
     int memory;
     int free_space;
     /*Este map nos guarda los bloques de la memoria libre, el primer int indica el tamano del bloque y el segundo set nos indica por donde guarda la posicion de memoria por donde se empieza el bloque*/
-    map <int, set<int>> memory_data;
+    map <int, set<int>> seg_data;
 
     /* Este map nos guarda el id de proceso en el primer int y la posición de memoria por donde empieza en el segundo int */
-    map<int, int> prcd_job_data;
+    map<int, int> prcd_job_memory;
 
     /* Este map nos guarda la posición de memoria en el primer int y el proceso correspondiente en el segundo parametro.*/
-    map<int,Proceso> prcd_memory_data;
+    map<int,Proceso> prcd_memory_job;
 
     public:
 
@@ -61,9 +61,15 @@ class Procesador {
      * \pre <em>cierto</em>
      * \post Se añade un proceso en el procesado del id indicado o imprime un error porque ya existe un proceso con el mismo id en el procesador.
     */ 
+    void baja_proceso_procesador (int id_job);
+    /** @brief Escriptura del Procesador.
+     * \pre <em>cierto</em>
+     * \post Se elimina un proceso en el procesado del id indicado o imprime un error porque ya existe un proceso con el mismo id en el procesador.
+    */ 
 
 
     //Consultora
+    void imprimir_procesos();
 
     //Lectura y escriptura
 

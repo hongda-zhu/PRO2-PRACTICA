@@ -16,3 +16,7 @@ int Proceso:: retrieve_id () {
 int Proceso:: retrieve_size () {
     return size;
 }
+
+int Proceso:: retrieve_time () {
+    return left_time;
+}

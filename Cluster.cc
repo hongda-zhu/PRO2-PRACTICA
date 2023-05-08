@@ -41,10 +41,11 @@ void Cluster::imprimir_estructura_cluster(){
     cout << endl;
 };
 
-void Cluster::imprimir_procesadores_cluster() const {
-    map<string, Procesador>:: const_iterator it = prcd_data.begin();
+void Cluster::imprimir_procesadores_cluster() {
+    map<string, Procesador>:: iterator it = prcd_data.begin();
     while(it != prcd_data.end()) {
         cout << it->first << endl;
+        it->second.imprimir_procesos();
         ++it;
     }
 }
@@ -52,10 +53,20 @@ void Cluster::imprimir_procesadores_cluster() const {
 void Cluster::alta_proceso_procesador(const string id_prcd, Proceso Job) {
     map<string, Procesador>::iterator it = prcd_data.find(id_prcd);
     if (it != prcd_data.end()) {
-        // Encuentra el procesador con el id indicado
         it->second.alta_proceso_procesador(Job);
-    } else {
-        // No encuentra el procesador con el id indicado
-        cout <<  "error: no existe procesador" << endl;
-    }
+    } else cout <<  "error: no existe procesador" << endl;
+}
+
+void Cluster::baja_proceso_procesador(const string id_prcd, int id_job) {
+    map<string, Procesador>::iterator it = prcd_data.find(id_prcd);
+    if (it != prcd_data.end()) {
+        it->second.baja_proceso_procesador(id_job);
+    } else cout <<  "error: no existe procesador" << endl;
+}
+
+void Cluster::imprimir_procesador(string id_procesador) {
+    map<string, Procesador>:: iterator it = prcd_data.find(id_procesador);
+    if(it != prcd_data.end()) {    
+        it->second.imprimir_procesos();
+    } else cout << "error: no existe procesador" << endl;
 }

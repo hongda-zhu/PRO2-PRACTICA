@@ -54,6 +54,18 @@ class Cluster {
 
     //Modificadoras
 
+    void alta_proceso_procesador (string id_prcd, Proceso Job);
+    /** @brief Modificadora del Cluster.
+     * \pre <em>cierto</em>
+     * \post Se añade un proceso en el procesado del id indicado o imprime un error porque no existe el procesador con el id indicado
+    */
+   
+    void baja_proceso_procesador (string id_prcd, int id_job);
+    /** @brief Modificadora del Cluster.
+     * \pre <em>cierto</em>
+     * \post Se elimina un proceso en el procesado del id indicado o imprime un error porque ya existe un proceso con el mismo id en el procesador.
+    */  
+
     void configurar_cluster (); 
     /** @brief Modificadora del Cluster.
      * \pre <em>cierto</em>
@@ -61,28 +73,30 @@ class Cluster {
     */
 
    // Consultora
-   
-   // Lectura y escriptura
 
-    void alta_proceso_procesador (string id_prcd, Proceso Job);
-    /** @brief Escriptura del Cluster.
-     * \pre <em>cierto</em>
-     * \post Se añade un proceso en el procesado del id indicado o imprime un error porque no existe el procesador con el id indicado
-    */    
-
-    void imprimir_procesadores_cluster() const;
-
-    /** @brief Escriptura del Cluster.
+    void imprimir_procesadores_cluster();
+    /** @brief Consultora del Cluster.
      * \pre <em>Cierto></em>
      * \post Se imprime el listado de procesadores del cluster por el orden creciente de identificador
     */    
 
     void imprimir_estructura_cluster();
-    /** @brief Escriptura del procesador.
+    /** @brief Consultora del Cluster.
      * \pre <em>cierto</em>
-     * \post escribe la estructura de procesadores en forma creciente de primera posición de prcd_data
+     * \post se imprime la estructura de procesadores en forma creciente de primera posición de prcd_data
     */
-    
 
+   void imprimir_procesador(string id_procesador);
+    /** @brief Consultora del Cluster.
+     * \pre Requiere el id valido de un procesador
+     * \post se imprime los procesos de dicho profcesador por orden creciente de primera posición de memoria, incluyendo dicha posición y sus datos detallados 
+    */
+   
+   // Lectura y escriptura
+
+   
+
+
+    
 };
 #endif
