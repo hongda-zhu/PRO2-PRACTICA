@@ -56,6 +56,8 @@ class Prioridad {
     * \post Se imprime los proceso pendientes con sus informaciones detalladas por orden decreciente de antiguedad; Además debe imprimir los datos de procesos aceptados/rechazados de esta prioridad
    */
 
+    int retrieve_jobs_size () const;
+
     // Escriptura
 
 

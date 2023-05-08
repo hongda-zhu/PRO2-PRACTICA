@@ -62,4 +62,20 @@ baja_prioridad 333
 bp 111
 bp 11
 iae
+configurar_cluster
+sndr01
+1000
+*
+*
+iec
+cc
+abc
+10
+*
+zsda
+5
+*
+*
+iec
+iae
 fin
