@@ -1,5 +1,5 @@
 /** @file Prioridad.hh
-    @brief Especificación de la clase Prioridad.
+    @brief Especificación de la clase Prioridad
 */
 
 #ifndef PRIORIDAD_HH
@@ -7,18 +7,13 @@
 
 #include "Proceso.hh"
 #ifndef NO_DIAGRAM
-#include <list>
+#include <vector>
 #include <set>
 #endif 
 
 
 /** @class Prioridad
- *  @brief Esta clase hace referencia a una prioridad, un contenedor de procesos con una 
- *  etiqueta formado por un string. Dispone de un conjunto de operaciones que permite anadir
- *  y eliminar procesos de una prioridad. Permite consultar el proceso mas antiguo, el numero
- *  de procesos acceptados y rechazados, el numero de procesos pendientes, si existe un proceso
- *  concreto. Por ultimo dispone de una operacion de escriptura que imprime todos los procesos
- * de una prioridad.
+ *  @brief FALTA EXPLICACION
 */
 class Prioridad {
 
@@ -27,7 +22,7 @@ class Prioridad {
     int n_procesos;
     int n_accepted;
     int n_rejected;
-    list <Proceso> jobs;
+    vector <Proceso> jobs;
     set<int> id_jobs;
 
     public:

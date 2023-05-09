@@ -7,7 +7,7 @@ Prioridad:: Prioridad() {
 }
 
 void Prioridad:: retrieve_procesos () const {
-    for (list<Proceso>::const_iterator it = jobs.begin();it != jobs.end();++it) it->print();
+    for (int i = 0 ; i < jobs.size();++i) jobs[i].print();
     cout << n_accepted << ' ' << n_rejected << endl;
 }
 
@@ -17,7 +17,7 @@ void Prioridad:: alta_proceso_espera (Proceso &Job) {
     else {
         ++n_procesos;
         id_jobs.insert(id_job);
-        jobs.insert(jobs.end(), Job);
+        jobs.push_back(Job);
     }
 }
 

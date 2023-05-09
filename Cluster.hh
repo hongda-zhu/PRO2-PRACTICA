@@ -1,5 +1,5 @@
 /** @file Cluster.hh
-    @brief Especificación de la clase Cluster.
+    @brief Especificación de la clase Cluster
 */
 
 #ifndef CLUSTER_HH
@@ -14,14 +14,7 @@
 #endif 
 
 /** @class Cluster
- *  @brief Esta clase hace referencia a un Cluster, se consiste en un arb de procesadores (minimo 1) que
- *  realizan procesos y tareas. Permite anadir procesadores al Cluster, compactar la memoria de
- *  un procesador o todos los procesadores del Cluster, dar de alta a procesos (directamente a
- *  un procesador determinado o al procesador más optimo. También permite hacer consultas sobre
- *  l'estado de un procesador, si existe, tiene tareas en ejecución, si tiene procesadores auxiliares y
- *  la memoria disponible. No obstante, dispone de un contador de tiempo, se puede avanzar el tiempo para
- *  terminar los procesos en ejecución. Por último, dispone de operaciones de lectura y escriptura a nivell
- *  de cluster y a nivell de procesador. 
+ *  @brief FALTA EXPLICACION
 */
 class Cluster {
 

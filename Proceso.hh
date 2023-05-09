@@ -1,5 +1,5 @@
 /** @file Proceso.hh
-    @brief Especificación de la clase Proceso.
+    @brief Especificación de la clase Proceso
 */
 
 #ifndef PROCESO_HH
@@ -11,11 +11,7 @@ using namespace std;
 #endif
 
 /** @class Proceso
-    @brief Representa un proceso a ejecutar.
-
-    Son tareas, procesos, para ejecutar. Tienen un identificador, memoria
-    requierida y tiempo de ejecución. Dispone de operaciones para consultar cada datos de
-    un proceso. Permite leer y escribir los datos de cada proceso.
+    @brief FALTA EXPLICACION
 */
 class Proceso {
 

@@ -1,5 +1,5 @@
 /** @file Procesador.hh
-    @brief Especificación de la clase Procesador.
+    @brief Especificación de la clase Procesador
 */
 
 #ifndef PROCESADOR_HH
@@ -13,13 +13,7 @@
 #endif
 
 /** @class Procesador
-    @brief Hace referencia a un procesador.
-
-    Estan identificados por un identificador unico. Dispone de operaciones para anadir o 
-    eliminar un proceso al procesador, compactar la memoria de un procesador, avanzar el reloj
-    de un procesador. Tambíen permite hacer consultas sobre si un procesador está ocupado, 
-    la memoria disponible y la existencia de un proceso. Por ultimo, tiene operaciones de 
-    lectura y escriptura para leer los datos de un procesador y escribir los procesos de estos.
+    @brief FALTA EXPLICACION
 */
 class Procesador {
 
