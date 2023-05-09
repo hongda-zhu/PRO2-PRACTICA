@@ -40,13 +40,13 @@ class Area_Espera {
      * \post Se añade este instante de proceso a la prioridad indicada por el id de la prioridad
     */
 
-    void alta_prioridad(string id_prioridad);
+    void alta_prioridad(const string &id_prioridad);
     /** @brief Modificadora para añadir un segmento nuevo de prioridad
      * \pre <em>cierto<em>
      * \post Se añade el segmento nuevo de la prioridad en el prioridad_data, cuando la prioridad que queremos dar la alta ya existe nos imprime un error
     */
 
-   void baja_prioridad(string id_prioridad);
+   void baja_prioridad(const string &id_prioridad);
     /** @brief Modificadora para eliminar un segmento existente de prioridad
      * \pre <em>cierto<em>
      * \post Se elimina el segmento existente de la prioridad en el prioridad_data, cuando la prioridad que queremos dar la alta no existe nos imprime o cuando tiene procesos pendinetes un error

@@ -43,19 +43,19 @@ class Proceso {
     */
 
     // Consultora
-    int retrieve_id();
+    int retrieve_id() const;
     /** @brief Consultora de Proceso.
     * \pre <em>cierto</em>
     * \post devuleve el id de proceso.
     */
 
-    int retrieve_size();
+    int retrieve_size() const;
     /** @brief Consultora de Proceso.
     * \pre <em>cierto</em>
     * \post devuleve el tamano que ocupa la memoria de proceso.
     */
 
-    int retrieve_time();
+    int retrieve_time() const;
     /** @brief Consultora de Proceso.
     * \pre <em>cierto</em>
     * \post devuleve el tamano que ocupa el tiempo restante de proceso.

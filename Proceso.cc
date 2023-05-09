@@ -10,14 +10,14 @@ void Proceso:: read () {
     cin >> id >> size >> left_time;
 }
 
-int Proceso:: retrieve_id () {
+int Proceso:: retrieve_id () const {
     return id;
 }
-int Proceso:: retrieve_size () {
+int Proceso:: retrieve_size () const {
     return size;
 }
 
-int Proceso:: retrieve_time () {
+int Proceso:: retrieve_time () const {
     return left_time;
 }
 

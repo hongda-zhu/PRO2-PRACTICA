@@ -1,130 +1,109 @@
 /** @mainpage
- * 
- *  El programa principal se encuentra en el program.cc.
- * 
-    Atendiendo a los tipos de datos sugeridos en el enunciado, necesitaremos un
-    módulo para representar Procesador, donde el conjunto de ellos da lugar
-    a otro modulo llamado Cluster. Por otro lado tenemos una Area_Espera, donde
-    habrá Proceso, un nuevo modulo que se define como la tarea que realiza los Clusters,
-    cada procesos estará contenido en una Prioridad, el conjunto de procesos. El conjunto de
-    Prioridades forma la Area_Espera.
+ * Fichero principal
  */
 
 /** @file program.cc
     @brief Programa princial.
-
-    Suponemos que los datos leídos son siempre correctos, ya que no
-    incluimos combrobaciones al respecto.  Para acceder a las opciones
-    disponibles usaremos comandos.
 */
 
-#include "Cluster.hh" // redundante, pero necesario
-#include "Proceso.hh" // redundante, pero necesario
-#include "Procesador.hh" // redundante, pero necesario
+#include "Cluster.hh"
+#include "Proceso.hh"
+#include "Procesador.hh"
 #include "Area_Espera.hh"
 
 int main () {
 
-    Cluster c;
-    c.configurar_cluster();
+    Cluster c1;
+    c1.configurar_cluster();
 
-    Area_Espera a;
+    Area_Espera ae;
     int n;
     cin >> n;
     for (int i = 0; i < n; ++i) {
         string id_prioridad;
         cin >> id_prioridad;
-        a.alta_prioridad(id_prioridad);
+        ae.alta_prioridad(id_prioridad);
     }
 
     string command;
     cin >> command;
     while (command != "fin") {
-        cout << '#' << command;
         if (command == "cc" or command == "configurar_cluster") {
-            cout << endl;
-            c.configurar_cluster();
+            cout << "#" << command << endl;
+            c1.configurar_cluster();
         }
         else if (command == "ap" or command == "alta_prioridad"){
             string id_prioridad;
             cin >> id_prioridad;
+            cout << "#" << command << " " << id_prioridad << endl;
 
-            cout << " " << id_prioridad << endl;
-            a.alta_prioridad(id_prioridad);
+            ae.alta_prioridad(id_prioridad);
         }
         else if (command == "bp" or command == "baja_prioridad"){
             string id_prioridad;
             cin >> id_prioridad;
+            cout << "#" << command << " " << id_prioridad << endl;
 
-            cout << " " << id_prioridad << endl;
-            a.baja_prioridad(id_prioridad);
+            ae.baja_prioridad(id_prioridad);
         }
         else if (command == "ape" or command == "alta_proceso_espera"){
             string id_prioridad;
             cin >> id_prioridad;
+            Proceso job;
+            job.read();
+            cout << "#" << command << " " << id_prioridad << " " << job.retrieve_id() << endl;
 
-            Proceso Job;
-            Job.read();
-
-            int id_job = Job.retrieve_id();
-
-            cout << " " << id_prioridad << " " << id_job << endl;
-
-            a.alta_proceso_espera(id_prioridad, Job);
+            ae.alta_proceso_espera(id_prioridad, job);
         }
         else if (command == "app" or command == "alta_proceso_procesador"){
-            string id_prcd;
-            cin >> id_prcd;
+            string id_procesador;
+            cin >> id_procesador;
+            Proceso job;
+            job.read();
+            cout << "#" << command << " " << id_procesador << " " << job.retrieve_id() << endl;
 
-            Proceso Job;
-            Job.read();
-            int id_job = Job.retrieve_id();
-            cout << " " << id_prcd << " " << id_job << endl;
-            c.alta_proceso_procesador(id_prcd, Job);
+            c1.alta_proceso_procesador(id_procesador, job);
         }
         else if (command == "bpp" or command == "baja_proceso_procesador"){
-
-            string id_prcd;
-            cin >> id_prcd;
-
+            string id_procesador;
+            cin >> id_procesador;
             int id_job;
             cin >> id_job;
-
-            cout << " " << id_prcd << " " << id_job << endl;
-            c.baja_proceso_procesador(id_prcd, id_job);
+            cout << "#" << command << " " << id_procesador << " " << id_job << endl;
+            
+            c1.baja_proceso_procesador(id_procesador, id_job);
         }
         else if (command == "at" or command == "avanzar_tiempo"){
             int t;
             cin >> t;
+            cout << "#" << command << " " << t << endl;
 
-            cout << " " << t << endl;
-            c.avanzar_tiempo(t);
+            c1.avanzar_tiempo(t);
         }
         else if (command == "ipri" or command == "imprimir_prioridad"){
             string id_prioridad;
             cin >> id_prioridad;
+            cout << "#" << command << " " << id_prioridad << endl;
 
-            cout << " " << id_prioridad << endl;
-
-            a.imprimir_prioridad(id_prioridad);
+            ae.imprimir_prioridad(id_prioridad);
         }
         else if (command == "iae" or command == "imprimir_area_espera"){
-            cout << endl;
-            a.imprimir_area_espera();
+            cout << "#" << command << endl;  
+            ae.imprimir_area_espera();
         }
         else if (command == "ipro" or command == "imprimir_procesador"){
-            string id_prcd;
-            cin >> id_prcd;
-            cout << " " << id_prcd << endl;
-            c.imprimir_procesador(id_prcd);
+            string id_procesador;
+            cin >> id_procesador;
+            cout << "#" << command << " " << id_procesador << endl;
+            c1.imprimir_procesador(id_procesador);
         }
         else if (command == "ipc" or command == "imprimir_procesadores_cluster"){
-            cout << endl;
-            c.imprimir_procesadores_cluster();
+            cout << "#" << command << endl;
+            c1.imprimir_procesadores_cluster();
         }
         else if (command == "iec" or command == "imprimir_estructura_cluster"){
-            cout << endl;
-            c.imprimir_estructura_cluster();
+            cout << "#" << command << endl;
+            c1.imprimir_estructura_cluster();
         }
         cin >> command;
     }

@@ -2,14 +2,14 @@
 
 Area_Espera:: Area_Espera() {}
 
-void Area_Espera:: alta_prioridad(string id_prioridad) {
-    map<string, Prioridad>:: iterator it = prioridades_data.find(id_prioridad);
+void Area_Espera:: alta_prioridad(const string &id_prioridad) {
+    map<string, Prioridad>:: const_iterator it = prioridades_data.find(id_prioridad);
     if(it != prioridades_data.end()) {
         cout << "error: ya existe prioridad" << endl;
     } else prioridades_data.insert(make_pair(id_prioridad, Prioridad()));
 }
 
-void Area_Espera:: baja_prioridad(string id_prioridad) {
+void Area_Espera:: baja_prioridad(const string &id_prioridad) {
     map<string, Prioridad>:: iterator it = prioridades_data.find(id_prioridad);
     if(it == prioridades_data.end()) {
         cout << "error: no existe prioridad" << endl;

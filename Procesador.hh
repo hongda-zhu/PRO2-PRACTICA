@@ -31,6 +31,9 @@ class Procesador {
     /* Este map nos guarda la posición de memoria en el primer int y el proceso correspondiente en el segundo parametro.*/
     map<int,Proceso> prcd_memory_job;
 
+    void erase_seg (int size, int start);
+    void insert_seg (int size, int start);
+
     public:
 
     string id_prcd;
@@ -50,7 +53,7 @@ class Procesador {
     Procesador();
 
     //Modificadoras
-    void alta_proceso_procesador (Proceso& Job);
+    void alta_proceso_procesador (const Proceso& Job);
     /** @brief Escriptura del Procesador.
      * \pre instante de proceso válido
      * \post Se añade un proceso en el procesado del id indicado o imprime un error porque ya existe un proceso con el mismo id en el procesador.
@@ -70,7 +73,7 @@ class Procesador {
     //Consultora
 
     //Lectura y escriptura
-    void imprimir_procesos();
+    void imprimir_procesos() const;
     /** @brief Escriptura del Procesador.
      * \pre <em>cierto<em>
      * \post imprime el id, tamano y el tiempo restante de los procesos del procesador indicado

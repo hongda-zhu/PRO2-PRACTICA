@@ -76,7 +76,7 @@ class Cluster {
 
    // Lectura y escriptura
 
-       void imprimir_procesadores_cluster();
+    void imprimir_procesadores_cluster();
     /** @brief Escriptura del Cluster.
      * \pre <em>Cierto></em>
      * \post Se imprime el listado de procesadores del cluster por el orden creciente de identificador
