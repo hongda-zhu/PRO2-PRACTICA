@@ -4,7 +4,7 @@
 
 #include "Procesador.hh"
 
-    /*El métode que he empleat pricipalment per simular la memoria es utilitzar procesos amb id -1, que simbolitzen els blocs ocupats. 
+    /*El métode que he empleat pricipalment per simular la memory es utilitzar procesos amb id -1, que simbolitzen els blocs ocupats. 
     Per tant, en el segon map de direcció-proces hi haura procesos amb identificador -1.
     */
 
@@ -95,7 +95,7 @@ void Procesador:: baja_proceso_procesador(int id_job) {
             it_seg = seg_data.find(r_seg);
             if(r_seg*2 > free_space or it_seg -> second.size() == 1) seg_data.erase(it_seg);
             else it_seg -> second.erase(job_seg_pos + size_job);
-            // add the release space into the right size block 
+            // add the release space into the right size seg 
             size_job += r_seg;
         }
 
@@ -123,7 +123,7 @@ void Procesador:: baja_proceso_procesador(int id_job) {
             it_seg = seg_data.find(l_seg);
             if(r_seg*2 > free_space or it_seg -> second.size() == 1) seg_data.erase(it_seg);
             else it_seg -> second.erase(job_seg_pos + size_job);
-            // add the release space into the right size block
+            // add the release space into the right size seg
             size_job += l_seg;
         }
 
@@ -137,9 +137,69 @@ void Procesador:: baja_proceso_procesador(int id_job) {
 }
 
 void Procesador:: avanzar_tiempo (int t) {
-    map<int, Proceso>::iterator it;
-    for (it = prcd_memory_job.begin(); it != prcd_memory_job.end(); ++it) {
+    map<int,Proceso>::iterator it = prcd_memory_job.begin();
+
+    bool consecutive = false;
+    int start_pos = 0;
+    int size = 0;
+    int last_pos = 0;
+    while (it != prcd_memory_job.end()) {
         it -> second.actualizar_proceso(t);
+
+        int time_job = it -> second.retrieve_time();
+        int t_begin = it ->first;
+        int size_job = it -> second.retrieve_size();
+
+
+        if (time_job <= 0){
+            if (not consecutive) start_pos = last_pos;
+            size += t_begin + size_job - last_pos;
+            int seg = t_begin - last_pos;
+            if (seg != 0) {
+                map<int, set<int>>::iterator it = seg_data.find(seg);
+                it -> second.erase(last_pos);
+                if (it-> second.empty()) seg_data.erase(it);
+            };
+            prcd_job_memory.erase(it -> second.retrieve_id());
+            last_pos = t_begin + size_job;
+            it = prcd_memory_job.erase(it);
+            consecutive = true;
+        } else if (size != 0){
+            int seg = t_begin - last_pos;
+            if (seg != 0) {
+                size += seg;
+                map<int, set<int>>::iterator it = seg_data.find(seg);
+                it -> second.erase(last_pos);
+                if (it-> second.empty()) seg_data.erase(it);;
+            }
+                map<int, set<int>>::iterator it = seg_data.lower_bound(size);
+                if (it != seg_data.end() and it->first == size) {
+                    it->second.insert(start_pos);
+                } else seg_data.insert(it, make_pair(size, set<int>{start_pos}));
+            if (size > max_space) max_space = size;
+            size = 0;
+            last_pos = t_begin + size_job;
+            ++it;
+            consecutive = false;
+        } else {
+            last_pos = t_begin + size_job;
+            ++it;
+        }
+
+        if (it == prcd_memory_job.end() and size != 0) {
+            int seg = memory - last_pos;
+            if (seg != 0) {
+                size += seg;
+                map<int, set<int>>::iterator it = seg_data.find(seg);
+                it -> second.erase(last_pos);
+                if (it-> second.empty()) seg_data.erase(it);
+            }
+            map<int, set<int>>::iterator it = seg_data.lower_bound(size);
+            if (it != seg_data.end() and it->first == size) {
+                it->second.insert(start_pos);
+            } else seg_data.insert(it, make_pair(size, set<int>{start_pos}));
+            if (size > max_space) max_space = size;
+        }
     }
 }
 
