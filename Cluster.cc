@@ -2,24 +2,23 @@
 
 Cluster::Cluster() {}
 
-void Cluster::set_cluster(BinTree<string>& prcd) {
-    string prc_id;
-    cin >> prc_id;
-    if (prc_id != "*") {
-        int prc_memory;
-        cin >> prc_memory;
-        Procesador elem(prc_id, prc_memory);
-        prcd_data.insert(make_pair(prc_id, elem));
-        BinTree<string>left, right;
-        set_cluster(left);
-        set_cluster(right);
-        prcd = BinTree<string>(prc_id, left, right);
+void Cluster::set_cluster(BinTree<string> &prcd, map<string,Procesador> &prcd_data) {
+    string id_prc;
+    cin >> id_prc;
+    if (id_prc != "*") {
+        int memory;
+        cin >> memory;
+        prcd_data.insert(make_pair(id_prc,Procesador(id_prc, memory)));
+        BinTree <string> left, right;
+        set_cluster(left, prcd_data);
+        set_cluster(right, prcd_data);
+        prcd = BinTree <string> (id_prc,left,right);
     }
 }
 
 void Cluster::configurar_cluster() {
-    prcd_data = map<string, Procesador> ();
-    set_cluster(prcd);
+    prcd_data.clear();
+    set_cluster(prcd, prcd_data);
 }
 
 
@@ -42,11 +41,9 @@ void Cluster::imprimir_estructura_cluster(){
 };
 
 void Cluster::imprimir_procesadores_cluster() {
-    map<string, Procesador>:: iterator it = prcd_data.begin();
-    while(it != prcd_data.end()) {
+    for(map<string, Procesador>:: iterator it = prcd_data.begin(); it != prcd_data.end(); ++it) {
         cout << it->first << endl;
         it->second.imprimir_procesos();
-        ++it;
     }
 }
 

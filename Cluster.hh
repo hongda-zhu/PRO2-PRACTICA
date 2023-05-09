@@ -21,7 +21,7 @@ class Cluster {
     private:
     BinTree<string>prcd;
     map<string, Procesador>prcd_data; 
-    void set_cluster (BinTree<string>& prcd);
+    void set_cluster (BinTree<string> &procesadores, map<string,Procesador> &procesadores_data);
     /**
      * @brief: Setter de configurar_cluster
      * \pre Recibe la referencia del árbol cluster construido por procesadores, el árbol tiene que ser vacío<

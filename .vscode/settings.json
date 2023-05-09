@@ -49,6 +49,7 @@
         "typeinfo": "cpp",
         "list": "cpp",
         "estudiant": "cpp",
-        "map": "cpp"
+        "map": "cpp",
+        "set": "cpp"
     }
 }
