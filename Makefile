@@ -6,19 +6,19 @@ program.exe: program.o Area_Espera.o Prioridad.o Procesador.o Proceso.o Cluster.
 program.o: program.cc Area_Espera.cc Area_Espera.hh Prioridad.cc Prioridad.hh Procesador.cc Procesador.hh Proceso.cc Proceso.hh Cluster.cc Cluster.hh
 	g++ -c program.cc $(OPCIONS) 
 
-Area_Espera.o: Area_Espera.cc Area_Espera.hh 
+Area_Espera.o: Area_Espera.cc Area_Espera.hh Cluster.hh Prioridad.hh Proceso.hh
 	g++ -c Area_Espera.cc $(OPCIONS) 
 
-Prioridad.o: Prioridad.cc Prioridad.hh
+Prioridad.o: Prioridad.cc Prioridad.hh Proceso.hh
 	g++ -c Prioridad.cc $(OPCIONS) 
 
-Procesador.o: Procesador.cc Procesador.hh
+Procesador.o: Procesador.cc Procesador.hh Proceso.hh
 	g++ -c Procesador.cc $(OPCIONS) 
 
-Proceso.o: Proceso2.cc Proceso.hh
-	g++ -c Proceso2.cc $(OPCIONS) 
+Proceso.o: Proceso.cc Proceso.hh
+	g++ -c Proceso.cc $(OPCIONS) 
 
-Cluster.o: Cluster.cc Cluster.hh
+Cluster.o: Cluster.cc Cluster.hh Procesador.hh Proceso.hh
 	g++ -c Cluster.cc $(OPCIONS) 
 
 clean:

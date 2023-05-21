@@ -1,5 +1,5 @@
 /** @file Proceso.cc
-    @brief Código de la clase Proceso
+    @brief  Proceso
 */
 
 #include "Proceso.hh"

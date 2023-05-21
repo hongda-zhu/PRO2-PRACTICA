@@ -1,5 +1,5 @@
 /** @file Proceso.hh
-    @brief Especificación de la clase Proceso
+    @brief  Proceso
 */
 
 #ifndef PROCESO_HH
@@ -19,14 +19,11 @@ class Proceso {
     private:
     int left_time;
     int id;
-    /** @brief Tamano que ocupa el proceso*/
     int size;
 
     public:
 
     //Constructoras
-
-
 
     Proceso();
     /** @brief Creadora de Proceso.
@@ -52,7 +49,7 @@ class Proceso {
     int retrieve_size() const;
     /** @brief Consultora de Proceso.
     * \pre <em>cierto</em>
-    * \post devuleve el tamano que ocupa la memoria de proceso.
+    * \post devuleve el tamano que ocupa la memory de proceso.
     */
 
     int retrieve_time() const;
@@ -74,9 +71,6 @@ class Proceso {
      * \pre <em>cierto<em>
      * \post imprime el id, tamano y el tiempo restante del proceso indicado
     */ 
-
-
-
 };
 
 #endif

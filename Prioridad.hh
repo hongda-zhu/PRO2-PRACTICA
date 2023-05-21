@@ -1,5 +1,5 @@
 /** @file Prioridad.hh
-    @brief Especificación de la clase Prioridad
+    @brief  Prioridad
 */
 
 #ifndef PRIORIDAD_HH
@@ -7,7 +7,7 @@
 
 #include "Proceso.hh"
 #ifndef NO_DIAGRAM
-#include <vector>
+#include <list>
 #include <set>
 #endif 
 
@@ -22,7 +22,7 @@ class Prioridad {
     int n_procesos;
     int n_accepted;
     int n_rejected;
-    vector <Proceso> jobs;
+    list <Proceso> jobs;
     set<int> id_jobs;
 
     public:
@@ -44,6 +44,10 @@ class Prioridad {
      * \post Se añade este instante de proceso a la prioridad indicada por el id de la prioridad
     */ 
 
+   void update_prioridad(const int rejected, const int accepted);// FALTA
+
+   Proceso retrieve_job (); // FALTA
+
     // Consultoras
     void retrieve_procesos () const;
    /** @brief Lectura de la area de espera
@@ -51,10 +55,15 @@ class Prioridad {
     * \post Se imprime los proceso pendientes con sus informaciones detalladas por orden decreciente de antiguedad; Además debe imprimir los datos de procesos aceptados/rechazados de esta prioridad
    */
 
-    int retrieve_jobs_size () const;
+    int retrieve_jobs_size () const; // FALTA
 
+    int retrieve_accepted () const; // FALTA
+
+    int retrieve_rejected () const; // FALTA
+
+    
+    
     // Escriptura
-
 
 };
 

@@ -1,5 +1,5 @@
 /** @file Procesador.hh
-    @brief Especificación de la clase Procesador
+    @brief  Procesador
 */
 
 #ifndef PROCESADOR_HH
@@ -19,9 +19,9 @@ class Procesador {
 
     private:
     
-    int max_space;
     int memory;
-    int free_space;
+    int max_memory; // FALTA
+    int free_memory; // FALTA
     /*Este map nos guarda los bloques de la memoria libre, el primer int indica el tamano del bloque y el segundo set nos indica por donde guarda la posicion de memoria por donde se empieza el bloque*/
     map <int, set<int>> seg_data;
 
@@ -68,9 +68,28 @@ class Procesador {
     /** @brief Modificadora del Procesador.
      * \pre <t >= 0
      * \post Se accelera todos el tiempo de todo los procesadores pendientes, si el tiempo restante 't' es mayor que el tiempo que queda un procesador, este procesador se queda eliminado y liberamos su espacio
-    */ 
+    */
+
+    void compactar_memoria_procesador();
+    /** @brief Modificadora del Procesador
+    * \pre <em>FALTA<em>
+    * \post En el caso cuando el procesador del id mencionado existe en el cluster, se devuelve la memoria de este procesador de forma compactado, es decir sin dejar huecos, sin solaparse y respetando el orden inicial.
+    */
 
     //Consultora
+
+    bool not_empty() const;
+    /**
+     * @brief Consultora del Procesador
+     * \pre <em>cierto<em>
+     * \post devuelve true cuando el procesador si que contiene procesos y viceversa
+    */ 
+
+    bool exist_job (const int id_job); // FALTA
+
+    int exist_fit (const int size_job); // FALTA 
+
+    int retrieve_free_memory () const; // FALTA
 
     //Lectura y escriptura
     void imprimir_procesos() const;
@@ -78,7 +97,5 @@ class Procesador {
      * \pre <em>cierto<em>
      * \post imprime el id, tamano y el tiempo restante de los procesos del procesador indicado
     */ 
-
-
 };
 #endif
