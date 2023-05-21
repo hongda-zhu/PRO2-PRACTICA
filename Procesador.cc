@@ -153,21 +153,27 @@ void Procesador::avanzar_tiempo(int t) {
 }
 
 void Procesador::compactar_memoria_procesador() {
-    
-    map <int,Proceso> new_memory_job;
-    map <int,int> new_job_memory;
-    map<int,Proceso> :: iterator it = prcd_memory_job.begin();
-    int last_pos = 0;
-    for (map<int, Proceso>:: const_iterator it = prcd_memory_job.begin(); it != prcd_memory_job.end(); ++it) {
-        new_memory_job.insert(new_memory_job.end(), make_pair(last_pos, it -> second));
-        new_job_memory.insert(new_job_memory.end(), make_pair(it -> second.retrieve_id(), last_pos));
-        last_pos += it -> second.retrieve_size();
+    if (not prcd_memory_job.empty()) {
+        seg_data.clear();
+        map<int,Proceso>:: iterator it = prcd_memory_job.begin();
+        int consecutive_pos = 0;
+        int pos = it -> first;
+        while (it != prcd_memory_job.end() and consecutive_pos == pos) {
+            int size = it -> second.retrieve_size();
+            consecutive_pos += size;
+            pos = it -> first;
+            ++it;
+        }
+        while (it != prcd_memory_job.end()) {
+            Proceso job = it -> second;
+            prcd_memory_job.insert(it, make_pair(consecutive_pos, job));
+            prcd_job_memory[job.retrieve_id()] = consecutive_pos;
+            consecutive_pos += job.retrieve_size();
+            it = prcd_memory_job.erase(it);
+        }
+        if (consecutive_pos != memory) seg_data.insert(make_pair(memory - consecutive_pos, set<int>{consecutive_pos}));
+        max_memory = memory - consecutive_pos;
     }
-    seg_data.clear();
-    if (last_pos != memory) seg_data.insert(make_pair(memory - last_pos, set<int>{last_pos}));
-    max_memory = free_memory = memory - last_pos;
-    prcd_memory_job.swap(new_memory_job);
-    prcd_job_memory.swap(new_job_memory);
 }
 
 int Procesador:: retrieve_free_memory () const {

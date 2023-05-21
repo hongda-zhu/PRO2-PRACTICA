@@ -20,8 +20,17 @@ void Prioridad:: alta_proceso_espera (Proceso &Job) {
     }
 }
 
+
 int Prioridad:: retrieve_jobs_size () const {
     return id_jobs.size();
+}
+
+int Prioridad:: retrieve_accepted () const {
+    return n_accepted;
+}
+
+int Prioridad:: retrieve_rejected () const {
+    return n_rejected;
 }
 
 pair <int, int> Prioridad:: retrieve_info() const {
