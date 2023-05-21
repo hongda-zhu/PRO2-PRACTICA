@@ -178,6 +178,11 @@ bool Procesador::exist_job(const int id_job) {
     return prcd_job_memory.find(id_job) != prcd_job_memory.end();
 }
 
+bool Procesador::fit_job(const int size_job) {
+    if(seg_data.empty()) return false;
+    return size_job <= seg_data.rbegin() -> first;
+}
+
 int Procesador:: exist_fit (const int size_job) {
     // result = -1 means that tehre is no best fix
     int res;

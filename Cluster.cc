@@ -188,7 +188,7 @@ void Cluster::imprimir_procesadores_cluster() {
     }
 }
 
-void Cluster::imprimir_procesador(const string &id_prcd) {
+void Cluster::imprimir_procesador(const string& id_prcd) {
     map<string, Procesador>:: iterator it = prcd_data.find(id_prcd);
     if(it != prcd_data.end()) {    
         it->second.imprimir_procesos();

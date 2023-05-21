@@ -19,7 +19,6 @@ class Prioridad {
 
     
     private:
-    int n_procesos;
     int n_accepted;
     int n_rejected;
     list <Proceso> jobs;

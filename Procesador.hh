@@ -91,6 +91,8 @@ class Procesador {
 
     int retrieve_free_memory () const; // FALTA
 
+    bool fit_job(const int size_job);
+
     //Lectura y escriptura
     void imprimir_procesos() const;
     /** @brief Escriptura del Procesador.
