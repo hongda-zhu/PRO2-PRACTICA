@@ -11,7 +11,6 @@ Procesador::Procesador(const string &id_prcd, int memory) {
     this->id_prcd = id_prcd;
     max_memory = memory;
     seg_data[memory] = {0};
-    free_memory = memory;
 }
 
 void Procesador::insert_seg(int size, int start) {
@@ -153,31 +152,32 @@ void Procesador::avanzar_tiempo(int t) {
 }
 
 void Procesador::compactar_memoria_procesador() {
+    
     if (not prcd_memory_job.empty()) {
         seg_data.clear();
-        map<int,Proceso>:: iterator it = prcd_memory_job.begin();
-        int consecutive_pos = 0;
-        int pos = it -> first;
-        while (it != prcd_memory_job.end() and consecutive_pos == pos) {
+        map<int,Proceso> :: iterator it = prcd_memory_job.begin();
+        int pos_consecutive = 0;
+        int pos_real = it -> first;
+        while (pos_consecutive == pos_real and it != prcd_memory_job.end()) {
             int size = it -> second.retrieve_size();
-            consecutive_pos += size;
-            pos = it -> first;
+            pos_consecutive += size;
+            pos_real = it -> first;
             ++it;
         }
         while (it != prcd_memory_job.end()) {
             Proceso job = it -> second;
-            prcd_memory_job.insert(it, make_pair(consecutive_pos, job));
-            prcd_job_memory[job.retrieve_id()] = consecutive_pos;
-            consecutive_pos += job.retrieve_size();
             it = prcd_memory_job.erase(it);
+            prcd_memory_job.insert(it, make_pair(pos_consecutive, job));
+            prcd_job_memory[job.retrieve_id()] = pos_consecutive;
+            pos_consecutive += job.retrieve_size();
         }
-        if (consecutive_pos != memory) seg_data.insert(make_pair(memory - consecutive_pos, set<int>{consecutive_pos}));
-        max_memory = memory - consecutive_pos;
+        if (pos_consecutive != memory) seg_data.insert(make_pair(memory - pos_consecutive, set<int>{pos_consecutive}));
+        max_memory = memory - pos_consecutive;
     }
 }
 
-int Procesador:: retrieve_free_memory () const {
-    return free_memory;
+int Procesador:: retrieve_memory () const {
+    return memory;
 }
 
 bool Procesador::exist_job(const int id_job) {

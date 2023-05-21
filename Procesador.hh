@@ -89,7 +89,7 @@ class Procesador {
 
     int exist_fit (const int size_job); // FALTA 
 
-    int retrieve_free_memory () const; // FALTA
+    int retrieve_memory () const; // FALTA
 
     bool fit_job(const int size_job);
 
