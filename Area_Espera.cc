@@ -48,28 +48,27 @@ void Area_Espera:: imprimir_area_espera () const {
     }
 }
 
-void Area_Espera:: enviar_procesos_cluster (int& n, Cluster&c) {
-// enviar los procesos más antiguos por el orden de prioridad dos for
-    // cota 1: se acaba el procedimiento cuando hemos colocado n procesos
-    // for 1: for prioriodad por el orden
-    for (map <string, Prioridad>:: iterator it = prioridades_data.begin(); it != prioridades_data.end() and (n > 0); ++it) {
-        int n_accepted = it -> second.retrieve_accepted();
-        int n_rejected = it -> second.retrieve_rejected();
+void Area_Espera::enviar_procesos_cluster(int n, Cluster &c) {
+    int i = 0;
+    map<string,Prioridad>::iterator it = prioridades_data.begin();
+    while (i < n and it != prioridades_data.end()) {
+        int j = 0;
         int size = it -> second.retrieve_jobs_size();
-        // for 2: los procesos de tal prioridad, cuando termina se va al siguiente prioridad
-        // cota 2: se acaba el procedimiento cuando ya no hay procesos pendientes
-        // cota 3: se acaba el procedimiento cuando los que se queden pendientes se hayan colocado sin éxito == cuando i se alcanza el size
-        for (int i = 0; i < size and (n > 0); ++i) {
-            Proceso p = it -> second.retrieve_job();
-            bool is_colocated = c.enviar_procesos_cluster(p);
-            if (is_colocated) {  
-            // si un proceso no se ha podido colocar, vuelve a su lista de la prioridad como si fuese un proceso nuevo.
-                it -> second.alta_proceso_espera(p);
-                ++n_rejected;
-                --n;
-            } else {
-                ++n_accepted;
+        pair<int, int> info_prioridad = it -> second.retrieve_info();
+        while (i < n and j < size) {
+            Proceso temp = it -> second.retrieve_job();
+            bool is_sent = c.enviar_procesos_cluster(temp);
+            if (is_sent) {
+                ++i;
+                ++info_prioridad.first;
             }
+            else {
+                it -> second.alta_proceso_espera(temp);
+                ++info_prioridad.second;
+            }
+            ++j;
         }
-    } 
+        it -> second.update_prioridad(info_prioridad.first,info_prioridad.second);
+        ++it;
+    }
 }

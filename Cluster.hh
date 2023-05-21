@@ -41,6 +41,7 @@ class Cluster {
     static void i_imprimir_estructura_cluster (BinTree<string>& prcd);
 
 
+
     public:
     //Constructoras
 
@@ -126,6 +127,5 @@ class Cluster {
      * \pre Requiere el id valido de un procesador
      * \post se imprime los procesos de dicho profcesador por orden creciente de primera posición de memoria, incluyendo dicha posición y sus datos detallados 
     */
-    
 };
 #endif

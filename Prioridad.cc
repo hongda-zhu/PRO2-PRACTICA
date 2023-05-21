@@ -25,12 +25,11 @@ int Prioridad:: retrieve_jobs_size () const {
     return id_jobs.size();
 }
 
-int Prioridad:: retrieve_accepted () const {
-    return n_accepted;
-}
-
-int Prioridad:: retrieve_rejected () const {
-    return n_rejected;
+pair <int, int> Prioridad:: retrieve_info() const {
+    pair <int, int> result; 
+    result.first = n_accepted;
+    result.second = n_rejected;
+    return result;
 }
 
 Proceso Prioridad:: retrieve_job () {
@@ -38,11 +37,11 @@ Proceso Prioridad:: retrieve_job () {
     Proceso res = *it;
     int id_process = it -> retrieve_id();
     jobs.erase(it);
-    id_jobs.erase(id_process);
+    id_jobs.erase(id_process);;
     return res;
 };
 
-void Prioridad:: update_prioridad(const int rejected, const int accepted) {
-    n_rejected = rejected;
+void Prioridad:: update_prioridad(const int accepted, const int rejected) {
     n_accepted = accepted;
+    n_rejected = rejected;
 }

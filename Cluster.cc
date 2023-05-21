@@ -124,49 +124,43 @@ void Cluster::compactar_memoria_cluster() {
         it -> second.compactar_memoria_procesador();
 }
 
-bool Cluster:: enviar_procesos_cluster(const Proceso &Job) {
-    bool res;
-    string id_prcd = " ";
-    int free_memory = 0;
+bool Cluster::enviar_procesos_cluster (const Proceso &job) {
+    string id_prcd = "null";
     int depth = 0;
     int gap = 0;
-    i_enviar_procesos_cluster(Job, prcd, id_prcd, free_memory, depth, gap, 0);
-    if (id_prcd != " ") {
-        prcd_data.find(id_prcd) -> second.alta_proceso_procesador(Job);
-        res = true;
+    int free_memory = 0;
+    i_enviar_procesos_cluster(job, prcd, id_prcd, free_memory,gap,depth, 0);
+    if (id_prcd != "null") {
+        prcd_data.find(id_prcd) -> second.alta_proceso_procesador(job);
+        return true;
     }
-    else res = false;
-    return res;
+    return false;
 }
 
-void Cluster:: i_enviar_procesos_cluster(const Proceso &Job, const BinTree<string>& prcd, string& id_prcd, int &free_memory, int &gap, int &depth, int counter) {
+void Cluster::i_enviar_procesos_cluster (const Proceso &job, const BinTree<string> &prcd, string &id_prcd, int &free_memory, int &gap, int &depth, int counter) {
     if (not prcd.empty()) {
         string temp_id_prcd = prcd.value();
-        map<string, Procesador>:: iterator it = prcd_data.find(temp_id_prcd);
-        // chequeamos que no existe el mismo proceso en la memoria del procesador
-        bool exist_job = it -> second.exist_job(Job.retrieve_id());
-        if (not exist_job) {
-            // chequeamos si existe el hueco más ajustado, y existe nos devuelve el hueco, si no existe,  saltamos este nodo
-            int temp_gap = it -> second.exist_fit(Job.retrieve_size());
-            if (temp_gap != -1) {
-                // 1. comparamos el hueco del procesador que estamos tratando es más ajustado respecto con el procesador que hemos registrado
+        map<string,Procesador>::iterator it = prcd_data.find(temp_id_prcd);
+        bool exist_job = it -> second.exist_job(job.retrieve_id());
+        if (not exist_job){
+            // 1. comparamos el hueco del procesador que estamos tratando es más ajustado respecto con el procesador que hemos registrado
+            if (it -> second.fit_job(job.retrieve_size())) {
                 int temp_free_memory = it -> second.retrieve_free_memory();
-                if (gap == 0 or temp_gap > gap) {
-                    // 1.1 si cumple la condición, sustituimos el procesador registrado respecto al procesador que estamos tratando
+                int temp_gap = it -> second.exist_fit(job.retrieve_size());
+                if (gap == 0 or gap > temp_gap) {
+                // 1.1 si cumple la condición, sustituimos el procesador registrado respecto al procesador que estamos tratando
                     gap = temp_gap;
                     free_memory = temp_free_memory;
                     id_prcd = temp_id_prcd;
                     depth = counter;
-                } 
-                else if (gap == temp_gap) {
+                } else if (temp_gap == gap) {
                     // 2. chequeamos quien tiene mayor memoria libre
                     if (temp_free_memory > free_memory) {
                         free_memory = temp_free_memory;
                         id_prcd = temp_id_prcd;
                         depth = counter;
-                    }
-                    else if (temp_free_memory == free_memory) {
-                    // 3. si tiene la misma memoria libre, chequeamos quien tiene está más cercano al nodo principal
+                    } else if (temp_free_memory == free_memory) {
+                        // 3. si tiene la misma memoria libre, chequeamos quien tiene está más cercano al nodo principal
                         if (depth > counter) {
                             id_prcd = temp_id_prcd;
                             depth = counter;
@@ -175,8 +169,8 @@ void Cluster:: i_enviar_procesos_cluster(const Proceso &Job, const BinTree<strin
                 }
             }
         }
-        i_enviar_procesos_cluster(Job, prcd.left(), id_prcd, free_memory, gap, depth, ++counter);
-        i_enviar_procesos_cluster(Job, prcd.right(), id_prcd, free_memory, gap, depth, ++counter);
+        i_enviar_procesos_cluster(job, prcd.left(), id_prcd, free_memory, gap, depth, ++counter);
+        i_enviar_procesos_cluster(job, prcd.right(), id_prcd, free_memory, gap, depth, ++counter);
     }
 }
 

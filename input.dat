@@ -80,4 +80,43 @@ ape 111 80 5 5
 iae
 enviar_procesos_cluster 1
 ipc
+iae
+epc 100
+ipc
+iae
+configurar_cluster
+sndr01
+1000
+*
+*
+iec
+cc
+abc
+200
+*
+zsda
+550
+*
+*
+
+iec
+
+iae
+
+cmp proc
+
+compactar_memoria_procesador abc
+
+ipro abc
+app abc 40 50 8
+app abc 30 50 5
+app abc 10 50 10
+app abc 20 50 5
+app zsda 30 50 15
+at 5
+compactar_memoria_cluster
+ipc
+at 4
+cmc 
+ipc
 fin

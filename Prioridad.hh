@@ -55,13 +55,7 @@ class Prioridad {
    */
 
     int retrieve_jobs_size () const; // FALTA
-
-    int retrieve_accepted () const; // FALTA
-
-    int retrieve_rejected () const; // FALTA
-
-    
-    
+    pair<int, int> retrieve_info() const;// FALTA
     // Escriptura
 
 };

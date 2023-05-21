@@ -50,7 +50,7 @@ class Area_Espera {
      * \post Se elimina el segmento existente de la prioridad en el prioridad_data, cuando la prioridad que queremos dar la alta no existe nos imprime o cuando tiene procesos pendinetes un error
     */
 
-   void enviar_procesos_cluster(int& n, Cluster& c);
+   void enviar_procesos_cluster(int n, Cluster& c);
     /** @brief Modificadora de Area de Espera que envia n procesos por orden de prioridad al cluster.
     * \pre <em>cierto<em>
     * \post Se envian los n procesos siguiendo por el orden de prioridad situado en la area de espera a los procesadores del cluster, se actualiza los numeros de procesos rechazados e procesos aceptados de cada clase de Prioridad y se vuelven aquellos procesos rechazados como si fuesen nuevos.
