@@ -68,7 +68,7 @@ class Proceso {
        //Lectura y escriptura
     void print() const;
     /** @brief Escriptura del Procesador.
-     * \pre <em>cierto<em>
+     * \pre <em>cierto</em>
      * \post imprime el id, tamano y el tiempo restante del proceso indicado
     */ 
 };

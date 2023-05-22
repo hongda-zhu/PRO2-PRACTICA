@@ -47,7 +47,7 @@ class Procesador {
     Procesador(const string &id_prcd, int memory);
 
     /** @brief Creadora de Procesador
-     * \pre <em>cierto<em>
+     * \pre <em>cierto</em>
      * \post Devuelve un instante de procesador vacio
     */
     Procesador();
@@ -60,7 +60,7 @@ class Procesador {
     */ 
     void baja_proceso_procesador (int id_job);
     /** @brief Escriptura del Procesador.
-     * \pre <em>cierto<em>
+     * \pre <em>cierto</em>
      * \post Se elimina un proceso en el procesado del id indicado o imprime un error porque ya existe un proceso con el mismo id en el procesador.
     */ 
 
@@ -81,7 +81,7 @@ class Procesador {
     bool not_empty() const;
     /**
      * @brief Consultora del Procesador
-     * \pre <em>cierto<em>
+     * \pre <em>cierto</em>
      * \post devuelve true cuando el procesador si que contiene procesos y viceversa
     */ 
 
@@ -96,7 +96,7 @@ class Procesador {
     //Lectura y escriptura
     void imprimir_procesos() const;
     /** @brief Escriptura del Procesador.
-     * \pre <em>cierto<em>
+     * \pre <em>cierto</em>
      * \post imprime el id, tamano y el tiempo restante de los procesos del procesador indicado
     */ 
 };

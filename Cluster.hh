@@ -32,7 +32,7 @@ class Cluster {
     BinTree<string> prcd;
     map<string, Procesador> prcd_data;
 
-    void i_configurar_cluster (BinTree<string> &procesadores, map<string,Procesador> &prcd_data);
+    void i_configurar_cluster (BinTree<string> &prcd, map<string,Procesador> &prcd_data);
 
     static bool i_modificar_cluster(BinTree<string> &prcd, map<string, Procesador>&prcd_data, const string &id_prcd, const Cluster &c2);
 
@@ -75,7 +75,7 @@ class Cluster {
 
    void modificar_cluster (const string& id_prcd, const Cluster& c2);
     /** @brief Modificadora del Cluster.
-     * \pre <em>cierto<em>
+     * \pre <em>cierto</em>
      * \post Devuelve el cluster modificado si el procesador que hemos introducido es una hoja, es decir que es un vertice sin vertices auxiliares.
     */
 
@@ -87,13 +87,13 @@ class Cluster {
 
     void compactar_memoria_procesador (const string &id_prcd);
     /** @brief Modificadora del Cluster que compacta la memoria de un procesador determinado
-    * \pre <em>cierto<em>
+    * \pre <em>cierto</em>
     * \post En el caso cuando el procesador del id mencionado existe en el cluster, se devuelve la memoria de este procesador de forma compactado, es decir sin dejar huecos, sin solaparse y respetando el orden inicial.
     */
 
     void compactar_memoria_cluster ();
     /** @brief Modificadora del Cluster que compacta las memorias de todos los procesadores existente del cluster
-    * \pre <em>cierto<em>
+    * \pre <em>cierto</em>
     * \post En este caso, compactan todos la memoria de todos los procesadores.
     */
 

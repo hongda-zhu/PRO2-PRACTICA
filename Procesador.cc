@@ -5,8 +5,6 @@
 #include "Procesador.hh"
 
 Procesador::Procesador(const string &id_prcd, int memory) {
-    /*Inicialització de un procesador buit. Inicialment la memory disponible, maxima es la total
-    */
     this->memory = memory;
     this->id_prcd = id_prcd;
     max_memory = memory;

@@ -48,7 +48,7 @@ void Area_Espera:: imprimir_area_espera () const {
     }
 }
 
-void Area_Espera::enviar_procesos_cluster(int n, Cluster &c) {
+void Area_Espera::enviar_procesos_cluster(const int& n, Cluster &c) {
     int i = 0;
     map<string,Prioridad>::iterator it = prioridades_data.begin();
     while (i < n and it != prioridades_data.end()) {
