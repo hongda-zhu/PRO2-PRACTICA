@@ -14,8 +14,9 @@
 #endif 
 
 /** @class Area_Espera
- *  @brief Representa el cojunto de características y operaciones de la Area de espera y de clases de prioridades.
- *  Ofrece las operaciones que permiten a chequear los estados de las prioridades, agregar nuevas prioridades y suprimir prioridades existente, enviar procesos que está agregado en la area de espera al cluster y dar la alta de proceso de espera. Finalmente también tenemos dos operaciones de escriptura, una se destina a la prioridad especifica y otra para todas las prioridades de una area de espera
+ *  @brief Representa el cojunto de características y operaciones de la Area de espera y de clases de Prioridad.
+ 
+ Ofrece las operaciones que permiten a chequear los estados de las prioridades, agregar nuevas prioridades y suprimir prioridades existente, enviar procesos que está agregado en la area de espera al cluster y dar la alta de proceso de espera. Finalmente también tenemos dos operaciones de escriptura, una se destina a la prioridad especifica y otra para todas las prioridades de una area de espera
 */
 class Area_Espera {
     // Descripción: contiene la estructura de la area de espera y las operaciones sobre las prioridades.

@@ -1,0 +1,165 @@
+\hypertarget{program_8cc}{}\doxysection{Referencia del Archivo program.\+cc}
+\label{program_8cc}\index{program.cc@{program.cc}}
+
+
+Programa princial. Estamos suponiendo que los datos leídos serán siempre correctos, donde el id del módulo \mbox{\hyperlink{classPrioridad}{Prioridad}} y el id del módulo \mbox{\hyperlink{classProcesador}{Procesador}} serán en formato string, el variable para avanzar el tiempo y los atributos del proceso serán todos en formato de integer.  
+
+
+{\ttfamily \#include \char`\"{}Cluster.\+hh\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Proceso.\+hh\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Procesador.\+hh\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Area\+\_\+\+Espera.\+hh\char`\"{}}\newline
+Dependencia gráfica adjunta para program.\+cc\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=336pt]{program_8cc__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{program_8cc_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descripción detallada}
+Programa princial. Estamos suponiendo que los datos leídos serán siempre correctos, donde el id del módulo \mbox{\hyperlink{classPrioridad}{Prioridad}} y el id del módulo \mbox{\hyperlink{classProcesador}{Procesador}} serán en formato string, el variable para avanzar el tiempo y los atributos del proceso serán todos en formato de integer. 
+
+
+
+\doxysubsection{Documentación de las funciones}
+\mbox{\Hypertarget{program_8cc_ae66f6b31b5ad750f1fe042a706a4e3d4}\label{program_8cc_ae66f6b31b5ad750f1fe042a706a4e3d4}} 
+\index{program.cc@{program.cc}!main@{main}}
+\index{main@{main}!program.cc@{program.cc}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definición en la línea 19 del archivo program.\+cc.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{19             \{}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21     \mbox{\hyperlink{classCluster}{Cluster}} c; \textcolor{comment}{// instante de Cluster}}
+\DoxyCodeLine{22     c.\mbox{\hyperlink{classCluster_a84f9daea57e2773ab5766ef82d2a1def}{configurar\_cluster}}();}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24     \mbox{\hyperlink{classArea__Espera}{Area\_Espera}} ae; \textcolor{comment}{// instante de Cluster}}
+\DoxyCodeLine{25     \textcolor{keywordtype}{int} n; \textcolor{comment}{// num de prioridad }}
+\DoxyCodeLine{26     cin >> n;}
+\DoxyCodeLine{27     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < n; ++i) \{}
+\DoxyCodeLine{28         \textcolor{keywordtype}{string} id\_prioridad;}
+\DoxyCodeLine{29         cin >> id\_prioridad;}
+\DoxyCodeLine{30         ae.\mbox{\hyperlink{classArea__Espera_a192601262a8b4c06261bd45b64d3a129}{alta\_prioridad}}(id\_prioridad);}
+\DoxyCodeLine{31     \}}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33     \textcolor{keywordtype}{string} command; \textcolor{comment}{// comando de operación}}
+\DoxyCodeLine{34     cin >> command;}
+\DoxyCodeLine{35     \textcolor{keywordflow}{while} (command != \textcolor{stringliteral}{"{}fin"{}}) \{}
+\DoxyCodeLine{36         \textcolor{keywordflow}{if} (command == \textcolor{stringliteral}{"{}cc"{}} or command == \textcolor{stringliteral}{"{}configurar\_cluster"{}}) \{}
+\DoxyCodeLine{37             cout << \textcolor{charliteral}{'\#'} << command << endl;}
+\DoxyCodeLine{38             c.\mbox{\hyperlink{classCluster_a84f9daea57e2773ab5766ef82d2a1def}{configurar\_cluster}}();}
+\DoxyCodeLine{39         \}}
+\DoxyCodeLine{40         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (command == \textcolor{stringliteral}{"{}mc"{}} or command == \textcolor{stringliteral}{"{}modificar\_cluster"{}}) \{}
+\DoxyCodeLine{41             \textcolor{keywordtype}{string} id\_prcd;}
+\DoxyCodeLine{42             cin >> id\_prcd;}
+\DoxyCodeLine{43             \mbox{\hyperlink{classCluster}{Cluster}} c2;}
+\DoxyCodeLine{44             c2.\mbox{\hyperlink{classCluster_a84f9daea57e2773ab5766ef82d2a1def}{configurar\_cluster}}();}
+\DoxyCodeLine{45             cout << \textcolor{charliteral}{'\#'} << command << \textcolor{charliteral}{' '} << id\_prcd <<  endl;}
+\DoxyCodeLine{46             c.\mbox{\hyperlink{classCluster_a962da0ace07d9a62ff14eefd59187fc5}{modificar\_cluster}}(id\_prcd, c2);}
+\DoxyCodeLine{47         \}}
+\DoxyCodeLine{48         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (command == \textcolor{stringliteral}{"{}ap"{}} or command == \textcolor{stringliteral}{"{}alta\_prioridad"{}})\{}
+\DoxyCodeLine{49             \textcolor{keywordtype}{string} id\_prioridad;}
+\DoxyCodeLine{50             cin >> id\_prioridad;}
+\DoxyCodeLine{51             cout << \textcolor{charliteral}{'\#'} << command << \textcolor{charliteral}{' '} << id\_prioridad << endl;}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{53             ae.\mbox{\hyperlink{classArea__Espera_a192601262a8b4c06261bd45b64d3a129}{alta\_prioridad}}(id\_prioridad);}
+\DoxyCodeLine{54         \}}
+\DoxyCodeLine{55         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (command == \textcolor{stringliteral}{"{}bp"{}} or command == \textcolor{stringliteral}{"{}baja\_prioridad"{}})\{}
+\DoxyCodeLine{56             \textcolor{keywordtype}{string} id\_prioridad;}
+\DoxyCodeLine{57             cin >> id\_prioridad;}
+\DoxyCodeLine{58             cout << \textcolor{charliteral}{'\#'} << command << \textcolor{charliteral}{' '} << id\_prioridad << endl;}
+\DoxyCodeLine{59             ae.\mbox{\hyperlink{classArea__Espera_ad8e5063a95aedd070cf4df34fb7a38a1}{baja\_prioridad}}(id\_prioridad);}
+\DoxyCodeLine{60         \}}
+\DoxyCodeLine{61         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (command == \textcolor{stringliteral}{"{}ape"{}} or command == \textcolor{stringliteral}{"{}alta\_proceso\_espera"{}})\{}
+\DoxyCodeLine{62             \textcolor{keywordtype}{string} id\_prioridad;}
+\DoxyCodeLine{63             cin >> id\_prioridad;}
+\DoxyCodeLine{64             \mbox{\hyperlink{classProceso}{Proceso}} Job;}
+\DoxyCodeLine{65             Job.\mbox{\hyperlink{classProceso_a976a78c5243449faaad4ed7b01e8a097}{read}}();}
+\DoxyCodeLine{66             cout << \textcolor{charliteral}{'\#'} << command << \textcolor{charliteral}{' '} << id\_prioridad << \textcolor{charliteral}{' '} << Job.\mbox{\hyperlink{classProceso_a1a74ae0ef5b19a8c9c791caae9aeaa0a}{retrieve\_id}}() << endl;}
+\DoxyCodeLine{67 }
+\DoxyCodeLine{68             ae.\mbox{\hyperlink{classArea__Espera_a00686288be48be56fcc5b63e59961958}{alta\_proceso\_espera}}(id\_prioridad, Job);}
+\DoxyCodeLine{69         \}}
+\DoxyCodeLine{70         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (command == \textcolor{stringliteral}{"{}app"{}} or command == \textcolor{stringliteral}{"{}alta\_proceso\_procesador"{}})\{}
+\DoxyCodeLine{71             \textcolor{keywordtype}{string} id\_prcd;}
+\DoxyCodeLine{72             cin >> id\_prcd;}
+\DoxyCodeLine{73             \mbox{\hyperlink{classProceso}{Proceso}} Job;}
+\DoxyCodeLine{74             Job.\mbox{\hyperlink{classProceso_a976a78c5243449faaad4ed7b01e8a097}{read}}();}
+\DoxyCodeLine{75             cout << \textcolor{charliteral}{'\#'} << command << \textcolor{charliteral}{' '} << id\_prcd << \textcolor{charliteral}{' '} << Job.\mbox{\hyperlink{classProceso_a1a74ae0ef5b19a8c9c791caae9aeaa0a}{retrieve\_id}}() << endl;}
+\DoxyCodeLine{76 }
+\DoxyCodeLine{77             c.\mbox{\hyperlink{classCluster_afb280fbaa405ad18c4c6a51dfed6fd77}{alta\_proceso\_procesador}}(id\_prcd, Job);}
+\DoxyCodeLine{78         \}}
+\DoxyCodeLine{79         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (command == \textcolor{stringliteral}{"{}bpp"{}} or command == \textcolor{stringliteral}{"{}baja\_proceso\_procesador"{}})\{}
+\DoxyCodeLine{80             \textcolor{keywordtype}{string} id\_prcd;}
+\DoxyCodeLine{81             cin >> id\_prcd;}
+\DoxyCodeLine{82             \textcolor{keywordtype}{int} id\_job;}
+\DoxyCodeLine{83             cin >> id\_job;}
+\DoxyCodeLine{84             cout << \textcolor{charliteral}{'\#'} << command << \textcolor{charliteral}{' '} << id\_prcd << \textcolor{charliteral}{' '} << id\_job << endl;}
+\DoxyCodeLine{85             }
+\DoxyCodeLine{86             c.\mbox{\hyperlink{classCluster_a805b6e3a4e6bd4273e2cda569820ff0b}{baja\_proceso\_procesador}}(id\_prcd, id\_job);}
+\DoxyCodeLine{87         \}}
+\DoxyCodeLine{88         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (command == \textcolor{stringliteral}{"{}epc"{}} or command == \textcolor{stringliteral}{"{}enviar\_procesos\_cluster"{}}) \{}
+\DoxyCodeLine{89             \textcolor{keywordtype}{int} n;}
+\DoxyCodeLine{90             cin >> n;}
+\DoxyCodeLine{91             cout << \textcolor{charliteral}{'\#'} << command << \textcolor{charliteral}{' '} << n << endl;}
+\DoxyCodeLine{92             ae.\mbox{\hyperlink{classArea__Espera_a6c31311bfa69edac2d8b193420739796}{enviar\_procesos\_cluster}}(n, c);}
+\DoxyCodeLine{93         \}}
+\DoxyCodeLine{94         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (command == \textcolor{stringliteral}{"{}at"{}} or command == \textcolor{stringliteral}{"{}avanzar\_tiempo"{}})\{}
+\DoxyCodeLine{95             \textcolor{keywordtype}{int} t;}
+\DoxyCodeLine{96             cin >> t;}
+\DoxyCodeLine{97             cout << \textcolor{charliteral}{'\#'} << command << \textcolor{charliteral}{' '} << t << endl;}
+\DoxyCodeLine{98 }
+\DoxyCodeLine{99             c.\mbox{\hyperlink{classCluster_a3b93301a46cfa8cadf8d0121e234c386}{avanzar\_tiempo}}(t);}
+\DoxyCodeLine{100         \}}
+\DoxyCodeLine{101         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (command == \textcolor{stringliteral}{"{}ipri"{}} or command == \textcolor{stringliteral}{"{}imprimir\_prioridad"{}})\{}
+\DoxyCodeLine{102             \textcolor{keywordtype}{string} id\_prioridad;}
+\DoxyCodeLine{103             cin >> id\_prioridad;}
+\DoxyCodeLine{104             cout << \textcolor{charliteral}{'\#'} << command << \textcolor{charliteral}{' '} << id\_prioridad << endl;}
+\DoxyCodeLine{105 }
+\DoxyCodeLine{106             ae.\mbox{\hyperlink{classArea__Espera_ac310b3e7c1001f61939d8f8682363dba}{imprimir\_prioridad}}(id\_prioridad);}
+\DoxyCodeLine{107         \}}
+\DoxyCodeLine{108         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (command == \textcolor{stringliteral}{"{}iae"{}} or command == \textcolor{stringliteral}{"{}imprimir\_area\_espera"{}})\{}
+\DoxyCodeLine{109             cout << \textcolor{charliteral}{'\#'} << command << endl;  }
+\DoxyCodeLine{110             ae.\mbox{\hyperlink{classArea__Espera_aa6ff6d0df40c1ea60d359c725c9d319a}{imprimir\_area\_espera}}();}
+\DoxyCodeLine{111         \}}
+\DoxyCodeLine{112         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (command == \textcolor{stringliteral}{"{}ipro"{}} or command == \textcolor{stringliteral}{"{}imprimir\_procesador"{}})\{}
+\DoxyCodeLine{113             \textcolor{keywordtype}{string} id\_prcd;}
+\DoxyCodeLine{114             cin >> id\_prcd;}
+\DoxyCodeLine{115             cout << \textcolor{charliteral}{'\#'} << command << \textcolor{charliteral}{' '} << id\_prcd << endl;}
+\DoxyCodeLine{116             c.\mbox{\hyperlink{classCluster_a22282c9875715561063908874b0d515f}{imprimir\_procesador}}(id\_prcd);}
+\DoxyCodeLine{117         \}}
+\DoxyCodeLine{118         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (command == \textcolor{stringliteral}{"{}ipc"{}} or command == \textcolor{stringliteral}{"{}imprimir\_procesadores\_cluster"{}})\{}
+\DoxyCodeLine{119             cout << \textcolor{charliteral}{'\#'} << command << endl;}
+\DoxyCodeLine{120             c.\mbox{\hyperlink{classCluster_ab8a628286f8a977063ea4395d9a422bf}{imprimir\_procesadores\_cluster}}();}
+\DoxyCodeLine{121         \}}
+\DoxyCodeLine{122         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (command == \textcolor{stringliteral}{"{}iec"{}} or command == \textcolor{stringliteral}{"{}imprimir\_estructura\_cluster"{}})\{}
+\DoxyCodeLine{123             cout << \textcolor{charliteral}{'\#'} << command << endl;}
+\DoxyCodeLine{124             c.\mbox{\hyperlink{classCluster_a948d7075f9b30c2885ce804029e5ab25}{imprimir\_estructura\_cluster}}();}
+\DoxyCodeLine{125         \}}
+\DoxyCodeLine{126         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (command == \textcolor{stringliteral}{"{}cmp"{}} or command == \textcolor{stringliteral}{"{}compactar\_memoria\_procesador"{}})\{}
+\DoxyCodeLine{127             \textcolor{keywordtype}{string} id\_prcd;}
+\DoxyCodeLine{128             cin >> id\_prcd;}
+\DoxyCodeLine{129             cout << \textcolor{charliteral}{'\#'} << command << \textcolor{charliteral}{' '} << id\_prcd <<  endl;}
+\DoxyCodeLine{130             c.\mbox{\hyperlink{classCluster_aaee8f13b3a7cd82b06ae5decd7f80bf0}{compactar\_memoria\_procesador}}(id\_prcd);}
+\DoxyCodeLine{131         \}}
+\DoxyCodeLine{132         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (command == \textcolor{stringliteral}{"{}cmc"{}} or command == \textcolor{stringliteral}{"{}compactar\_memoria\_cluster"{}})\{}
+\DoxyCodeLine{133             cout << \textcolor{charliteral}{'\#'} << command  <<  endl;}
+\DoxyCodeLine{134             c.\mbox{\hyperlink{classCluster_a7b9ae511df4a6465f4e191df6564fd77}{compactar\_memoria\_cluster}}();}
+\DoxyCodeLine{135         \}}
+\DoxyCodeLine{136         cin >> command;}
+\DoxyCodeLine{137     \}}
+\DoxyCodeLine{138 \}}
+
+\end{DoxyCode}

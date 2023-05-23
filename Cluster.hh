@@ -15,9 +15,9 @@
 #endif
 
 /** @class Cluster
- *  @brief Representa a un conjunto de procesadores.
-  
-    Hace referencia a un conjunto de procesador o prcd (minimo 1) que realizan procesos y tareas. Permite agregar nuevos procesadores y suprimir un procesador en concreto en el parametro implicito, también permite compactar la memory de un procesador en concreto o todos los procesadores que tiene el parametro implicito, dar de alta a procesos al procesador correspondinete. Tiene operaciones para hacer consultas o modificar sobre los estados de un procesador. Por el último,  dispone operaciones de lectura y escriptura para un procesador o un conjunto de procesadores del parametro implicito.
+ *  @brief Representa a un conjunto de procesadores. 
+ 
+ Hace referencia a un conjunto de procesador o prcd (minimo 1) que realizan procesos y tareas. Permite agregar nuevos procesadores y suprimir un procesador en concreto en el parametro implicito, también permite compactar la memory de un procesador en concreto o todos los procesadores que tiene el parametro implicito, dar de alta a procesos al procesador correspondinete. Tiene operaciones para hacer consultas o modificar sobre los estados de un procesador. Por el último,  dispone operaciones de lectura y escriptura para un procesador o un conjunto de procesadores del parametro implicito.
 */
 class Cluster {
     // Descripción: contiene la estructura de procesadores y las operaciones de un cluster.

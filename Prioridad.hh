@@ -13,9 +13,9 @@
 
 
 /** @class Prioridad
- *  @brief 
- *  Representa la información de una prioridad donde cada prioridad está formado por una lista de procesos (tal lista puede ser vacio).
- *  La clase de Prioridad dispone un conjunto de operaciones que permite agregar y eliminar procesos correspondientes. También dispone modificadores que permite modificar los numeros de procesos enviados aceptados y rechazados. Por el último, dispone varias operaciones de escriptura que permite imprimir el estado de los procesos existentes y las informaciones relevantes del parametro implicito.
+ *  @brief Representa la información de una prioridad donde cada prioridad está formado por una lista de procesos (tal lista puede ser vacio).
+ 
+ La clase de Prioridad dispone un conjunto de operaciones que permite agregar y eliminar procesos correspondientes. También dispone modificadores que permite modificar los numeros de procesos enviados aceptados y rechazados. Por el último, dispone varias operaciones de escriptura que permite imprimir el estado de los procesos existentes y las informaciones relevantes del parametro implicito.
 */
 class Prioridad {
 

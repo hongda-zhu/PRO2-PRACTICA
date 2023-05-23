@@ -12,8 +12,8 @@
 #endif
 
 /** @class Procesador
-    @brief Representa la información y las operaciones asociadas a un procesador en concreto
-
+    @brief Representa la información y las operaciones asociadas a un procesador en concreto. 
+    
     Sus operaciones son una creadora del instante de procesador que require el id y la memoria,  unas operaciones modifcadoras como insertar un nuevo proceso al procesador o eliminar un proceso existente del procesador, avanzar tiempo de todos los procesos del procesador, compactar la memoria del parametro implicito. Además también tiene operaciones consultoras que mira el estado de los parametros implicios. Por el último, dispone operaciones de lectura y escriptura para leer los datos de un procesador y escribir los procesos de estos.
     
 */

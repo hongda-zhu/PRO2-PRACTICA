@@ -1,8 +1,9 @@
 /** @mainpage
  * Fichero principal
  * 
- * El program se ejeucuta a partir de este fichero. Con lo que hemos viso en el enunciado, necesitaremos crear un módulo que se llama Cluster que será el conjunto de otro módulo que se llama Procesador. Por otro lado, tenemos un módulo que se llama el área de espear donde está formado por el conjunto de módulo de Prioridades.
- Tanto el módulo de Procesador como el módulo de Prioridades contienen los conjuntos de procesos, que será el elemento principal que trataremos en esta practica.
+ * El program se ejeucuta a partir de program.cc.
+ *  Con lo que hemos visto en el enunciado, necesitaremos crear un módulo que se llama Cluster que será el conjunto de otro módulo que se llama Procesador. Por otro lado, tenemos un módulo que se llama el Area_Espera donde está formado por el conjunto de módulo de Prioridad.
+ Tanto el módulo de los procesadores como el módulo de prioridades trabajan con los conjuntos de procesos que pertenece al módulo Proceso, que será el elemento principal que trataremos en esta practica.
 */
 
 /** @file program.cc

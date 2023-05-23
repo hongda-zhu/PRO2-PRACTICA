@@ -1,0 +1,781 @@
+\hypertarget{classProcesador}{}\doxysection{Referencia de la Clase Procesador}
+\label{classProcesador}\index{Procesador@{Procesador}}
+
+
+Representa la información y las operaciones asociadas a un procesador en concreto.  
+
+
+
+
+{\ttfamily \#include $<$Procesador.\+hh$>$}
+
+\doxysubsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classProcesador_ac7d20b90cc6c3e82cd5644623644ee4a}{Procesador}} (const string \&\mbox{\hyperlink{classProcesador_aeb45f597332731116cde14239327ee46}{id\+\_\+prcd}}, int \mbox{\hyperlink{classProcesador_ae6bb3892fd8f5d7bc45330ae0882bad6}{memory}})
+\begin{DoxyCompactList}\small\item\em Creadora de \mbox{\hyperlink{classProcesador}{Procesador}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classProcesador_af4c772af04008c3e72fcaad4e72ad4d1}{alta\+\_\+proceso\+\_\+procesador}} (const \mbox{\hyperlink{classProceso}{Proceso}} \&Job)
+\begin{DoxyCompactList}\small\item\em Escriptura del \mbox{\hyperlink{classProcesador}{Procesador}} que añade un proceso al procesador tratado. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classProcesador_a5b54b24d643e29f156ff1d31f43712fb}{baja\+\_\+proceso\+\_\+procesador}} (const int id\+\_\+job)
+\begin{DoxyCompactList}\small\item\em Escriptura del \mbox{\hyperlink{classProcesador}{Procesador}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classProcesador_a91055a2cc9c3129051a762a9eb2a1f19}{avanzar\+\_\+tiempo}} (int t)
+\begin{DoxyCompactList}\small\item\em Modificadora del \mbox{\hyperlink{classProcesador}{Procesador}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classProcesador_a6c5d44f2b2e9aee6553a77d3056626f0}{compactar\+\_\+memoria\+\_\+procesador}} ()
+\begin{DoxyCompactList}\small\item\em Modificadora del \mbox{\hyperlink{classProcesador}{Procesador}} que compacta la memoria del procesador tratado. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classProcesador_a9e03729ab31a0b6e2eae97af9d13b911}{not\+\_\+empty}} () const
+\begin{DoxyCompactList}\small\item\em Consultora del \mbox{\hyperlink{classProcesador}{Procesador}} que verifica el estado de ocupación procesos del procesador. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classProcesador_a83f3690af72a494d9bbfc20b4a024fd0}{exist\+\_\+job}} (const int id\+\_\+job)
+\begin{DoxyCompactList}\small\item\em Consultora del \mbox{\hyperlink{classProcesador}{Procesador}} que verifica la existencia del proceso en el procesador tratado. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classProcesador_a6182c5640705bccf588e10d1cc3d113f}{best\+\_\+fit}} (const int size\+\_\+job)
+\begin{DoxyCompactList}\small\item\em Consultora del \mbox{\hyperlink{classProcesador}{Procesador}} que verifica si existe el hueco optimo para el proceso que queremos insertar en el procesador tratado. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classProcesador_a6951cd8b6d3ede1227b13f0cd894ba6f}{fit\+\_\+job}} (const int size\+\_\+job)
+\begin{DoxyCompactList}\small\item\em Consultora del \mbox{\hyperlink{classProcesador}{Procesador}} que verifica si existe el hueco para el proceso. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classProcesador_a936dfd63b43a70b070b152d391bd3aec}{retrieve\+\_\+free\+\_\+memory}} () const
+\begin{DoxyCompactList}\small\item\em Escriptura del \mbox{\hyperlink{classProcesador}{Procesador}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classProcesador_a878f54f3bf0c2252046346b0b3ed069b}{imprimir\+\_\+procesos}} () const
+\begin{DoxyCompactList}\small\item\em Escriptura del \mbox{\hyperlink{classProcesador}{Procesador}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Métodos privados}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classProcesador_a4171c0fef3de19f5398a49332f2ced1a}{insert\+\_\+gap}} (int size, int start)
+\begin{DoxyCompactList}\small\item\em Operacion modificadora de huecos libres. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classProcesador_ad30d3a61a7cb39faee7aec638422a356}{erase\+\_\+gap}} (int size, int start)
+\begin{DoxyCompactList}\small\item\em Operacion modificadora de huecos libres. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Atributos privados}
+\begin{DoxyCompactItemize}
+\item 
+string \mbox{\hyperlink{classProcesador_aeb45f597332731116cde14239327ee46}{id\+\_\+prcd}}
+\begin{DoxyCompactList}\small\item\em id de procesador \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classProcesador_ae6bb3892fd8f5d7bc45330ae0882bad6}{memory}}
+\begin{DoxyCompactList}\small\item\em la memoria total del procesador \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classProcesador_ac8e39453112cc9526fc732f57400f795}{total\+\_\+memory}}
+\begin{DoxyCompactList}\small\item\em el tamaño del hueco más grande del procesador \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classProcesador_ac767e9a6816929e185efc47417792775}{free\+\_\+memory}}
+\begin{DoxyCompactList}\small\item\em la memoria libre de procesadorr \end{DoxyCompactList}\item 
+map$<$ int, set$<$ int $>$ $>$ \mbox{\hyperlink{classProcesador_a36e8cb7fa64b229ac3d231a4211e9a84}{gap\+\_\+data}}
+\begin{DoxyCompactList}\small\item\em Esta lista nos guarda los bloques de la memoria libre, el primer int indica el tamano del hueco y el segundo set nos indica por donde guarda la posicion de memoria por donde se empieza el hueco, el ordenamiento de esta lista es creciente respecto el tamaño del hueco. \end{DoxyCompactList}\item 
+map$<$ int, int $>$ \mbox{\hyperlink{classProcesador_af4560dbbadd8a4456fa2c2ae94624067}{prcd\+\_\+job\+\_\+memory}}
+\begin{DoxyCompactList}\small\item\em Esta lista nos guarda el id de proceso en el primer int y la posición de memoria por donde empieza en el segundo int, el ordenamiento de esta lista es creciente respecto el id de los procesos. \end{DoxyCompactList}\item 
+map$<$ int, \mbox{\hyperlink{classProceso}{Proceso}} $>$ \mbox{\hyperlink{classProcesador_a84b9a006ace320f9101e998ce71f5994}{prcd\+\_\+memory\+\_\+job}}
+\begin{DoxyCompactList}\small\item\em Esta lista nos guarda la posición de memoria en el primer int y el proceso correspondiente en el segundo parametro, el ordenamiento de esta lista es creciente respecto la posición inicial en la memoria de cada proceso. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descripción detallada}
+Representa la información y las operaciones asociadas a un procesador en concreto. 
+
+Sus operaciones son una creadora del instante de procesador que require el id y la memoria, unas operaciones modifcadoras como insertar un nuevo proceso al procesador o eliminar un proceso existente del procesador, avanzar tiempo de todos los procesos del procesador, compactar la memoria del parametro implicito. Además también tiene operaciones consultoras que mira el estado de los parametros implicios. Por el último, dispone operaciones de lectura y escriptura para leer los datos de un procesador y escribir los procesos de estos. 
+
+Definición en la línea 20 del archivo Procesador.\+hh.
+
+
+
+\doxysubsection{Documentación del constructor y destructor}
+\mbox{\Hypertarget{classProcesador_ac7d20b90cc6c3e82cd5644623644ee4a}\label{classProcesador_ac7d20b90cc6c3e82cd5644623644ee4a}} 
+\index{Procesador@{Procesador}!Procesador@{Procesador}}
+\index{Procesador@{Procesador}!Procesador@{Procesador}}
+\doxysubsubsection{\texorpdfstring{Procesador()}{Procesador()}}
+{\footnotesize\ttfamily Procesador\+::\+Procesador (\begin{DoxyParamCaption}\item[{const string \&}]{id\+\_\+prcd,  }\item[{int}]{memory }\end{DoxyParamCaption})}
+
+
+
+Creadora de \mbox{\hyperlink{classProcesador}{Procesador}}. 
+
+\begin{DoxyPrecond}{Precondición}
+Requiere el id de procesador {\itshape id\+\_\+prcd} y su tamano de la memoria {\itshape memory} 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+Devuelve un instante de procesador con su id y su tamano de memoria 
+\end{DoxyPostcond}
+\begin{DoxyParagraph}{Coste}
+Constante 
+\end{DoxyParagraph}
+
+
+Definición en la línea 7 del archivo Procesador.\+cc.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{7                                                         \{}
+\DoxyCodeLine{8     \textcolor{comment}{/* Inicializa el procesador vacio, iniciando la memoria total y la memoria libre como la memoria, solo habrá un hueco en la memoria que será la memoria total*/}}
+\DoxyCodeLine{9     this-\/>\mbox{\hyperlink{classProcesador_ae6bb3892fd8f5d7bc45330ae0882bad6}{memory}} = \mbox{\hyperlink{classProcesador_ae6bb3892fd8f5d7bc45330ae0882bad6}{memory}};}
+\DoxyCodeLine{10     this-\/>\mbox{\hyperlink{classProcesador_aeb45f597332731116cde14239327ee46}{id\_prcd}} = \mbox{\hyperlink{classProcesador_aeb45f597332731116cde14239327ee46}{id\_prcd}};}
+\DoxyCodeLine{11     \mbox{\hyperlink{classProcesador_ac8e39453112cc9526fc732f57400f795}{total\_memory}} = \mbox{\hyperlink{classProcesador_ae6bb3892fd8f5d7bc45330ae0882bad6}{memory}};}
+\DoxyCodeLine{12     \mbox{\hyperlink{classProcesador_ac767e9a6816929e185efc47417792775}{free\_memory}} = \mbox{\hyperlink{classProcesador_ae6bb3892fd8f5d7bc45330ae0882bad6}{memory}};}
+\DoxyCodeLine{13     \mbox{\hyperlink{classProcesador_a36e8cb7fa64b229ac3d231a4211e9a84}{gap\_data}}[\mbox{\hyperlink{classProcesador_ae6bb3892fd8f5d7bc45330ae0882bad6}{memory}}] = \{0\};}
+\DoxyCodeLine{14 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Documentación de las funciones miembro}
+\mbox{\Hypertarget{classProcesador_af4c772af04008c3e72fcaad4e72ad4d1}\label{classProcesador_af4c772af04008c3e72fcaad4e72ad4d1}} 
+\index{Procesador@{Procesador}!alta\_proceso\_procesador@{alta\_proceso\_procesador}}
+\index{alta\_proceso\_procesador@{alta\_proceso\_procesador}!Procesador@{Procesador}}
+\doxysubsubsection{\texorpdfstring{alta\_proceso\_procesador()}{alta\_proceso\_procesador()}}
+{\footnotesize\ttfamily void Procesador\+::alta\+\_\+proceso\+\_\+procesador (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classProceso}{Proceso}} \&}]{Job }\end{DoxyParamCaption})}
+
+
+
+Escriptura del \mbox{\hyperlink{classProcesador}{Procesador}} que añade un proceso al procesador tratado. 
+
+\begin{DoxyPrecond}{Precondición}
+Haya suficiente espacio 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+Se añade un proceso en el procesado del id indicado o imprime un error porque ya existe un proceso con el mismo id en el procesador. 
+\end{DoxyPostcond}
+\begin{DoxyParagraph}{Coste}
+Logaritmico 
+\end{DoxyParagraph}
+
+
+Definición en la línea 33 del archivo Procesador.\+cc.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{33                                                            \{}
+\DoxyCodeLine{34     \textcolor{keywordtype}{int} size\_job = Job.\mbox{\hyperlink{classProceso_ac692b2c0c5ca17d3e799a3658383a8a0}{retrieve\_size}}();}
+\DoxyCodeLine{35     \textcolor{keywordtype}{int} id\_job = Job.\mbox{\hyperlink{classProceso_a1a74ae0ef5b19a8c9c791caae9aeaa0a}{retrieve\_id}}();}
+\DoxyCodeLine{36     \textcolor{comment}{// Comprovaciones de los errores, vemos si hay proceso relevante en la memoria del procesador}}
+\DoxyCodeLine{37     map <int,int>::const\_iterator it\_job\_memory = \mbox{\hyperlink{classProcesador_af4560dbbadd8a4456fa2c2ae94624067}{prcd\_job\_memory}}.lower\_bound(id\_job);}
+\DoxyCodeLine{38     \textcolor{keywordflow}{if} (it\_job\_memory != \mbox{\hyperlink{classProcesador_af4560dbbadd8a4456fa2c2ae94624067}{prcd\_job\_memory}}.end() and it\_job\_memory -\/> first == id\_job) \{}
+\DoxyCodeLine{39         \textcolor{comment}{// Error 1: ya existe el proceso con el mismo identificador}}
+\DoxyCodeLine{40         cout << \textcolor{stringliteral}{"{}error: ya existe proceso"{}} << endl;}
+\DoxyCodeLine{41     \} }
+\DoxyCodeLine{42     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (\mbox{\hyperlink{classProcesador_ac8e39453112cc9526fc732f57400f795}{total\_memory}} < size\_job) \{}
+\DoxyCodeLine{43         \textcolor{comment}{// Error 2: No hay suficiente memoria para insertar este proceso}}
+\DoxyCodeLine{44         cout << \textcolor{stringliteral}{"{}error: no cabe proceso"{}} << endl;}
+\DoxyCodeLine{45     \}}
+\DoxyCodeLine{46     \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{47         \textcolor{comment}{// buscamos el hueco de la memoria para este proceso que queremos insertar}}
+\DoxyCodeLine{48         map <int, set<int>>::iterator it = \mbox{\hyperlink{classProcesador_a36e8cb7fa64b229ac3d231a4211e9a84}{gap\_data}}.lower\_bound(size\_job);}
+\DoxyCodeLine{49         \textcolor{keywordtype}{int} remain\_space = it -\/> first;}
+\DoxyCodeLine{50         \textcolor{keywordtype}{int} start = *it -\/> second.begin();}
+\DoxyCodeLine{51         \textcolor{comment}{// actualizamos las dos listas añadiendo el nuevo proceso}}
+\DoxyCodeLine{52         \mbox{\hyperlink{classProcesador_af4560dbbadd8a4456fa2c2ae94624067}{prcd\_job\_memory}}.insert(it\_job\_memory, make\_pair(id\_job, start));}
+\DoxyCodeLine{53         \mbox{\hyperlink{classProcesador_a84b9a006ace320f9101e998ce71f5994}{prcd\_memory\_job}}.insert(make\_pair(start, Job)); }
+\DoxyCodeLine{54 }
+\DoxyCodeLine{55         \textcolor{comment}{// reajustamos el hueco}}
+\DoxyCodeLine{56         \mbox{\hyperlink{classProcesador_ad30d3a61a7cb39faee7aec638422a356}{erase\_gap}}(remain\_space, start);}
+\DoxyCodeLine{57         \textcolor{keywordflow}{if} (remain\_space > size\_job) \mbox{\hyperlink{classProcesador_a4171c0fef3de19f5398a49332f2ced1a}{insert\_gap}} (remain\_space -\/ size\_job, start + size\_job);}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{59         \textcolor{comment}{// Actualizamos el espacio total}}
+\DoxyCodeLine{60         \textcolor{keywordflow}{if} (\mbox{\hyperlink{classProcesador_a36e8cb7fa64b229ac3d231a4211e9a84}{gap\_data}}.empty()) \mbox{\hyperlink{classProcesador_ac8e39453112cc9526fc732f57400f795}{total\_memory}} = 0;}
+\DoxyCodeLine{61         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (remain\_space == \mbox{\hyperlink{classProcesador_ac8e39453112cc9526fc732f57400f795}{total\_memory}}) \mbox{\hyperlink{classProcesador_ac8e39453112cc9526fc732f57400f795}{total\_memory}} = \mbox{\hyperlink{classProcesador_a36e8cb7fa64b229ac3d231a4211e9a84}{gap\_data}}.rbegin() -\/> first;}
+\DoxyCodeLine{62     \}}
+\DoxyCodeLine{63 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classProcesador_a91055a2cc9c3129051a762a9eb2a1f19}\label{classProcesador_a91055a2cc9c3129051a762a9eb2a1f19}} 
+\index{Procesador@{Procesador}!avanzar\_tiempo@{avanzar\_tiempo}}
+\index{avanzar\_tiempo@{avanzar\_tiempo}!Procesador@{Procesador}}
+\doxysubsubsection{\texorpdfstring{avanzar\_tiempo()}{avanzar\_tiempo()}}
+{\footnotesize\ttfamily void Procesador\+::avanzar\+\_\+tiempo (\begin{DoxyParamCaption}\item[{int}]{t }\end{DoxyParamCaption})}
+
+
+
+Modificadora del \mbox{\hyperlink{classProcesador}{Procesador}}. 
+
+\begin{DoxyPrecond}{Precondición}
+t $>$= 0 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+Se accelera todos el tiempo de todo los procesos del procesador, si el tiempo restante \textquotesingle{}t\textquotesingle{} es mayor que el tiempo que queda un procesador, este procesador se queda eliminado y liberamos su espacio 
+\end{DoxyPostcond}
+\begin{DoxyParagraph}{Coste}
+Lineal que depende el tamaño de las listas relacionados 
+\end{DoxyParagraph}
+Aplicamos un bucle para actualizar el estado de tiempo restante de cada proceso del procesador, esta implementación se destaca en la posibilidad que acumular los huecos que hay que liberar cuando los procesos tratados son posiblemente eliminados en caso cuando su tiempo restante después de la operación sean 0 o menor que 0.
+
+Definición en la línea 119 del archivo Procesador.\+cc.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{119                                      \{}
+\DoxyCodeLine{123     map<int,Proceso>::iterator it = \mbox{\hyperlink{classProcesador_a84b9a006ace320f9101e998ce71f5994}{prcd\_memory\_job}}.begin();}
+\DoxyCodeLine{124     \textcolor{comment}{// size == tamaño del hueco creado por la eliminación del proceso}}
+\DoxyCodeLine{125     \textcolor{keywordtype}{int} size = 0;}
+\DoxyCodeLine{126     \textcolor{keywordtype}{int} start\_pos = 0;}
+\DoxyCodeLine{127     \textcolor{keywordtype}{int} last\_pos = 0;}
+\DoxyCodeLine{128     \textcolor{keywordtype}{bool} consecutive = \textcolor{keyword}{false};}
+\DoxyCodeLine{129     \textcolor{keywordflow}{while} (it != \mbox{\hyperlink{classProcesador_a84b9a006ace320f9101e998ce71f5994}{prcd\_memory\_job}}.end()) \{}
+\DoxyCodeLine{130         it -\/> second.actualizar\_proceso(t);}
+\DoxyCodeLine{131 }
+\DoxyCodeLine{132         \textcolor{keywordtype}{int} pos\_job = it -\/>first;}
+\DoxyCodeLine{133         \textcolor{keywordtype}{int} time\_job = it -\/> second.retrieve\_time();}
+\DoxyCodeLine{134         \textcolor{keywordtype}{int} size\_job = it -\/> second.retrieve\_size();}
+\DoxyCodeLine{135 }
+\DoxyCodeLine{136         \textcolor{comment}{// existen 4 casos una vez cuando hemos actualizado el tiempo del proceso}}
+\DoxyCodeLine{137         \textcolor{keywordflow}{if} (time\_job <= 0)\{}
+\DoxyCodeLine{138             \textcolor{comment}{// caso 1: si el proceso ya ha acabado, lo eliminamos y actualizamos los datos. Si el proceso anterior también ha sido eliminado, se acumula el tamaño del hueco libre}}
+\DoxyCodeLine{139             \textcolor{keywordflow}{if} (not consecutive) start\_pos = last\_pos;}
+\DoxyCodeLine{140 }
+\DoxyCodeLine{141             size += pos\_job + size\_job -\/ last\_pos;}
+\DoxyCodeLine{142             \textcolor{keywordtype}{int} gap = pos\_job -\/ last\_pos;}
+\DoxyCodeLine{143             \textcolor{keywordflow}{if} (gap != 0) \mbox{\hyperlink{classProcesador_ad30d3a61a7cb39faee7aec638422a356}{erase\_gap}}(gap,last\_pos);}
+\DoxyCodeLine{144             \mbox{\hyperlink{classProcesador_af4560dbbadd8a4456fa2c2ae94624067}{prcd\_job\_memory}}.erase(it -\/> second.retrieve\_id());}
+\DoxyCodeLine{145             last\_pos = pos\_job + size\_job;}
+\DoxyCodeLine{146             it = \mbox{\hyperlink{classProcesador_a84b9a006ace320f9101e998ce71f5994}{prcd\_memory\_job}}.erase(it);}
+\DoxyCodeLine{147             consecutive = \textcolor{keyword}{true};}
+\DoxyCodeLine{148         \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (size != 0)\{}
+\DoxyCodeLine{149             \textcolor{comment}{// caso 2: si nos encontramos un proceso que no has sido eliminado, en esta situación tendremos que registrar el hueco con toda la acumulación de espacio que hemos tenido previamente.}}
+\DoxyCodeLine{150             \textcolor{keywordtype}{int} gap = pos\_job -\/ last\_pos;}
+\DoxyCodeLine{151             \textcolor{keywordflow}{if} (gap != 0) \{}
+\DoxyCodeLine{152                 \mbox{\hyperlink{classProcesador_ad30d3a61a7cb39faee7aec638422a356}{erase\_gap}}(gap,last\_pos);}
+\DoxyCodeLine{153                 size += gap;}
+\DoxyCodeLine{154             \}}
+\DoxyCodeLine{155             \textcolor{keywordflow}{if} (size > \mbox{\hyperlink{classProcesador_ac8e39453112cc9526fc732f57400f795}{total\_memory}}) \mbox{\hyperlink{classProcesador_ac8e39453112cc9526fc732f57400f795}{total\_memory}} = size;}
+\DoxyCodeLine{156             \mbox{\hyperlink{classProcesador_a4171c0fef3de19f5398a49332f2ced1a}{insert\_gap}}(size, start\_pos);}
+\DoxyCodeLine{157             size = 0;}
+\DoxyCodeLine{158             last\_pos = pos\_job + size\_job;}
+\DoxyCodeLine{159             ++it;}
+\DoxyCodeLine{160             consecutive = \textcolor{keyword}{false};}
+\DoxyCodeLine{161         \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{162             \textcolor{comment}{// caso 3: si el proceso no ha terminado, y no hay huecos libres, no hacemos nada en la memoria}}
+\DoxyCodeLine{163             last\_pos = pos\_job + size\_job;}
+\DoxyCodeLine{164             ++it;}
+\DoxyCodeLine{165         \}}
+\DoxyCodeLine{166 }
+\DoxyCodeLine{167         \textcolor{comment}{// caso 4: si hemos llegado al final de la lista y tenemos un hueco, insertamos el hueco.}}
+\DoxyCodeLine{168         \textcolor{keywordflow}{if} (it == \mbox{\hyperlink{classProcesador_a84b9a006ace320f9101e998ce71f5994}{prcd\_memory\_job}}.end() and size != 0) \{}
+\DoxyCodeLine{169             \textcolor{keywordtype}{int} gap = \mbox{\hyperlink{classProcesador_ae6bb3892fd8f5d7bc45330ae0882bad6}{memory}} -\/ last\_pos;}
+\DoxyCodeLine{170             \textcolor{keywordflow}{if} (gap != 0) \{}
+\DoxyCodeLine{171                 size += gap;}
+\DoxyCodeLine{172                 \mbox{\hyperlink{classProcesador_ad30d3a61a7cb39faee7aec638422a356}{erase\_gap}}(gap,last\_pos);}
+\DoxyCodeLine{173             \}}
+\DoxyCodeLine{174             \mbox{\hyperlink{classProcesador_a4171c0fef3de19f5398a49332f2ced1a}{insert\_gap}}(size, start\_pos);}
+\DoxyCodeLine{175             \textcolor{keywordflow}{if} (size > \mbox{\hyperlink{classProcesador_ac8e39453112cc9526fc732f57400f795}{total\_memory}}) \mbox{\hyperlink{classProcesador_ac8e39453112cc9526fc732f57400f795}{total\_memory}} = size;}
+\DoxyCodeLine{176         \}}
+\DoxyCodeLine{177     \}}
+\DoxyCodeLine{178     \textcolor{comment}{// Post: (it == prcd\_memory\_job.end()) se ha actualizado correctamente todos los procesos del procesador tratado.}}
+\DoxyCodeLine{179 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classProcesador_a5b54b24d643e29f156ff1d31f43712fb}\label{classProcesador_a5b54b24d643e29f156ff1d31f43712fb}} 
+\index{Procesador@{Procesador}!baja\_proceso\_procesador@{baja\_proceso\_procesador}}
+\index{baja\_proceso\_procesador@{baja\_proceso\_procesador}!Procesador@{Procesador}}
+\doxysubsubsection{\texorpdfstring{baja\_proceso\_procesador()}{baja\_proceso\_procesador()}}
+{\footnotesize\ttfamily void Procesador\+::baja\+\_\+proceso\+\_\+procesador (\begin{DoxyParamCaption}\item[{const int}]{id\+\_\+job }\end{DoxyParamCaption})}
+
+
+
+Escriptura del \mbox{\hyperlink{classProcesador}{Procesador}}. 
+
+\begin{DoxyPrecond}{Precondición}
+{\itshape cierto} 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+Se elimina un proceso en el procesado del id indicado o imprime un error porque ya existe un proceso con el mismo id en el procesador. 
+\end{DoxyPostcond}
+\begin{DoxyParagraph}{Coste}
+Logaritmico 
+\end{DoxyParagraph}
+
+
+Definición en la línea 65 del archivo Procesador.\+cc.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{65                                                          \{}
+\DoxyCodeLine{66     \textcolor{comment}{/* Verificamos la existencia del proceso que queremos eliminar, en el caso afirmativo, eliminamos este proceso y reajustamos los huecos de la memoria del procesador*/}}
+\DoxyCodeLine{67 }
+\DoxyCodeLine{68     map<int,int>::iterator it\_job\_memory = \mbox{\hyperlink{classProcesador_af4560dbbadd8a4456fa2c2ae94624067}{prcd\_job\_memory}}.find(id\_job);}
+\DoxyCodeLine{69     \textcolor{comment}{// Error 1: no existe el proceso que queremos eliminar}}
+\DoxyCodeLine{70     \textcolor{keywordflow}{if} (it\_job\_memory == \mbox{\hyperlink{classProcesador_af4560dbbadd8a4456fa2c2ae94624067}{prcd\_job\_memory}}.end()) cout << \textcolor{stringliteral}{"{}error: no existe proceso"{}} << endl;}
+\DoxyCodeLine{71     \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{72         \textcolor{keywordtype}{int} start\_pos = it\_job\_memory -\/> second;}
+\DoxyCodeLine{73         map<int,Proceso>::iterator it\_memory\_job = \mbox{\hyperlink{classProcesador_a84b9a006ace320f9101e998ce71f5994}{prcd\_memory\_job}}.find(start\_pos);}
+\DoxyCodeLine{74         \textcolor{keywordtype}{int} size\_job = it\_memory\_job -\/> second.retrieve\_size();}
+\DoxyCodeLine{75 }
+\DoxyCodeLine{76         \textcolor{comment}{// eliminamos el proceso en las dos listas}}
+\DoxyCodeLine{77         \mbox{\hyperlink{classProcesador_af4560dbbadd8a4456fa2c2ae94624067}{prcd\_job\_memory}}.erase(it\_job\_memory);}
+\DoxyCodeLine{78         it\_memory\_job = \mbox{\hyperlink{classProcesador_a84b9a006ace320f9101e998ce71f5994}{prcd\_memory\_job}}.erase(it\_memory\_job);}
+\DoxyCodeLine{79 }
+\DoxyCodeLine{80         \textcolor{comment}{// comprovamos si la eliminación influye el hueco por la parte derecha de la posición del proceso eliminado}}
+\DoxyCodeLine{81         \textcolor{keywordtype}{int} r\_gap = 0;}
+\DoxyCodeLine{82         \textcolor{comment}{// Si no hay proceso por la parte derecha, la posición del único hueco ajustado de la parte derecha empieza contar desde la posición del proceso eliminado hasta la última posición de la lista. En caso contrario, el hueco que tendremos será desde la posición inicial del proceso eliminado hasta la posición inicial del siguiente proceso.}}
+\DoxyCodeLine{83         \textcolor{keywordflow}{if} (it\_memory\_job == \mbox{\hyperlink{classProcesador_a84b9a006ace320f9101e998ce71f5994}{prcd\_memory\_job}}.end()) \{}
+\DoxyCodeLine{84             r\_gap = \mbox{\hyperlink{classProcesador_ae6bb3892fd8f5d7bc45330ae0882bad6}{memory}} -\/ start\_pos -\/ size\_job;}
+\DoxyCodeLine{85         \} \textcolor{keywordflow}{else} r\_gap = it\_memory\_job -\/> first -\/ start\_pos -\/ size\_job;}
+\DoxyCodeLine{86 }
+\DoxyCodeLine{87         \textcolor{keywordflow}{if} (r\_gap != 0) \{}
+\DoxyCodeLine{88             \textcolor{comment}{// si los dos procesos no son consecutivos, existe espacio libre entre ellos.}}
+\DoxyCodeLine{89             \mbox{\hyperlink{classProcesador_ad30d3a61a7cb39faee7aec638422a356}{erase\_gap}}(r\_gap, start\_pos + size\_job);}
+\DoxyCodeLine{90             size\_job += r\_gap;}
+\DoxyCodeLine{91         \}}
+\DoxyCodeLine{92 }
+\DoxyCodeLine{93         \textcolor{comment}{// comprovamos si la eliminación influye el hueco por la parte izquierda de la posición del proceso eliminado}}
+\DoxyCodeLine{94         \textcolor{comment}{// si no hay más procesos en la parte izquieda, el nuevo hueco empezará contar desde la posición 0 hasta la última posición del proceso, sino la posición inicial del hueco creada se empezará contar desde la última posición del último proceso que se encuentra en la parte izquierda hasta última posición del proceso eliminado.}}
+\DoxyCodeLine{95         \textcolor{keywordtype}{int} l\_gap = 0;}
+\DoxyCodeLine{96         \textcolor{keywordflow}{if} (it\_memory\_job == \mbox{\hyperlink{classProcesador_a84b9a006ace320f9101e998ce71f5994}{prcd\_memory\_job}}.begin()) \{}
+\DoxyCodeLine{97             l\_gap = start\_pos;}
+\DoxyCodeLine{98             start\_pos = 0;}
+\DoxyCodeLine{99         \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{100             -\/-\/it\_memory\_job;}
+\DoxyCodeLine{101             \textcolor{keywordtype}{int} pos\_job = it\_memory\_job -\/>first;}
+\DoxyCodeLine{102             \textcolor{keywordtype}{int} size\_job = it\_memory\_job -\/> second.retrieve\_size();}
+\DoxyCodeLine{103             l\_gap = start\_pos -\/ pos\_job -\/ size\_job;}
+\DoxyCodeLine{104             \textcolor{keywordflow}{if} (l\_gap != 0) \{}
+\DoxyCodeLine{105                 start\_pos = pos\_job + size\_job;}
+\DoxyCodeLine{106             \}}
+\DoxyCodeLine{107         \}}
+\DoxyCodeLine{108         \textcolor{comment}{// si los dos procesos no son consecutivos, existe espacio libre entre ellos.}}
+\DoxyCodeLine{109         \textcolor{keywordflow}{if} (l\_gap != 0) \{}
+\DoxyCodeLine{110             \mbox{\hyperlink{classProcesador_ad30d3a61a7cb39faee7aec638422a356}{erase\_gap}}(l\_gap,start\_pos);}
+\DoxyCodeLine{111             size\_job += l\_gap;}
+\DoxyCodeLine{112         \}}
+\DoxyCodeLine{113         \textcolor{comment}{// ajustamos las posiciones de los huecos si existen, y los insertamos en la lista de huecos.}}
+\DoxyCodeLine{114         \textcolor{keywordflow}{if} (size\_job > \mbox{\hyperlink{classProcesador_ac8e39453112cc9526fc732f57400f795}{total\_memory}}) \mbox{\hyperlink{classProcesador_ac8e39453112cc9526fc732f57400f795}{total\_memory}} = size\_job;}
+\DoxyCodeLine{115         \mbox{\hyperlink{classProcesador_a4171c0fef3de19f5398a49332f2ced1a}{insert\_gap}}(size\_job,start\_pos);}
+\DoxyCodeLine{116     \}}
+\DoxyCodeLine{117 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classProcesador_a6182c5640705bccf588e10d1cc3d113f}\label{classProcesador_a6182c5640705bccf588e10d1cc3d113f}} 
+\index{Procesador@{Procesador}!best\_fit@{best\_fit}}
+\index{best\_fit@{best\_fit}!Procesador@{Procesador}}
+\doxysubsubsection{\texorpdfstring{best\_fit()}{best\_fit()}}
+{\footnotesize\ttfamily int Procesador\+::best\+\_\+fit (\begin{DoxyParamCaption}\item[{const int}]{size\+\_\+job }\end{DoxyParamCaption})}
+
+
+
+Consultora del \mbox{\hyperlink{classProcesador}{Procesador}} que verifica si existe el hueco optimo para el proceso que queremos insertar en el procesador tratado. 
+
+\begin{DoxyPrecond}{Precondición}
+{\itshape cierto} 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+devuelve la posición inicial de la memoria cuando si que hay hueco optimo, sino existe el hueco devuleve el resultado -\/1. 
+\end{DoxyPostcond}
+\begin{DoxyParagraph}{Coste}
+Logaritmico; 
+\end{DoxyParagraph}
+
+
+Definición en la línea 245 del archivo Procesador.\+cc.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{245                                              \{}
+\DoxyCodeLine{246     \textcolor{comment}{// res == result, que será -\/1 cuando no hay el hueco optimo para el proceso  }}
+\DoxyCodeLine{247     \textcolor{keywordtype}{int} res;}
+\DoxyCodeLine{248     map <int, set<int>>:: const\_iterator it = \mbox{\hyperlink{classProcesador_a36e8cb7fa64b229ac3d231a4211e9a84}{gap\_data}}.lower\_bound(size\_job);}
+\DoxyCodeLine{249     \textcolor{keywordflow}{if}(it != \mbox{\hyperlink{classProcesador_a36e8cb7fa64b229ac3d231a4211e9a84}{gap\_data}}.end()) res = it -\/> first;}
+\DoxyCodeLine{250     \textcolor{keywordflow}{else} res = -\/1;}
+\DoxyCodeLine{251     \textcolor{keywordflow}{return} res;}
+\DoxyCodeLine{252 \};}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classProcesador_a6c5d44f2b2e9aee6553a77d3056626f0}\label{classProcesador_a6c5d44f2b2e9aee6553a77d3056626f0}} 
+\index{Procesador@{Procesador}!compactar\_memoria\_procesador@{compactar\_memoria\_procesador}}
+\index{compactar\_memoria\_procesador@{compactar\_memoria\_procesador}!Procesador@{Procesador}}
+\doxysubsubsection{\texorpdfstring{compactar\_memoria\_procesador()}{compactar\_memoria\_procesador()}}
+{\footnotesize\ttfamily void Procesador\+::compactar\+\_\+memoria\+\_\+procesador (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Modificadora del \mbox{\hyperlink{classProcesador}{Procesador}} que compacta la memoria del procesador tratado. 
+
+\begin{DoxyPrecond}{Precondición}
+{\itshape cierto} 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+En el caso cuando el procesador del id existe en el cluster, se devuelve la memoria de este procesador de forma compactado, es decir sin dejar huecos, sin solaparse y respetando el orden inicial. 
+\end{DoxyPostcond}
+\begin{DoxyParagraph}{Coste}
+Lineal 
+\end{DoxyParagraph}
+
+
+Definición en la línea 181 del archivo Procesador.\+cc.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{181                                               \{}
+\DoxyCodeLine{182     \textcolor{comment}{/*}}
+\DoxyCodeLine{183 \textcolor{comment}{        Usaremos en esta caso dos bucles. El primer bucle se destaca a los procesos que ya estan compactados. }}
+\DoxyCodeLine{184 \textcolor{comment}{        El segundo bucle se enfoca a relocalizar aquellos procesos que no estan colocado correctamente. }}
+\DoxyCodeLine{185 \textcolor{comment}{    */}}
+\DoxyCodeLine{186     }
+\DoxyCodeLine{187     \textcolor{comment}{// Cuando el procesador no contiene el proceso, no hacemos nada}}
+\DoxyCodeLine{188     \textcolor{keywordflow}{if} (not \mbox{\hyperlink{classProcesador_a84b9a006ace320f9101e998ce71f5994}{prcd\_memory\_job}}.empty()) \{}
+\DoxyCodeLine{189         \mbox{\hyperlink{classProcesador_a36e8cb7fa64b229ac3d231a4211e9a84}{gap\_data}}.clear();}
+\DoxyCodeLine{190         map<int,Proceso> :: iterator it = \mbox{\hyperlink{classProcesador_a84b9a006ace320f9101e998ce71f5994}{prcd\_memory\_job}}.begin();}
+\DoxyCodeLine{191         \textcolor{keywordtype}{int} consecutive\_pos = 0;}
+\DoxyCodeLine{192         \textcolor{keywordtype}{int} real\_pos = it -\/> first;}
+\DoxyCodeLine{193         \textcolor{comment}{/*}}
+\DoxyCodeLine{194 \textcolor{comment}{            Inv: it apunta un elemento entre la posición del la lista procesador\_memory\_job.begin() y .end() }}
+\DoxyCodeLine{195 \textcolor{comment}{        */}}
+\DoxyCodeLine{196         \textcolor{keywordflow}{while} (consecutive\_pos == real\_pos and it != \mbox{\hyperlink{classProcesador_a84b9a006ace320f9101e998ce71f5994}{prcd\_memory\_job}}.end()) \{}
+\DoxyCodeLine{197             \textcolor{keywordtype}{int} size = it -\/> second.retrieve\_size();}
+\DoxyCodeLine{198             consecutive\_pos += size;}
+\DoxyCodeLine{199             real\_pos = it -\/> first;}
+\DoxyCodeLine{200             ++it;}
+\DoxyCodeLine{201         \}}
+\DoxyCodeLine{202         \textcolor{comment}{/*}}
+\DoxyCodeLine{203 \textcolor{comment}{        Post:  }}
+\DoxyCodeLine{204 \textcolor{comment}{            1. (consecutive\_pos != real\_pos): it ha apuntado a una procesos que no esta compactado }}
+\DoxyCodeLine{205 \textcolor{comment}{            2. (it == prcd\_memory\_job.end()): todos los procesos del procesador tratado estan compactados }}
+\DoxyCodeLine{206 \textcolor{comment}{        */}}
+\DoxyCodeLine{207 }
+\DoxyCodeLine{208        \textcolor{comment}{/*}}
+\DoxyCodeLine{209 \textcolor{comment}{            Inv: it apunta un elemento entre la posición del la lista procesador\_memory\_job.begin() y .end() }}
+\DoxyCodeLine{210 \textcolor{comment}{            todos los procesos anteriores estan compactados }}
+\DoxyCodeLine{211 \textcolor{comment}{       */}}
+\DoxyCodeLine{212         \textcolor{keywordflow}{while} (it != \mbox{\hyperlink{classProcesador_a84b9a006ace320f9101e998ce71f5994}{prcd\_memory\_job}}.end()) \{}
+\DoxyCodeLine{213             \mbox{\hyperlink{classProceso}{Proceso}} job = it -\/> second;}
+\DoxyCodeLine{214             it = \mbox{\hyperlink{classProcesador_a84b9a006ace320f9101e998ce71f5994}{prcd\_memory\_job}}.erase(it);}
+\DoxyCodeLine{215             \mbox{\hyperlink{classProcesador_a84b9a006ace320f9101e998ce71f5994}{prcd\_memory\_job}}.insert(it, make\_pair(consecutive\_pos, job));}
+\DoxyCodeLine{216             \mbox{\hyperlink{classProcesador_af4560dbbadd8a4456fa2c2ae94624067}{prcd\_job\_memory}}[job.\mbox{\hyperlink{classProceso_a1a74ae0ef5b19a8c9c791caae9aeaa0a}{retrieve\_id}}()] = consecutive\_pos;}
+\DoxyCodeLine{217             consecutive\_pos += job.\mbox{\hyperlink{classProceso_ac692b2c0c5ca17d3e799a3658383a8a0}{retrieve\_size}}();}
+\DoxyCodeLine{218         \}}
+\DoxyCodeLine{219        \textcolor{comment}{/*}}
+\DoxyCodeLine{220 \textcolor{comment}{        Post: (it == prcd\_memory\_job.end()) todos los procesos del procesador tratado estan compactados }}
+\DoxyCodeLine{221 \textcolor{comment}{        */}}
+\DoxyCodeLine{222 }
+\DoxyCodeLine{223         \textcolor{comment}{// Actualizamos la lista del hueco que tendrá un único hueco que cuenta desde memoria -\/ posiciones acumulados hasta el final,  si la lista no está lleno previamente.}}
+\DoxyCodeLine{224         \textcolor{keywordflow}{if} (consecutive\_pos != \mbox{\hyperlink{classProcesador_ae6bb3892fd8f5d7bc45330ae0882bad6}{memory}}) \mbox{\hyperlink{classProcesador_a36e8cb7fa64b229ac3d231a4211e9a84}{gap\_data}}.insert(make\_pair(\mbox{\hyperlink{classProcesador_ae6bb3892fd8f5d7bc45330ae0882bad6}{memory}} -\/ consecutive\_pos, set<int>\{consecutive\_pos\}));}
+\DoxyCodeLine{225         \mbox{\hyperlink{classProcesador_ac8e39453112cc9526fc732f57400f795}{total\_memory}} = \mbox{\hyperlink{classProcesador_ae6bb3892fd8f5d7bc45330ae0882bad6}{memory}} -\/ consecutive\_pos;}
+\DoxyCodeLine{226     \}}
+\DoxyCodeLine{227 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classProcesador_ad30d3a61a7cb39faee7aec638422a356}\label{classProcesador_ad30d3a61a7cb39faee7aec638422a356}} 
+\index{Procesador@{Procesador}!erase\_gap@{erase\_gap}}
+\index{erase\_gap@{erase\_gap}!Procesador@{Procesador}}
+\doxysubsubsection{\texorpdfstring{erase\_gap()}{erase\_gap()}}
+{\footnotesize\ttfamily void Procesador\+::erase\+\_\+gap (\begin{DoxyParamCaption}\item[{int}]{size,  }\item[{int}]{start }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Operacion modificadora de huecos libres. 
+
+\begin{DoxyPrecond}{Precondición}
+Existe un hueco en el procesador con el tamaño {\itshape size} y empieza en la posición {\itshape start} 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+Se ha elimminado correctamente este hueco 
+\end{DoxyPostcond}
+\begin{DoxyParagraph}{Coste}
+Logaritmico 
+\end{DoxyParagraph}
+
+
+Definición en la línea 25 del archivo Procesador.\+cc.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{25                                                   \{}
+\DoxyCodeLine{26     \textcolor{comment}{// Buscamos el hueco de la memoria libre respecto el tamaño(size) que estamos introduciendo. Si el hueco que queremos eliminar es el único hueco existente, eliminamos el hueco. Sino, eliminamos el set de la posición de memoria por donde empieza el hueco.}}
+\DoxyCodeLine{27     map<int, set<int>>::iterator it = \mbox{\hyperlink{classProcesador_a36e8cb7fa64b229ac3d231a4211e9a84}{gap\_data}}.find(size);}
+\DoxyCodeLine{28     it -\/> second.erase(start\_pos);}
+\DoxyCodeLine{29     \textcolor{keywordflow}{if} (it-\/> second.empty()) \mbox{\hyperlink{classProcesador_a36e8cb7fa64b229ac3d231a4211e9a84}{gap\_data}}.erase(it);}
+\DoxyCodeLine{30     \mbox{\hyperlink{classProcesador_ac767e9a6816929e185efc47417792775}{free\_memory}} -\/= size;}
+\DoxyCodeLine{31 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classProcesador_a83f3690af72a494d9bbfc20b4a024fd0}\label{classProcesador_a83f3690af72a494d9bbfc20b4a024fd0}} 
+\index{Procesador@{Procesador}!exist\_job@{exist\_job}}
+\index{exist\_job@{exist\_job}!Procesador@{Procesador}}
+\doxysubsubsection{\texorpdfstring{exist\_job()}{exist\_job()}}
+{\footnotesize\ttfamily bool Procesador\+::exist\+\_\+job (\begin{DoxyParamCaption}\item[{const int}]{id\+\_\+job }\end{DoxyParamCaption})}
+
+
+
+Consultora del \mbox{\hyperlink{classProcesador}{Procesador}} que verifica la existencia del proceso en el procesador tratado. 
+
+\begin{DoxyPrecond}{Precondición}
+{\itshape cierto} 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+devuelve true cuando el procesador si que contiene procesos y viceversa 
+\end{DoxyPostcond}
+\begin{DoxyParagraph}{Coste}
+Logaritmico; 
+\end{DoxyParagraph}
+
+
+Definición en la línea 234 del archivo Procesador.\+cc.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{234                                            \{}
+\DoxyCodeLine{235     \textcolor{comment}{// Devuelve el bool que refleja la existencia del proceso insertado en el procesador tratado}}
+\DoxyCodeLine{236     \textcolor{keywordflow}{return} \mbox{\hyperlink{classProcesador_af4560dbbadd8a4456fa2c2ae94624067}{prcd\_job\_memory}}.find(id\_job) != \mbox{\hyperlink{classProcesador_af4560dbbadd8a4456fa2c2ae94624067}{prcd\_job\_memory}}.end();}
+\DoxyCodeLine{237 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classProcesador_a6951cd8b6d3ede1227b13f0cd894ba6f}\label{classProcesador_a6951cd8b6d3ede1227b13f0cd894ba6f}} 
+\index{Procesador@{Procesador}!fit\_job@{fit\_job}}
+\index{fit\_job@{fit\_job}!Procesador@{Procesador}}
+\doxysubsubsection{\texorpdfstring{fit\_job()}{fit\_job()}}
+{\footnotesize\ttfamily bool Procesador\+::fit\+\_\+job (\begin{DoxyParamCaption}\item[{const int}]{size\+\_\+job }\end{DoxyParamCaption})}
+
+
+
+Consultora del \mbox{\hyperlink{classProcesador}{Procesador}} que verifica si existe el hueco para el proceso. 
+
+\begin{DoxyPrecond}{Precondición}
+{\itshape cierto} 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+devuelve true cuando hay hueco para el proceso. 
+\end{DoxyPostcond}
+\begin{DoxyParagraph}{Coste}
+Constante; 
+\end{DoxyParagraph}
+
+
+Definición en la línea 239 del archivo Procesador.\+cc.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{239                                            \{}
+\DoxyCodeLine{240     \textcolor{comment}{// Devuelve el bool que refleja si existe suficiente hueco en el procesador para el proceso que queremos insertar}}
+\DoxyCodeLine{241     \textcolor{keywordflow}{if}(\mbox{\hyperlink{classProcesador_a36e8cb7fa64b229ac3d231a4211e9a84}{gap\_data}}.empty()) \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{242     \textcolor{keywordflow}{return} size\_job <= \mbox{\hyperlink{classProcesador_a36e8cb7fa64b229ac3d231a4211e9a84}{gap\_data}}.rbegin() -\/> first;}
+\DoxyCodeLine{243 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classProcesador_a878f54f3bf0c2252046346b0b3ed069b}\label{classProcesador_a878f54f3bf0c2252046346b0b3ed069b}} 
+\index{Procesador@{Procesador}!imprimir\_procesos@{imprimir\_procesos}}
+\index{imprimir\_procesos@{imprimir\_procesos}!Procesador@{Procesador}}
+\doxysubsubsection{\texorpdfstring{imprimir\_procesos()}{imprimir\_procesos()}}
+{\footnotesize\ttfamily void Procesador\+::imprimir\+\_\+procesos (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Escriptura del \mbox{\hyperlink{classProcesador}{Procesador}}. 
+
+\begin{DoxyPrecond}{Precondición}
+{\itshape cierto} 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+imprime el id, tamano y el tiempo restante de los procesos del procesador indicado 
+\end{DoxyPostcond}
+\begin{DoxyParagraph}{Coste}
+Constante 
+\end{DoxyParagraph}
+Imprime todos los proceso del procesador tratado por el orden creciente de la posición de memoria
+
+Definición en la línea 258 del archivo Procesador.\+cc.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{258                                          \{}
+\DoxyCodeLine{262 }
+\DoxyCodeLine{263     \textcolor{comment}{// Inv: it apunta un proceso entre prcd\_memory\_job.begin() y end() -\/ 1;}}
+\DoxyCodeLine{264 }
+\DoxyCodeLine{265     \textcolor{keywordflow}{for} (map<int,Proceso>::const\_iterator it = \mbox{\hyperlink{classProcesador_a84b9a006ace320f9101e998ce71f5994}{prcd\_memory\_job}}.begin(); it != \mbox{\hyperlink{classProcesador_a84b9a006ace320f9101e998ce71f5994}{prcd\_memory\_job}}.end(); ++it) \{}
+\DoxyCodeLine{266         cout << it -\/> first << \textcolor{stringliteral}{"{} "{}} << it -\/> second.retrieve\_id() << \textcolor{stringliteral}{"{} "{}} <<}
+\DoxyCodeLine{267         it -\/> second.retrieve\_size() << \textcolor{stringliteral}{"{} "{}} << it -\/> second.retrieve\_time() << endl;}
+\DoxyCodeLine{268     \}}
+\DoxyCodeLine{269 }
+\DoxyCodeLine{270     \textcolor{comment}{// Post: (it == prcd\_memory\_job()) todos los procesos han sido tratados}}
+\DoxyCodeLine{271 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classProcesador_a4171c0fef3de19f5398a49332f2ced1a}\label{classProcesador_a4171c0fef3de19f5398a49332f2ced1a}} 
+\index{Procesador@{Procesador}!insert\_gap@{insert\_gap}}
+\index{insert\_gap@{insert\_gap}!Procesador@{Procesador}}
+\doxysubsubsection{\texorpdfstring{insert\_gap()}{insert\_gap()}}
+{\footnotesize\ttfamily void Procesador\+::insert\+\_\+gap (\begin{DoxyParamCaption}\item[{int}]{size,  }\item[{int}]{start }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Operacion modificadora de huecos libres. 
+
+\begin{DoxyPrecond}{Precondición}
+Existe un hueco en el procesador con el tamaño {\itshape size} y empieza en la posición {\itshape start} 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+Se ha insertado correctamente este hueco 
+\end{DoxyPostcond}
+\begin{DoxyParagraph}{Coste}
+Logaritmico 
+\end{DoxyParagraph}
+
+
+Definición en la línea 16 del archivo Procesador.\+cc.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{16                                                \{}
+\DoxyCodeLine{17     \textcolor{comment}{// Buscamos el hueco de la memoria libre respecto el tamaño(size) que estamos introduciendo, si tal hueco de dicho tamaño ya existe, creamos en el set una nueva posición inicial en ese hueco, sino creamos un nuevo hueco iniciando la posición de la memoria.}}
+\DoxyCodeLine{18     map<int, set<int>>::iterator it = \mbox{\hyperlink{classProcesador_a36e8cb7fa64b229ac3d231a4211e9a84}{gap\_data}}.lower\_bound(size);}
+\DoxyCodeLine{19     \textcolor{keywordflow}{if} (it != \mbox{\hyperlink{classProcesador_a36e8cb7fa64b229ac3d231a4211e9a84}{gap\_data}}.end() and it-\/>first == size) \{}
+\DoxyCodeLine{20         it-\/>second.insert(start);}
+\DoxyCodeLine{21     \} \textcolor{keywordflow}{else} \mbox{\hyperlink{classProcesador_a36e8cb7fa64b229ac3d231a4211e9a84}{gap\_data}}.insert(it, make\_pair(size, set<int>\{start\}));}
+\DoxyCodeLine{22     \mbox{\hyperlink{classProcesador_ac767e9a6816929e185efc47417792775}{free\_memory}} += size;}
+\DoxyCodeLine{23 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classProcesador_a9e03729ab31a0b6e2eae97af9d13b911}\label{classProcesador_a9e03729ab31a0b6e2eae97af9d13b911}} 
+\index{Procesador@{Procesador}!not\_empty@{not\_empty}}
+\index{not\_empty@{not\_empty}!Procesador@{Procesador}}
+\doxysubsubsection{\texorpdfstring{not\_empty()}{not\_empty()}}
+{\footnotesize\ttfamily bool Procesador\+::not\+\_\+empty (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Consultora del \mbox{\hyperlink{classProcesador}{Procesador}} que verifica el estado de ocupación procesos del procesador. 
+
+\begin{DoxyPrecond}{Precondición}
+{\itshape cierto} 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+devuelve true cuando el procesador si que contiene procesos y viceversa 
+\end{DoxyPostcond}
+\begin{DoxyParagraph}{Coste}
+Constante; 
+\end{DoxyParagraph}
+
+
+Definición en la línea 253 del archivo Procesador.\+cc.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{253                                  \{}
+\DoxyCodeLine{254     \textcolor{comment}{// Devuelve el bool para saber si el procesador está ocupado o no}}
+\DoxyCodeLine{255     \textcolor{keywordflow}{return} \mbox{\hyperlink{classProcesador_af4560dbbadd8a4456fa2c2ae94624067}{prcd\_job\_memory}}.size() != 0;}
+\DoxyCodeLine{256 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classProcesador_a936dfd63b43a70b070b152d391bd3aec}\label{classProcesador_a936dfd63b43a70b070b152d391bd3aec}} 
+\index{Procesador@{Procesador}!retrieve\_free\_memory@{retrieve\_free\_memory}}
+\index{retrieve\_free\_memory@{retrieve\_free\_memory}!Procesador@{Procesador}}
+\doxysubsubsection{\texorpdfstring{retrieve\_free\_memory()}{retrieve\_free\_memory()}}
+{\footnotesize\ttfamily int Procesador\+::retrieve\+\_\+free\+\_\+memory (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Escriptura del \mbox{\hyperlink{classProcesador}{Procesador}}. 
+
+\begin{DoxyPrecond}{Precondición}
+{\itshape cierto} 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+devuleve la memoria libre 
+\end{DoxyPostcond}
+\begin{DoxyParagraph}{Coste}
+Constante 
+\end{DoxyParagraph}
+
+
+Definición en la línea 229 del archivo Procesador.\+cc.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{229                                              \{}
+\DoxyCodeLine{230     \textcolor{comment}{// Devuelve la memoria libre }}
+\DoxyCodeLine{231     \textcolor{keywordflow}{return} \mbox{\hyperlink{classProcesador_ac767e9a6816929e185efc47417792775}{free\_memory}};}
+\DoxyCodeLine{232 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Documentación de los datos miembro}
+\mbox{\Hypertarget{classProcesador_ac767e9a6816929e185efc47417792775}\label{classProcesador_ac767e9a6816929e185efc47417792775}} 
+\index{Procesador@{Procesador}!free\_memory@{free\_memory}}
+\index{free\_memory@{free\_memory}!Procesador@{Procesador}}
+\doxysubsubsection{\texorpdfstring{free\_memory}{free\_memory}}
+{\footnotesize\ttfamily int Procesador\+::free\+\_\+memory\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+la memoria libre de procesadorr 
+
+
+
+Definición en la línea 38 del archivo Procesador.\+hh.
+
+\mbox{\Hypertarget{classProcesador_a36e8cb7fa64b229ac3d231a4211e9a84}\label{classProcesador_a36e8cb7fa64b229ac3d231a4211e9a84}} 
+\index{Procesador@{Procesador}!gap\_data@{gap\_data}}
+\index{gap\_data@{gap\_data}!Procesador@{Procesador}}
+\doxysubsubsection{\texorpdfstring{gap\_data}{gap\_data}}
+{\footnotesize\ttfamily map$<$int, set$<$int$>$ $>$ Procesador\+::gap\+\_\+data\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Esta lista nos guarda los bloques de la memoria libre, el primer int indica el tamano del hueco y el segundo set nos indica por donde guarda la posicion de memoria por donde se empieza el hueco, el ordenamiento de esta lista es creciente respecto el tamaño del hueco. 
+
+
+
+Definición en la línea 41 del archivo Procesador.\+hh.
+
+\mbox{\Hypertarget{classProcesador_aeb45f597332731116cde14239327ee46}\label{classProcesador_aeb45f597332731116cde14239327ee46}} 
+\index{Procesador@{Procesador}!id\_prcd@{id\_prcd}}
+\index{id\_prcd@{id\_prcd}!Procesador@{Procesador}}
+\doxysubsubsection{\texorpdfstring{id\_prcd}{id\_prcd}}
+{\footnotesize\ttfamily string Procesador\+::id\+\_\+prcd\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+id de procesador 
+
+
+
+Definición en la línea 31 del archivo Procesador.\+hh.
+
+\mbox{\Hypertarget{classProcesador_ae6bb3892fd8f5d7bc45330ae0882bad6}\label{classProcesador_ae6bb3892fd8f5d7bc45330ae0882bad6}} 
+\index{Procesador@{Procesador}!memory@{memory}}
+\index{memory@{memory}!Procesador@{Procesador}}
+\doxysubsubsection{\texorpdfstring{memory}{memory}}
+{\footnotesize\ttfamily int Procesador\+::memory\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+la memoria total del procesador 
+
+
+
+Definición en la línea 34 del archivo Procesador.\+hh.
+
+\mbox{\Hypertarget{classProcesador_af4560dbbadd8a4456fa2c2ae94624067}\label{classProcesador_af4560dbbadd8a4456fa2c2ae94624067}} 
+\index{Procesador@{Procesador}!prcd\_job\_memory@{prcd\_job\_memory}}
+\index{prcd\_job\_memory@{prcd\_job\_memory}!Procesador@{Procesador}}
+\doxysubsubsection{\texorpdfstring{prcd\_job\_memory}{prcd\_job\_memory}}
+{\footnotesize\ttfamily map$<$int, int$>$ Procesador\+::prcd\+\_\+job\+\_\+memory\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Esta lista nos guarda el id de proceso en el primer int y la posición de memoria por donde empieza en el segundo int, el ordenamiento de esta lista es creciente respecto el id de los procesos. 
+
+
+
+Definición en la línea 44 del archivo Procesador.\+hh.
+
+\mbox{\Hypertarget{classProcesador_a84b9a006ace320f9101e998ce71f5994}\label{classProcesador_a84b9a006ace320f9101e998ce71f5994}} 
+\index{Procesador@{Procesador}!prcd\_memory\_job@{prcd\_memory\_job}}
+\index{prcd\_memory\_job@{prcd\_memory\_job}!Procesador@{Procesador}}
+\doxysubsubsection{\texorpdfstring{prcd\_memory\_job}{prcd\_memory\_job}}
+{\footnotesize\ttfamily map$<$int,\mbox{\hyperlink{classProceso}{Proceso}}$>$ Procesador\+::prcd\+\_\+memory\+\_\+job\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Esta lista nos guarda la posición de memoria en el primer int y el proceso correspondiente en el segundo parametro, el ordenamiento de esta lista es creciente respecto la posición inicial en la memoria de cada proceso. 
+
+
+
+Definición en la línea 47 del archivo Procesador.\+hh.
+
+\mbox{\Hypertarget{classProcesador_ac8e39453112cc9526fc732f57400f795}\label{classProcesador_ac8e39453112cc9526fc732f57400f795}} 
+\index{Procesador@{Procesador}!total\_memory@{total\_memory}}
+\index{total\_memory@{total\_memory}!Procesador@{Procesador}}
+\doxysubsubsection{\texorpdfstring{total\_memory}{total\_memory}}
+{\footnotesize\ttfamily int Procesador\+::total\+\_\+memory\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+el tamaño del hueco más grande del procesador 
+
+
+
+Definición en la línea 36 del archivo Procesador.\+hh.
+
+
+
+La documentación para esta clase fue generada a partir de los siguientes ficheros\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{Procesador_8hh}{Procesador.\+hh}}\item 
+\mbox{\hyperlink{Procesador_8cc}{Procesador.\+cc}}\end{DoxyCompactItemize}

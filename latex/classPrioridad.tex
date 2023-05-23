@@ -1,0 +1,356 @@
+\hypertarget{classPrioridad}{}\doxysection{Referencia de la Clase Prioridad}
+\label{classPrioridad}\index{Prioridad@{Prioridad}}
+
+
+Representa la información de una prioridad donde cada prioridad está formado por una lista de procesos (tal lista puede ser vacio).  
+
+
+
+
+{\ttfamily \#include $<$Prioridad.\+hh$>$}
+
+\doxysubsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classPrioridad_a239123296380077ef6959111bf599a90}{Prioridad}} ()
+\begin{DoxyCompactList}\small\item\em Creadora de \mbox{\hyperlink{classPrioridad}{Prioridad}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classPrioridad_ac6583ca7e63d58df58a3bcd616e14d0c}{alta\+\_\+proceso\+\_\+espera}} (\mbox{\hyperlink{classProceso}{Proceso}} \&Job)
+\begin{DoxyCompactList}\small\item\em Modificadora de \mbox{\hyperlink{classPrioridad}{Prioridad}} para un nuevo instante de proceso en la lista de espera en la area de espera. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classPrioridad_abd375709c5735ee4976c6bc45094608f}{update\+\_\+prioridad}} (const int accepted, const int rejected)
+\begin{DoxyCompactList}\small\item\em Modificadora de \mbox{\hyperlink{classPrioridad}{Prioridad}} para actualizar los n\+\_\+aceptados e los n\+\_\+rechazados. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classPrioridad_a3cf29cb5813a50a4c73a313fb96b48b5}{retrieve\+\_\+jobs}} () const
+\begin{DoxyCompactList}\small\item\em Escriptura de la \mbox{\hyperlink{classPrioridad}{Prioridad}}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classProceso}{Proceso}} \mbox{\hyperlink{classPrioridad_acc0e8cbe0c58bfbe768d9ae4e95d5b5d}{retrieve\+\_\+job}} ()
+\begin{DoxyCompactList}\small\item\em Escriptura de la \mbox{\hyperlink{classPrioridad}{Prioridad}} que devuelve el proceso más antiguo de la lista. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classPrioridad_a2bc82144bbf93880041edc436ba64410}{retrieve\+\_\+jobs\+\_\+size}} () const
+\begin{DoxyCompactList}\small\item\em Escriptura de la \mbox{\hyperlink{classPrioridad}{Prioridad}} que devuelve el tamaño de la lista de procesos. \end{DoxyCompactList}\item 
+pair$<$ int, int $>$ \mbox{\hyperlink{classPrioridad_a287ae102cd4ef391292d69e61d23c724}{retrieve\+\_\+info}} () const
+\begin{DoxyCompactList}\small\item\em Escriptura de la \mbox{\hyperlink{classPrioridad}{Prioridad}} que devuelve el valor actual de los n\+\_\+aceptados y n\+\_\+rechazados. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Atributos privados}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{classPrioridad_a7c78f5f53ae60186c2b93baff6612b3d}{n\+\_\+accepted}}
+\begin{DoxyCompactList}\small\item\em numero de envios aceptados de procesos \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classPrioridad_aab9aeea82059d6fd5beb781365275c4e}{n\+\_\+rejected}}
+\begin{DoxyCompactList}\small\item\em numero de envios rechazados de procesos \end{DoxyCompactList}\item 
+list$<$ \mbox{\hyperlink{classProceso}{Proceso}} $>$ \mbox{\hyperlink{classPrioridad_a986a1ea84c0b5a909f966d141a607114}{jobs}}
+\begin{DoxyCompactList}\small\item\em listado de procesos de la prioridad \end{DoxyCompactList}\item 
+set$<$ int $>$ \mbox{\hyperlink{classPrioridad_af787fef4d9aad73fd65dddf15fa8e901}{id\+\_\+jobs}}
+\begin{DoxyCompactList}\small\item\em listado de identificadores de procesos de la prioridad ordenado por el orden creciente \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descripción detallada}
+Representa la información de una prioridad donde cada prioridad está formado por una lista de procesos (tal lista puede ser vacio). 
+
+La clase de \mbox{\hyperlink{classPrioridad}{Prioridad}} dispone un conjunto de operaciones que permite agregar y eliminar procesos correspondientes. También dispone modificadores que permite modificar los numeros de procesos enviados aceptados y rechazados. Por el último, dispone varias operaciones de escriptura que permite imprimir el estado de los procesos existentes y las informaciones relevantes del parametro implicito. 
+
+Definición en la línea 20 del archivo Prioridad.\+hh.
+
+
+
+\doxysubsection{Documentación del constructor y destructor}
+\mbox{\Hypertarget{classPrioridad_a239123296380077ef6959111bf599a90}\label{classPrioridad_a239123296380077ef6959111bf599a90}} 
+\index{Prioridad@{Prioridad}!Prioridad@{Prioridad}}
+\index{Prioridad@{Prioridad}!Prioridad@{Prioridad}}
+\doxysubsubsection{\texorpdfstring{Prioridad()}{Prioridad()}}
+{\footnotesize\ttfamily Prioridad\+::\+Prioridad (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Creadora de \mbox{\hyperlink{classPrioridad}{Prioridad}}. 
+
+\begin{DoxyPrecond}{Precondición}
+{\itshape cierto} 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+El resultado es una prioridad identificado como el parametro {\itshape id\+\_\+prioridad} situado en el conjunto de la area de espera 
+\end{DoxyPostcond}
+\begin{DoxyParagraph}{Coste}
+Constante 
+\end{DoxyParagraph}
+los valores inicial del n\+\_\+aceptados y n\+\_\+rejected son 0
+
+Definición en la línea 7 del archivo Prioridad.\+cc.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{7                       \{}
+\DoxyCodeLine{11     \mbox{\hyperlink{classPrioridad_a7c78f5f53ae60186c2b93baff6612b3d}{n\_accepted}} = 0;}
+\DoxyCodeLine{12     \mbox{\hyperlink{classPrioridad_aab9aeea82059d6fd5beb781365275c4e}{n\_rejected}} = 0;}
+\DoxyCodeLine{13 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Documentación de las funciones miembro}
+\mbox{\Hypertarget{classPrioridad_ac6583ca7e63d58df58a3bcd616e14d0c}\label{classPrioridad_ac6583ca7e63d58df58a3bcd616e14d0c}} 
+\index{Prioridad@{Prioridad}!alta\_proceso\_espera@{alta\_proceso\_espera}}
+\index{alta\_proceso\_espera@{alta\_proceso\_espera}!Prioridad@{Prioridad}}
+\doxysubsubsection{\texorpdfstring{alta\_proceso\_espera()}{alta\_proceso\_espera()}}
+{\footnotesize\ttfamily void Prioridad\+::alta\+\_\+proceso\+\_\+espera (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classProceso}{Proceso}} \&}]{Job }\end{DoxyParamCaption})}
+
+
+
+Modificadora de \mbox{\hyperlink{classPrioridad}{Prioridad}} para un nuevo instante de proceso en la lista de espera en la area de espera. 
+
+\begin{DoxyPrecond}{Precondición}
+Requiere un id valido de la prioridad y un instante de proceso. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+Se añade este instante de proceso a la prioridad indicada por el id de la prioridad 
+\end{DoxyPostcond}
+\begin{DoxyParagraph}{Coste}
+Logaritmico 
+\end{DoxyParagraph}
+
+
+Definición en la línea 25 del archivo Prioridad.\+cc.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{25                                                   \{   }
+\DoxyCodeLine{26     \textcolor{comment}{// Verificamos la existencia del proceso agregar en el listado de procesos del parametro implicito}}
+\DoxyCodeLine{27     \textcolor{keywordtype}{int} id\_job = Job.\mbox{\hyperlink{classProceso_a1a74ae0ef5b19a8c9c791caae9aeaa0a}{retrieve\_id}}();}
+\DoxyCodeLine{28     set <int> ::const\_iterator it = \mbox{\hyperlink{classPrioridad_af787fef4d9aad73fd65dddf15fa8e901}{id\_jobs}}.lower\_bound(id\_job);}
+\DoxyCodeLine{29     \textcolor{keywordflow}{if} (it != \mbox{\hyperlink{classPrioridad_af787fef4d9aad73fd65dddf15fa8e901}{id\_jobs}}.end() and *it == id\_job) \{}
+\DoxyCodeLine{30         \textcolor{comment}{// Error 1: el proceso que quiere insertar ya existe en el parametro implicito}}
+\DoxyCodeLine{31         cout << \textcolor{stringliteral}{"{}error: ya existe proceso"{}} << endl;}
+\DoxyCodeLine{32     \} }
+\DoxyCodeLine{33     \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{34         \mbox{\hyperlink{classPrioridad_af787fef4d9aad73fd65dddf15fa8e901}{id\_jobs}}.insert(it, id\_job);}
+\DoxyCodeLine{35         \mbox{\hyperlink{classPrioridad_a986a1ea84c0b5a909f966d141a607114}{jobs}}.insert(\mbox{\hyperlink{classPrioridad_a986a1ea84c0b5a909f966d141a607114}{jobs}}.end(), Job);}
+\DoxyCodeLine{36     \}}
+\DoxyCodeLine{37 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classPrioridad_a287ae102cd4ef391292d69e61d23c724}\label{classPrioridad_a287ae102cd4ef391292d69e61d23c724}} 
+\index{Prioridad@{Prioridad}!retrieve\_info@{retrieve\_info}}
+\index{retrieve\_info@{retrieve\_info}!Prioridad@{Prioridad}}
+\doxysubsubsection{\texorpdfstring{retrieve\_info()}{retrieve\_info()}}
+{\footnotesize\ttfamily pair$<$ int, int $>$ Prioridad\+::retrieve\+\_\+info (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Escriptura de la \mbox{\hyperlink{classPrioridad}{Prioridad}} que devuelve el valor actual de los n\+\_\+aceptados y n\+\_\+rechazados. 
+
+\begin{DoxyPrecond}{Precondición}
+{\itshape cierto} 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+Devuelve los valores mencionados en el biref 
+\end{DoxyPostcond}
+\begin{DoxyParagraph}{Coste}
+Constante 
+\end{DoxyParagraph}
+
+
+Definición en la línea 45 del archivo Prioridad.\+cc.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{45                                                 \{}
+\DoxyCodeLine{46     \textcolor{comment}{// Devuleve el n\_aceptados y n\_rechazados en formato de pair}}
+\DoxyCodeLine{47     pair <int, int> result; }
+\DoxyCodeLine{48     result.first = \mbox{\hyperlink{classPrioridad_a7c78f5f53ae60186c2b93baff6612b3d}{n\_accepted}};}
+\DoxyCodeLine{49     result.second = \mbox{\hyperlink{classPrioridad_aab9aeea82059d6fd5beb781365275c4e}{n\_rejected}};}
+\DoxyCodeLine{50     \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{51 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classPrioridad_acc0e8cbe0c58bfbe768d9ae4e95d5b5d}\label{classPrioridad_acc0e8cbe0c58bfbe768d9ae4e95d5b5d}} 
+\index{Prioridad@{Prioridad}!retrieve\_job@{retrieve\_job}}
+\index{retrieve\_job@{retrieve\_job}!Prioridad@{Prioridad}}
+\doxysubsubsection{\texorpdfstring{retrieve\_job()}{retrieve\_job()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classProceso}{Proceso}} Prioridad\+::retrieve\+\_\+job (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Escriptura de la \mbox{\hyperlink{classPrioridad}{Prioridad}} que devuelve el proceso más antiguo de la lista. 
+
+\begin{DoxyPrecond}{Precondición}
+{\itshape cierto} 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+Devuelve el proceso que cumple el criterio mencionado 
+\end{DoxyPostcond}
+\begin{DoxyParagraph}{Coste}
+Logaritmico 
+\end{DoxyParagraph}
+
+
+Definición en la línea 53 del archivo Prioridad.\+cc.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{53                                   \{}
+\DoxyCodeLine{54     \textcolor{comment}{// Devolvemos el proceso más antiguo de la lista de procesos}}
+\DoxyCodeLine{55     list<Proceso>:: iterator it = \mbox{\hyperlink{classPrioridad_a986a1ea84c0b5a909f966d141a607114}{jobs}}.begin();}
+\DoxyCodeLine{56     \mbox{\hyperlink{classProceso}{Proceso}} res = *it;}
+\DoxyCodeLine{57     \textcolor{keywordtype}{int} id\_process = it -\/> retrieve\_id();}
+\DoxyCodeLine{58     \mbox{\hyperlink{classPrioridad_a986a1ea84c0b5a909f966d141a607114}{jobs}}.erase(it);}
+\DoxyCodeLine{59     \mbox{\hyperlink{classPrioridad_af787fef4d9aad73fd65dddf15fa8e901}{id\_jobs}}.erase(id\_process);;}
+\DoxyCodeLine{60     \textcolor{keywordflow}{return} res;}
+\DoxyCodeLine{61 \};}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classPrioridad_a3cf29cb5813a50a4c73a313fb96b48b5}\label{classPrioridad_a3cf29cb5813a50a4c73a313fb96b48b5}} 
+\index{Prioridad@{Prioridad}!retrieve\_jobs@{retrieve\_jobs}}
+\index{retrieve\_jobs@{retrieve\_jobs}!Prioridad@{Prioridad}}
+\doxysubsubsection{\texorpdfstring{retrieve\_jobs()}{retrieve\_jobs()}}
+{\footnotesize\ttfamily void Prioridad\+::retrieve\+\_\+jobs (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Escriptura de la \mbox{\hyperlink{classPrioridad}{Prioridad}}. 
+
+\begin{DoxyPrecond}{Precondición}
+{\itshape cierto} 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+Se imprime los proceso pendientes con sus informaciones detalladas por orden decreciente de antiguedad; Además debe imprimir los datos de procesos aceptados/rechazados de esta prioridad 
+\end{DoxyPostcond}
+\begin{DoxyParagraph}{Coste}
+Linear que depende el tamaño de la lista de procesos del parametro implicito 
+\end{DoxyParagraph}
+
+
+Definición en la línea 15 del archivo Prioridad.\+cc.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{15                                       \{}
+\DoxyCodeLine{16     \textcolor{comment}{/*}}
+\DoxyCodeLine{17 \textcolor{comment}{    Inv it apunta a un proceso entre la posición begin() y end() de la lista de procesos del parametro implicito }}
+\DoxyCodeLine{18 \textcolor{comment}{    */}}
+\DoxyCodeLine{19     \textcolor{comment}{// Cota: dist(it, jobs.end())}}
+\DoxyCodeLine{20     \textcolor{keywordflow}{for} (list<Proceso>:: const\_iterator it = \mbox{\hyperlink{classPrioridad_a986a1ea84c0b5a909f966d141a607114}{jobs}}.begin(); it != \mbox{\hyperlink{classPrioridad_a986a1ea84c0b5a909f966d141a607114}{jobs}}.end(); ++it) it -\/> print();}
+\DoxyCodeLine{21     cout << \mbox{\hyperlink{classPrioridad_a7c78f5f53ae60186c2b93baff6612b3d}{n\_accepted}} << \textcolor{charliteral}{' '} << \mbox{\hyperlink{classPrioridad_aab9aeea82059d6fd5beb781365275c4e}{n\_rejected}} << endl;}
+\DoxyCodeLine{22     \textcolor{comment}{// Post: (it == jobs.end()) todos los procesos han sido tratados}}
+\DoxyCodeLine{23 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classPrioridad_a2bc82144bbf93880041edc436ba64410}\label{classPrioridad_a2bc82144bbf93880041edc436ba64410}} 
+\index{Prioridad@{Prioridad}!retrieve\_jobs\_size@{retrieve\_jobs\_size}}
+\index{retrieve\_jobs\_size@{retrieve\_jobs\_size}!Prioridad@{Prioridad}}
+\doxysubsubsection{\texorpdfstring{retrieve\_jobs\_size()}{retrieve\_jobs\_size()}}
+{\footnotesize\ttfamily int Prioridad\+::retrieve\+\_\+jobs\+\_\+size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Escriptura de la \mbox{\hyperlink{classPrioridad}{Prioridad}} que devuelve el tamaño de la lista de procesos. 
+
+\begin{DoxyPrecond}{Precondición}
+{\itshape cierto} 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+Devuelve el tamaño de la lista de procesos 
+\end{DoxyPostcond}
+\begin{DoxyParagraph}{Coste}
+Constante 
+\end{DoxyParagraph}
+
+
+Definición en la línea 40 del archivo Prioridad.\+cc.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{40                                           \{}
+\DoxyCodeLine{41     \textcolor{comment}{// Devuleve el tamaño del listado de procesos del parametro implicito}}
+\DoxyCodeLine{42     \textcolor{keywordflow}{return} \mbox{\hyperlink{classPrioridad_af787fef4d9aad73fd65dddf15fa8e901}{id\_jobs}}.size();}
+\DoxyCodeLine{43 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classPrioridad_abd375709c5735ee4976c6bc45094608f}\label{classPrioridad_abd375709c5735ee4976c6bc45094608f}} 
+\index{Prioridad@{Prioridad}!update\_prioridad@{update\_prioridad}}
+\index{update\_prioridad@{update\_prioridad}!Prioridad@{Prioridad}}
+\doxysubsubsection{\texorpdfstring{update\_prioridad()}{update\_prioridad()}}
+{\footnotesize\ttfamily void Prioridad\+::update\+\_\+prioridad (\begin{DoxyParamCaption}\item[{const int}]{accepted,  }\item[{const int}]{rejected }\end{DoxyParamCaption})}
+
+
+
+Modificadora de \mbox{\hyperlink{classPrioridad}{Prioridad}} para actualizar los n\+\_\+aceptados e los n\+\_\+rechazados. 
+
+\begin{DoxyPrecond}{Precondición}
+{\itshape cierto} 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+Los valores mencionados se quedan actualizados 
+\end{DoxyPostcond}
+
+
+Definición en la línea 63 del archivo Prioridad.\+cc.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{63                                                                         \{}
+\DoxyCodeLine{64     \textcolor{comment}{// Actualizamos el n\_acptados y n\_rechazados}}
+\DoxyCodeLine{65     \mbox{\hyperlink{classPrioridad_a7c78f5f53ae60186c2b93baff6612b3d}{n\_accepted}} = accepted;}
+\DoxyCodeLine{66     \mbox{\hyperlink{classPrioridad_aab9aeea82059d6fd5beb781365275c4e}{n\_rejected}} = rejected;}
+\DoxyCodeLine{67 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Documentación de los datos miembro}
+\mbox{\Hypertarget{classPrioridad_af787fef4d9aad73fd65dddf15fa8e901}\label{classPrioridad_af787fef4d9aad73fd65dddf15fa8e901}} 
+\index{Prioridad@{Prioridad}!id\_jobs@{id\_jobs}}
+\index{id\_jobs@{id\_jobs}!Prioridad@{Prioridad}}
+\doxysubsubsection{\texorpdfstring{id\_jobs}{id\_jobs}}
+{\footnotesize\ttfamily set$<$int$>$ Prioridad\+::id\+\_\+jobs\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+listado de identificadores de procesos de la prioridad ordenado por el orden creciente 
+
+
+
+Definición en la línea 32 del archivo Prioridad.\+hh.
+
+\mbox{\Hypertarget{classPrioridad_a986a1ea84c0b5a909f966d141a607114}\label{classPrioridad_a986a1ea84c0b5a909f966d141a607114}} 
+\index{Prioridad@{Prioridad}!jobs@{jobs}}
+\index{jobs@{jobs}!Prioridad@{Prioridad}}
+\doxysubsubsection{\texorpdfstring{jobs}{jobs}}
+{\footnotesize\ttfamily list$<$\mbox{\hyperlink{classProceso}{Proceso}}$>$ Prioridad\+::jobs\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+listado de procesos de la prioridad 
+
+
+
+Definición en la línea 30 del archivo Prioridad.\+hh.
+
+\mbox{\Hypertarget{classPrioridad_a7c78f5f53ae60186c2b93baff6612b3d}\label{classPrioridad_a7c78f5f53ae60186c2b93baff6612b3d}} 
+\index{Prioridad@{Prioridad}!n\_accepted@{n\_accepted}}
+\index{n\_accepted@{n\_accepted}!Prioridad@{Prioridad}}
+\doxysubsubsection{\texorpdfstring{n\_accepted}{n\_accepted}}
+{\footnotesize\ttfamily int Prioridad\+::n\+\_\+accepted\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+numero de envios aceptados de procesos 
+
+
+
+Definición en la línea 26 del archivo Prioridad.\+hh.
+
+\mbox{\Hypertarget{classPrioridad_aab9aeea82059d6fd5beb781365275c4e}\label{classPrioridad_aab9aeea82059d6fd5beb781365275c4e}} 
+\index{Prioridad@{Prioridad}!n\_rejected@{n\_rejected}}
+\index{n\_rejected@{n\_rejected}!Prioridad@{Prioridad}}
+\doxysubsubsection{\texorpdfstring{n\_rejected}{n\_rejected}}
+{\footnotesize\ttfamily int Prioridad\+::n\+\_\+rejected\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+numero de envios rechazados de procesos 
+
+
+
+Definición en la línea 28 del archivo Prioridad.\+hh.
+
+
+
+La documentación para esta clase fue generada a partir de los siguientes ficheros\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{Prioridad_8hh}{Prioridad.\+hh}}\item 
+\mbox{\hyperlink{Prioridad_8cc}{Prioridad.\+cc}}\end{DoxyCompactItemize}

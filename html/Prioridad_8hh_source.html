@@ -1,0 +1,136 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Práctica de laboratorio de PRO2: Simulación del rendimiento: Fichero Fuente Prioridad.hh</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Práctica de laboratorio de PRO2: Simulación del rendimiento
+   &#160;<span id="projectnumber">Versión 1.0.0</span>
+   </div>
+   <div id="projectbrief">Documentación sobre los módulos y métodos empleados</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Buscar','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Buscar');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">Prioridad.hh</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="Prioridad_8hh.html">Ir a la documentación de este archivo.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#ifndef PRIORIDAD_HH</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#define PRIORIDAD_HH</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Proceso_8hh.html">Proceso.hh</a>&quot;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#ifndef NO_DIAGRAM</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;list&gt;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;set&gt;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#endif </span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="classPrioridad.html">   20</a></span>&#160;<span class="keyword">class </span><a class="code" href="classPrioridad.html">Prioridad</a> {</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="comment">// Descripción: contiene un conjunto de procesos pendiente y informaciones relevantes de una prioridad</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    </div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="classPrioridad.html#a7c78f5f53ae60186c2b93baff6612b3d">   26</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classPrioridad.html#a7c78f5f53ae60186c2b93baff6612b3d">n_accepted</a>;</div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="classPrioridad.html#aab9aeea82059d6fd5beb781365275c4e">   28</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classPrioridad.html#aab9aeea82059d6fd5beb781365275c4e">n_rejected</a>;</div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="classPrioridad.html#a986a1ea84c0b5a909f966d141a607114">   30</a></span>&#160;    list &lt;Proceso&gt; <a class="code" href="classPrioridad.html#a986a1ea84c0b5a909f966d141a607114">jobs</a>;</div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="classPrioridad.html#af787fef4d9aad73fd65dddf15fa8e901">   32</a></span>&#160;    set&lt;int&gt; <a class="code" href="classPrioridad.html#af787fef4d9aad73fd65dddf15fa8e901">id_jobs</a>;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="comment">// Constructoras</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <a class="code" href="classPrioridad.html#a239123296380077ef6959111bf599a90">Prioridad</a> ();</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="comment">// Modificadora</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="comment"></span>    <span class="keywordtype">void</span> <a class="code" href="classPrioridad.html#ac6583ca7e63d58df58a3bcd616e14d0c">alta_proceso_espera</a>(<a class="code" href="classProceso.html">Proceso</a> &amp;Job);</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="comment">// Modificadora</span></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="comment"></span>   <span class="keywordtype">void</span> <a class="code" href="classPrioridad.html#abd375709c5735ee4976c6bc45094608f">update_prioridad</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> accepted, <span class="keyword">const</span> <span class="keywordtype">int</span> rejected);</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    </div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="comment">// Lectura y Escriptura</span></div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="comment"></span>    <span class="keywordtype">void</span> <a class="code" href="classPrioridad.html#a3cf29cb5813a50a4c73a313fb96b48b5">retrieve_jobs</a> () <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <a class="code" href="classProceso.html">Proceso</a> <a class="code" href="classPrioridad.html#acc0e8cbe0c58bfbe768d9ae4e95d5b5d">retrieve_job</a> ();</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classPrioridad.html#a2bc82144bbf93880041edc436ba64410">retrieve_jobs_size</a> () <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; </div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    pair&lt;int, int&gt; <a class="code" href="classPrioridad.html#a287ae102cd4ef391292d69e61d23c724">retrieve_info</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;};</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160; </div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aProceso_8hh_html"><div class="ttname"><a href="Proceso_8hh.html">Proceso.hh</a></div></div>
+<div class="ttc" id="aclassPrioridad_html"><div class="ttname"><a href="classPrioridad.html">Prioridad</a></div><div class="ttdoc">Representa la información de una prioridad donde cada prioridad está formado por una lista de proceso...</div><div class="ttdef"><b>Definition:</b> <a href="Prioridad_8hh_source.html#l00020">Prioridad.hh:20</a></div></div>
+<div class="ttc" id="aclassPrioridad_html_a239123296380077ef6959111bf599a90"><div class="ttname"><a href="classPrioridad.html#a239123296380077ef6959111bf599a90">Prioridad::Prioridad</a></div><div class="ttdeci">Prioridad()</div><div class="ttdoc">Creadora de Prioridad.</div><div class="ttdef"><b>Definition:</b> <a href="Prioridad_8cc_source.html#l00007">Prioridad.cc:7</a></div></div>
+<div class="ttc" id="aclassPrioridad_html_a287ae102cd4ef391292d69e61d23c724"><div class="ttname"><a href="classPrioridad.html#a287ae102cd4ef391292d69e61d23c724">Prioridad::retrieve_info</a></div><div class="ttdeci">pair&lt; int, int &gt; retrieve_info() const</div><div class="ttdoc">Escriptura de la Prioridad que devuelve el valor actual de los n_aceptados y n_rechazados.</div><div class="ttdef"><b>Definition:</b> <a href="Prioridad_8cc_source.html#l00045">Prioridad.cc:45</a></div></div>
+<div class="ttc" id="aclassPrioridad_html_a2bc82144bbf93880041edc436ba64410"><div class="ttname"><a href="classPrioridad.html#a2bc82144bbf93880041edc436ba64410">Prioridad::retrieve_jobs_size</a></div><div class="ttdeci">int retrieve_jobs_size() const</div><div class="ttdoc">Escriptura de la Prioridad que devuelve el tamaño de la lista de procesos.</div><div class="ttdef"><b>Definition:</b> <a href="Prioridad_8cc_source.html#l00040">Prioridad.cc:40</a></div></div>
+<div class="ttc" id="aclassPrioridad_html_a3cf29cb5813a50a4c73a313fb96b48b5"><div class="ttname"><a href="classPrioridad.html#a3cf29cb5813a50a4c73a313fb96b48b5">Prioridad::retrieve_jobs</a></div><div class="ttdeci">void retrieve_jobs() const</div><div class="ttdoc">Escriptura de la Prioridad.</div><div class="ttdef"><b>Definition:</b> <a href="Prioridad_8cc_source.html#l00015">Prioridad.cc:15</a></div></div>
+<div class="ttc" id="aclassPrioridad_html_a7c78f5f53ae60186c2b93baff6612b3d"><div class="ttname"><a href="classPrioridad.html#a7c78f5f53ae60186c2b93baff6612b3d">Prioridad::n_accepted</a></div><div class="ttdeci">int n_accepted</div><div class="ttdoc">numero de envios aceptados de procesos</div><div class="ttdef"><b>Definition:</b> <a href="Prioridad_8hh_source.html#l00026">Prioridad.hh:26</a></div></div>
+<div class="ttc" id="aclassPrioridad_html_a986a1ea84c0b5a909f966d141a607114"><div class="ttname"><a href="classPrioridad.html#a986a1ea84c0b5a909f966d141a607114">Prioridad::jobs</a></div><div class="ttdeci">list&lt; Proceso &gt; jobs</div><div class="ttdoc">listado de procesos de la prioridad</div><div class="ttdef"><b>Definition:</b> <a href="Prioridad_8hh_source.html#l00030">Prioridad.hh:30</a></div></div>
+<div class="ttc" id="aclassPrioridad_html_aab9aeea82059d6fd5beb781365275c4e"><div class="ttname"><a href="classPrioridad.html#aab9aeea82059d6fd5beb781365275c4e">Prioridad::n_rejected</a></div><div class="ttdeci">int n_rejected</div><div class="ttdoc">numero de envios rechazados de procesos</div><div class="ttdef"><b>Definition:</b> <a href="Prioridad_8hh_source.html#l00028">Prioridad.hh:28</a></div></div>
+<div class="ttc" id="aclassPrioridad_html_abd375709c5735ee4976c6bc45094608f"><div class="ttname"><a href="classPrioridad.html#abd375709c5735ee4976c6bc45094608f">Prioridad::update_prioridad</a></div><div class="ttdeci">void update_prioridad(const int accepted, const int rejected)</div><div class="ttdoc">Modificadora de Prioridad para actualizar los n_aceptados e los n_rechazados.</div><div class="ttdef"><b>Definition:</b> <a href="Prioridad_8cc_source.html#l00063">Prioridad.cc:63</a></div></div>
+<div class="ttc" id="aclassPrioridad_html_ac6583ca7e63d58df58a3bcd616e14d0c"><div class="ttname"><a href="classPrioridad.html#ac6583ca7e63d58df58a3bcd616e14d0c">Prioridad::alta_proceso_espera</a></div><div class="ttdeci">void alta_proceso_espera(Proceso &amp;Job)</div><div class="ttdoc">Modificadora de Prioridad para un nuevo instante de proceso en la lista de espera en la area de esper...</div><div class="ttdef"><b>Definition:</b> <a href="Prioridad_8cc_source.html#l00025">Prioridad.cc:25</a></div></div>
+<div class="ttc" id="aclassPrioridad_html_acc0e8cbe0c58bfbe768d9ae4e95d5b5d"><div class="ttname"><a href="classPrioridad.html#acc0e8cbe0c58bfbe768d9ae4e95d5b5d">Prioridad::retrieve_job</a></div><div class="ttdeci">Proceso retrieve_job()</div><div class="ttdoc">Escriptura de la Prioridad que devuelve el proceso más antiguo de la lista.</div><div class="ttdef"><b>Definition:</b> <a href="Prioridad_8cc_source.html#l00053">Prioridad.cc:53</a></div></div>
+<div class="ttc" id="aclassPrioridad_html_af787fef4d9aad73fd65dddf15fa8e901"><div class="ttname"><a href="classPrioridad.html#af787fef4d9aad73fd65dddf15fa8e901">Prioridad::id_jobs</a></div><div class="ttdeci">set&lt; int &gt; id_jobs</div><div class="ttdoc">listado de identificadores de procesos de la prioridad ordenado por el orden creciente</div><div class="ttdef"><b>Definition:</b> <a href="Prioridad_8hh_source.html#l00032">Prioridad.hh:32</a></div></div>
+<div class="ttc" id="aclassProceso_html"><div class="ttname"><a href="classProceso.html">Proceso</a></div><div class="ttdoc">Representa la información y las operaciones relacionado del Proceso.</div><div class="ttdef"><b>Definition:</b> <a href="Proceso_8hh_source.html#l00018">Proceso.hh:18</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generado por&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+</small></address>
+</body>
+</html>
