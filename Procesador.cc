@@ -8,27 +8,30 @@ Procesador::Procesador(const string &id_prcd, int memory) {
     this->memory = memory;
     this->id_prcd = id_prcd;
     max_memory = memory;
-    seg_data[memory] = {0};
+    free_memory = memory;
+    gap_data[memory] = {0};
 }
 
-void Procesador::insert_seg(int size, int start) {
-    map<int, set<int>>::iterator it = seg_data.lower_bound(size);
-    if (it != seg_data.end() and it->first == size) {
+void Procesador::insert_gap(int size, int start) {
+    map<int, set<int>>::iterator it = gap_data.lower_bound(size);
+    if (it != gap_data.end() and it->first == size) {
         it->second.insert(start);
-    } else seg_data.insert(it, make_pair(size, set<int>{start}));
+    } else gap_data.insert(it, make_pair(size, set<int>{start}));
+    free_memory += size;
 }
 
-void Procesador::erase_seg(int size, int start_pos) {
-    map<int, set<int>>::iterator it = seg_data.find(size);
+void Procesador::erase_gap(int size, int start_pos) {
+    map<int, set<int>>::iterator it = gap_data.find(size);
     it -> second.erase(start_pos);
-    if (it-> second.empty()) seg_data.erase(it);
+    if (it-> second.empty()) gap_data.erase(it);
+    free_memory -= size;
 }
 
 void Procesador::alta_proceso_procesador(const Proceso &Job) {
     int size_job = Job.retrieve_size();
     int id_job = Job.retrieve_id();
     map <int,int>::const_iterator it_job_memory = prcd_job_memory.lower_bound(id_job);
-    map <int, set<int>>::iterator it = seg_data.lower_bound(size_job);
+    map <int, set<int>>::iterator it = gap_data.lower_bound(size_job);
     if (it_job_memory != prcd_job_memory.end() and it_job_memory -> first == id_job) {
         cout << "error: ya existe proceso" << endl;
     } 
@@ -40,14 +43,14 @@ void Procesador::alta_proceso_procesador(const Proceso &Job) {
         int start = *it -> second.begin();
         prcd_job_memory.insert(it_job_memory, make_pair(id_job, start));
         prcd_memory_job.insert(make_pair(start, Job)); 
-        erase_seg(remain_space, start);
-        if (remain_space > size_job) insert_seg (remain_space - size_job, start + size_job);
-        if (seg_data.empty()) max_memory = 0;
-        else if (remain_space == max_memory) max_memory = seg_data.rbegin() -> first;
+        erase_gap(remain_space, start);
+        if (remain_space > size_job) insert_gap (remain_space - size_job, start + size_job);
+        if (gap_data.empty()) max_memory = 0;
+        else if (remain_space == max_memory) max_memory = gap_data.rbegin() -> first;
     }
 }
 
-void Procesador::baja_proceso_procesador(int id_job) {
+void Procesador::baja_proceso_procesador(const int id_job) {
     map<int,int>::iterator it_job_memory = prcd_job_memory.find(id_job);
     if (it_job_memory == prcd_job_memory.end()) cout << "error: no existe proceso" << endl;
     else {
@@ -59,35 +62,35 @@ void Procesador::baja_proceso_procesador(int id_job) {
         it_memory_job = prcd_memory_job.erase(it_memory_job);
 
         // right
-        int r_seg = 0;
+        int r_gap = 0;
         if (it_memory_job == prcd_memory_job.end()) {
-            r_seg = memory - start_pos - size_job;
-        } else r_seg = it_memory_job -> first - start_pos - size_job;
-        if (r_seg != 0) {
-            erase_seg(r_seg, start_pos + size_job);
-            size_job += r_seg;
+            r_gap = memory - start_pos - size_job;
+        } else r_gap = it_memory_job -> first - start_pos - size_job;
+        if (r_gap != 0) {
+            erase_gap(r_gap, start_pos + size_job);
+            size_job += r_gap;
         }
 
         // left
-        int l_seg = 0;
+        int l_gap = 0;
         if (it_memory_job == prcd_memory_job.begin()) {
-            l_seg = start_pos;
+            l_gap = start_pos;
             start_pos = 0;
         } else {
             --it_memory_job;
             int pos_job = it_memory_job ->first;
             int size_job = it_memory_job -> second.retrieve_size();
-            l_seg = start_pos - pos_job - size_job;
-            if (l_seg != 0) {
+            l_gap = start_pos - pos_job - size_job;
+            if (l_gap != 0) {
                 start_pos = pos_job + size_job;
             }
         }
-        if (l_seg != 0) {
-            erase_seg(l_seg,start_pos);
-            size_job += l_seg;
+        if (l_gap != 0) {
+            erase_gap(l_gap,start_pos);
+            size_job += l_gap;
         }
         if (size_job > max_memory) max_memory = size_job;
-        insert_seg(size_job,start_pos);
+        insert_gap(size_job,start_pos);
     }
 }
 
@@ -112,7 +115,7 @@ void Procesador::avanzar_tiempo(int t) {
             // we add space here
             size += pos_job + size_job - last_pos;
             int seg = pos_job - last_pos;
-            if (seg != 0) erase_seg(seg,last_pos);
+            if (seg != 0) erase_gap(seg,last_pos);
             prcd_job_memory.erase(it -> second.retrieve_id());
             last_pos = pos_job + size_job;
             it = prcd_memory_job.erase(it);
@@ -121,11 +124,11 @@ void Procesador::avanzar_tiempo(int t) {
             // while the process that we are encounter now, has not exceed the time, then we have to group all the seg'space that we have been grouping from now
             int seg = pos_job - last_pos;
             if (seg != 0) {
-                erase_seg(seg,last_pos);
+                erase_gap(seg,last_pos);
                 size += seg;
             }
             if (size > max_memory) max_memory = size;
-            insert_seg(size, start_pos);
+            insert_gap(size, start_pos);
             size = 0;
             last_pos = pos_job + size_job;
             ++it;
@@ -141,9 +144,9 @@ void Procesador::avanzar_tiempo(int t) {
             int seg = memory - last_pos;
             if (seg != 0) {
                 size += seg;
-                erase_seg(seg,last_pos);
+                erase_gap(seg,last_pos);
             }
-            insert_seg(size, start_pos);
+            insert_gap(size, start_pos);
             if (size > max_memory) max_memory = size;
         }
     }
@@ -152,7 +155,7 @@ void Procesador::avanzar_tiempo(int t) {
 void Procesador::compactar_memoria_procesador() {
     
     if (not prcd_memory_job.empty()) {
-        seg_data.clear();
+        gap_data.clear();
         map<int,Proceso> :: iterator it = prcd_memory_job.begin();
         int pos_consecutive = 0;
         int pos_real = it -> first;
@@ -169,13 +172,13 @@ void Procesador::compactar_memoria_procesador() {
             prcd_job_memory[job.retrieve_id()] = pos_consecutive;
             pos_consecutive += job.retrieve_size();
         }
-        if (pos_consecutive != memory) seg_data.insert(make_pair(memory - pos_consecutive, set<int>{pos_consecutive}));
+        if (pos_consecutive != memory) gap_data.insert(make_pair(memory - pos_consecutive, set<int>{pos_consecutive}));
         max_memory = memory - pos_consecutive;
     }
 }
 
-int Procesador:: retrieve_memory () const {
-    return memory;
+int Procesador:: retrieve_free_memory () const {
+    return free_memory;
 }
 
 bool Procesador::exist_job(const int id_job) {
@@ -183,15 +186,15 @@ bool Procesador::exist_job(const int id_job) {
 }
 
 bool Procesador::fit_job(const int size_job) {
-    if(seg_data.empty()) return false;
-    return size_job <= seg_data.rbegin() -> first;
+    if(gap_data.empty()) return false;
+    return size_job <= gap_data.rbegin() -> first;
 }
 
-int Procesador:: exist_fit (const int size_job) {
-    // result = -1 means that tehre is no best fix
+int Procesador:: best_fit (const int size_job) {
+    // res == result, que será -1 cuando no hay el hueco optimo para el proceso 
     int res;
-    map <int, set<int>>:: const_iterator it = seg_data.lower_bound(size_job);
-    if(it != seg_data.end()) res = it -> first;
+    map <int, set<int>>:: const_iterator it = gap_data.lower_bound(size_job);
+    if(it != gap_data.end()) res = it -> first;
     else res = -1;
     return res;
 };

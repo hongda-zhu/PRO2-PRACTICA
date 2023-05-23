@@ -188,8 +188,8 @@ void Cluster::i_enviar_procesos_cluster (const Proceso &job, const BinTree<strin
         if (not exist_job){
             // 1. comparamos el hueco del procesador que estamos tratando es más ajustado respecto con el procesador que hemos registrado
             if (it -> second.fit_job(job.retrieve_size())) {
-                int temp_free_memory = it -> second.retrieve_memory();
-                int temp_gap = it -> second.exist_fit(job.retrieve_size());
+                int temp_free_memory = it -> second.retrieve_free_memory();
+                int temp_gap = it -> second.best_fit(job.retrieve_size());
                 if (gap == 0 or gap > temp_gap) {
                 // 1.1 si cumple la condición, sustituimos el procesador registrado respecto al procesador que estamos tratando
                     gap = temp_gap;
