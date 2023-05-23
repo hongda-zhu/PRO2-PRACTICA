@@ -123,7 +123,7 @@ void Area_Espera::enviar_procesos_cluster(const int& n, Cluster &c) {
     }
     /*
     Post: 
-    1. (i == n): se ha enviado correctamente n procesos
-    2. (it == prioridades.end()): los procesos de todas las prioridades del parametro implicito han sido tratados 
+        1. (i == n): se ha enviado correctamente n procesos
+        2. (it == prioridades.end()): los procesos de todas las prioridades del parametro implicito han sido tratados 
     */
 }

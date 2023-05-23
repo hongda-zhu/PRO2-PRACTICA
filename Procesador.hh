@@ -33,7 +33,7 @@ class Procesador {
     /** @brief la memoria total del procesador*/
     int memory;
     /** @brief el tamaño del hueco más grande del procesador*/
-    int max_memory;
+    int total_memory;
     /** @brief la memoria libre de procesadorr*/
     int free_memory; 
 
