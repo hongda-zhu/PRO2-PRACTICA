@@ -54,7 +54,7 @@ void Area_Espera:: imprimir_prioridad(const string id_prioridad) const {
         /* Error 1: La prioridad indicada no existe en el parametro implicito
         */
         cout << "error: no existe prioridad" << endl;
-    } else it->second.retrieve_procesos();
+    } else it->second.retrieve_jobs();
 }
 
 void Area_Espera:: imprimir_area_espera () const {
@@ -66,7 +66,7 @@ void Area_Espera:: imprimir_area_espera () const {
     // Cota: it = la posición end()
     while(it != prioridades_data.end()) {
         cout << it->first << endl;
-        it->second.retrieve_procesos();
+        it->second.retrieve_jobs();
         ++it;
     }
 }

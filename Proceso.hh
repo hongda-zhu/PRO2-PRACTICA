@@ -1,5 +1,5 @@
-/** @file Proceso.hh
-    @brief  Proceso
+/** @file Prioridad.hh
+    @brief  Especificación de la clase Proceso
 */
 
 #ifndef PROCESO_HH
@@ -11,14 +11,20 @@ using namespace std;
 #endif
 
 /** @class Proceso
-    @brief FALTA EXPLICACION
+    @brief Representa la información y las operaciones relacionado del Proceso
+
+    Sus operaciones mayoriariamente está enfocado en consultoras de las informaciones de los parametros implicitos, dispone dos operaciones de escriptura y lectura, una operación constructora y una única operación de modificadora que se actualiza el tiempo restante del proceso. 
 */
 class Proceso {
 
+    // Descripción: contiene el id, el tiempo restante y el tamaño de un proceso.
 
     private:
+    /** @brief el tiempo restante del proceso */
     int left_time;
+    /** @brief el id del proceso */
     int id;
+    /** @brief el tamaño del proceso */
     int size;
 
     public:
@@ -33,44 +39,49 @@ class Proceso {
 
     //Modificadora
 
-    void actualizar_proceso (int t);
     /** @brief Modificadora de Proceso.
         * \pre <em>cierto</em>
         * \post reduce el tiempo de proceso respecto el valor t.
+        * \coste Constante
     */
+    void actualizar_proceso (int t);
 
     // Consultora
+    /** @brief Consultora de Proceso.
+        * \pre <em>cierto</em>
+        * \post devuelve el id de proceso.
+        * \coste Constante
+    */
     int retrieve_id() const;
-    /** @brief Consultora de Proceso.
-    * \pre <em>cierto</em>
-    * \post devuleve el id de proceso.
-    */
 
+    /** @brief Consultora de Proceso.
+        * \pre <em>cierto</em>
+        * \post devuelve el tamano que ocupa la memory de proceso.
+        * \coste Constante
+    */
     int retrieve_size() const;
-    /** @brief Consultora de Proceso.
-    * \pre <em>cierto</em>
-    * \post devuleve el tamano que ocupa la memory de proceso.
-    */
 
-    int retrieve_time() const;
     /** @brief Consultora de Proceso.
-    * \pre <em>cierto</em>
-    * \post devuleve el tamano que ocupa el tiempo restante de proceso.
+        * \pre <em>cierto</em>
+        * \post devuelve el tiempo restante de proceso.
+        * \coste Constante
     */
+    int retrieve_time() const;
 
     //Lectura y escriptura´
-    void read ();
     /** @brief Lectura de Proceso.
-    * \pre <em>cierto</em>
-    * \post lee el id, tiempo y tamano para formular el proceso.
+        * \pre <em>cierto</em>
+        * \post lee el id, tiempo y tamano para formular el proceso.
+        * \coste Constante
     */
+    void read ();
 
-       //Lectura y escriptura
-    void print() const;
     /** @brief Escriptura del Procesador.
-     * \pre <em>cierto</em>
-     * \post imprime el id, tamano y el tiempo restante del proceso indicado
+         * \pre <em>cierto</em>
+         * \post imprime el id, tamano y el tiempo restante del proceso indicado
+         * \coste Constante
     */ 
+    void print() const;
 };
 
 #endif
