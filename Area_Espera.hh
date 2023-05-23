@@ -40,12 +40,12 @@ class Area_Espera {
     // Modificadoras
     /** @brief Modificadora de Area de Espera que gestiona el intento de entrada de un proceso en la area de espera
      * \pre job en este caso se refiere a un proceso libre que no está colocado en ningún lado
-     * \post Se agrega el proceso a la prioridad indicada por el id de prioridad del parametro implicito de la area de espera.
+     * \post Se añade el proceso a la prioridad indicada por el id de prioridad del parametro implicito de la area de espera.
      * \coste Logaritmico
     */
     void alta_proceso_espera(const string &id_prioridad, Proceso &job);
 
-    /** @brief Modificadora de Area de Espera para agrega una nueva prioridad en el parametro implicito de la area de espera
+    /** @brief Modificadora de Area de Espera para añade una nueva prioridad en el parametro implicito de la area de espera
      * \pre  <em>id_prioridad</em> es el identificador de la nueva prioridad 
      * \post El parametro impliclito pasa a tener una prioridad nueva con  <em>id_prioridad<em> como su identificador
      * \coste Logaritmico
@@ -71,12 +71,14 @@ class Area_Espera {
     /** @brief Escriptura de la area de espera que imprime todas las informaciones del parametro implicito
      * \pre <em>cierto</em>
      * \post Se imprime todos los procesos pendientes de las todas las prioridades existentes del parametro implicito por el orden creciente de la prioridad.
+     * \coste Linear
     */
    void imprimir_area_espera() const;
 
    /** @brief Escriptura de la area de espera
     * \pre <em>cierto</em>
-    * \post Se devuelve un error en el caso cuando no existe el <em>id_prioridad<em>. Pero si existe esta prioridad, se imprime los proceso pendientes con sus informaciones detalladas por orden decreciente de antiguedad; Además debe imprimir los datos de procesos aceptados/rechazados de esta prioridad
+    * \post Se devuelve un error en el caso cuando no existe el <em>id_prioridad<em>. Pero si existe esta prioridad, se imprime los proceso pendientes con sus informaciones detalladas por orden decreciente de antiguedad; Además, imprime los datos de procesos aceptados/rechazados de esta prioridad
+    * \coste Constante
    */
    void imprimir_prioridad(const string id_prioridad) const; 
 

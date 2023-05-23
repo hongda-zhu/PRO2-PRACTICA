@@ -92,7 +92,7 @@ void Area_Espera::enviar_procesos_cluster(const int& n, Cluster &c) {
     */
     int i = 0;
     map<string,Prioridad>::iterator it = prioridades_data.begin();
-    // Cota : n - i e it = prioridades_data.end()
+    // Cota : n - i e dist(it, prioridades_data.end())
     while (i < n and it != prioridades_data.end()) {
         int j = 0;
         int size = it -> second.retrieve_jobs_size();
